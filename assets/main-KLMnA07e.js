@@ -201,7 +201,7 @@
         </div>
       </div>
     </footer>
-  `}let r="en";function g(){u();const e=p[r];document.body.dir=r==="he"?"rtl":"ltr",document.documentElement.lang=r;function t(){const n={root:null,rootMargin:"0px",threshold:.1},i=new IntersectionObserver((a,o)=>{a.forEach(l=>{l.isIntersecting&&(l.target.classList.add("is-visible"),o.unobserve(l.target))})},n);document.querySelectorAll("section, .hero, .footer").forEach(a=>{a.classList.add("fade-in-section"),i.observe(a)}),document.querySelectorAll(".slide-in-left, .slide-in-right").forEach(a=>{i.observe(a)}),document.querySelectorAll(".app-card, .pilot-card, .team-card").forEach((a,o)=>{a.classList.add("fade-in-section"),i.observe(a)})}const s=document.querySelector("#app");s?(s.innerHTML=`
+  `}let r="en";function g(){u();const e=p[r];document.body.dir=r==="he"?"rtl":"ltr",document.documentElement.lang=r;function t(){const n={root:null,rootMargin:"0px",threshold:.1},i=new IntersectionObserver((a,o)=>{a.forEach(l=>{l.isIntersecting&&(l.target.classList.add("is-visible"),o.unobserve(l.target))})},n);document.querySelectorAll("section, .hero, .footer").forEach(a=>{a.classList.add("fade-in-section"),i.observe(a)}),document.querySelectorAll(".slide-in-left, .slide-in-right").forEach(a=>{i.observe(a)})}const s=document.querySelector("#app");s?(s.innerHTML=`
       ${m({content:e.header,currentLang:r})}
       <main id="main-content">
         ${f({content:e.hero})}
