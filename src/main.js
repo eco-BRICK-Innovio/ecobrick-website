@@ -2,6 +2,7 @@ import './style.css'
 import { translations } from './translations.js'
 import { Header } from './components/Header.js'
 import { Hero } from './components/Hero.js'
+import { Carousel, cleanupCarousels } from './components/Carousel.js'
 import { Technology } from './components/Technology.js'
 import { Applications } from './components/Applications.js'
 import { Pilots } from './components/Pilots.js'
@@ -12,6 +13,9 @@ import { Contact } from './components/Contact.js'
 let currentLang = 'en';
 
 function renderApp() {
+    // Cleanup any existing carousel intervals from previous render
+    cleanupCarousels();
+
     const content = translations[currentLang];
 
     // Update document direction and language

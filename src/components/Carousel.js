@@ -1,3 +1,11 @@
+// Track active intervals for cleanup
+const activeIntervals = [];
+
+export function cleanupCarousels() {
+  activeIntervals.forEach(clearInterval);
+  activeIntervals.length = 0;
+}
+
 export function Carousel(slides, interval = 3000) {
   // Generate unique ID for this instance
   const id = `carousel-${Math.random().toString(36).substr(2, 9)}`;
@@ -19,11 +27,19 @@ export function Carousel(slides, interval = 3000) {
     const allSlides = container.querySelectorAll('.carousel-slide');
 
     // Auto-rotate
-    setInterval(() => {
+    const intervalId = setInterval(() => {
+      // Check if element is still in DOM to avoid running on detached nodes
+      if (!document.body.contains(container)) {
+        clearInterval(intervalId);
+        return;
+      }
+
       allSlides[currentIndex].classList.remove('active');
       currentIndex = (currentIndex + 1) % allSlides.length;
       allSlides[currentIndex].classList.add('active');
     }, interval);
+
+    activeIntervals.push(intervalId);
   }, 0);
 
   return `
