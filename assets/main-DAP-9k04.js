@@ -2,7 +2,7 @@
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
-          <img src="/logo.jpg" alt="Eco BRICK Innovio" class="logo-img" />
+          <img src="/assets/logo-header.jpg" alt="Eco BRICK Innovio" class="logo-img" />
         </a>
         
         <button class="mobile-menu-btn" aria-label="Toggle Navigation">
