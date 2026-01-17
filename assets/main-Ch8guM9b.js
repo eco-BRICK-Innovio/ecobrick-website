@@ -204,7 +204,7 @@
         </div>
       </div>
     </footer>
-  `}let l="en";function p(){try{let s=function(){const i={root:null,rootMargin:"0px",threshold:.1},a=new IntersectionObserver((o,r)=>{o.forEach(c=>{c.isIntersecting&&(c.target.classList.add("is-visible"),r.unobserve(c.target))})},i);document.querySelectorAll("section, .hero, .footer").forEach(o=>{o.classList.add("fade-in-section"),a.observe(o)}),document.querySelectorAll(".slide-in-left, .slide-in-right").forEach(o=>{a.observe(o)})};var e=s;h();const t=m[l];document.body.dir=l==="he"?"rtl":"ltr",document.documentElement.lang=l;const n=document.querySelector("#app");if(n){n.innerHTML=`
+  `}let l="en";function p(){try{let s=function(){const i={root:null,rootMargin:"0px",threshold:.1},a=new IntersectionObserver((o,r)=>{o.forEach(c=>{c.isIntersecting&&(c.target.classList.add("is-visible"),r.unobserve(c.target))})},i);document.querySelectorAll("section, .hero, .footer").forEach(o=>{o.classList.add("fade-in-section"),a.observe(o)}),document.querySelectorAll(".slide-in-left, .slide-in-right").forEach(o=>{a.observe(o)})};var e=s;h();const t=m[l];document.body.dir=l==="he"?"rtl":"ltr",document.documentElement.lang=l;const n=document.querySelector("#app");n?(n.innerHTML=`
           ${u({content:t.header,currentLang:l})}
           <main id="main-content">
             ${v({content:t.hero})}
@@ -215,5 +215,5 @@
             ${x({content:t.impact})}
             ${w({content:t.contact})}
           </main>
-          ${AccessibilityWidget()}
-        `,setTimeout(s,100),C();try{initAccessibilityWidget()}catch(i){console.error("Failed to initialize accessibility widget:",i)}}else console.error("Fatal Error: #app element not found")}catch(t){console.error("Critical Error in renderApp:",t)}}function C(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",g),e.addEventListener("click",g));const t=document.querySelector(".mobile-menu-btn"),s=document.querySelector(".nav"),n=document.querySelectorAll(".nav-link, .contact-btn");t&&s&&(t.addEventListener("click",()=>{const i=t.classList.contains("active");t.setAttribute("aria-expanded",!i),t.classList.toggle("active"),s.classList.toggle("active"),document.body.style.overflow=s.classList.contains("active")?"hidden":""}),n.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),s.classList.remove("active"),document.body.style.overflow=""})}))}function g(){l=l==="en"?"he":"en",p()}p();
+          <!-- \${AccessibilityWidget()} -->
+        `,setTimeout(s,100),C()):console.error("Fatal Error: #app element not found")}catch(t){console.error("Critical Error in renderApp:",t)}}function C(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",g),e.addEventListener("click",g));const t=document.querySelector(".mobile-menu-btn"),s=document.querySelector(".nav"),n=document.querySelectorAll(".nav-link, .contact-btn");t&&s&&(t.addEventListener("click",()=>{const i=t.classList.contains("active");t.setAttribute("aria-expanded",!i),t.classList.toggle("active"),s.classList.toggle("active"),document.body.style.overflow=s.classList.contains("active")?"hidden":""}),n.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),s.classList.remove("active"),document.body.style.overflow=""})}))}function g(){l=l==="en"?"he":"en",p()}p();
