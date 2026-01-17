@@ -2,7 +2,7 @@
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
-          <img src="/logo.png" alt="Eco BRICK Innovio" class="logo-img" />
+          <img src="/logo.jpg" alt="Eco BRICK Innovio" class="logo-img" />
         </a>
         <nav class="nav">
           <ul class="nav-list">
