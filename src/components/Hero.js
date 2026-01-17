@@ -3,17 +3,17 @@ import { Carousel } from './Carousel.js';
 export function Hero({ content }) {
   const slideImages = [
     {
-      image: '/assets/product_concrete_blocks_ai.png'
+      image: import.meta.env.BASE_URL + 'assets/product_concrete_blocks_ai.png'
     },
     {
-      image: '/assets/product-tiles.png'
+      image: import.meta.env.BASE_URL + 'assets/product-tiles.png'
     },
     {
-      image: '/assets/product-lightweight-bag.jpg',
+      image: import.meta.env.BASE_URL + 'assets/product-lightweight-bag.jpg',
       imgStyle: 'transform: scale(1.05);'
     },
     {
-      image: '/assets/product-cold-mix-asphalt-bag.png'
+      image: import.meta.env.BASE_URL + 'assets/product-cold-mix-asphalt-bag.png'
     }
   ];
 

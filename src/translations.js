@@ -22,9 +22,9 @@ export const translations = {
             title: 'The Tech',
             subtitle: 'Turning waste into worth using our proprietary binding technology.',
             cards: [
-                { title: 'Waste Materials', text: 'We accept over 40 types of waste including oil sludge, plastics, glass, and textiles, preventing them from reaching landfills.', image: '/assets/tech-waste.png' },
-                { title: 'Proprietary Binding', text: 'Our unique process uses 20+ specialized binder types to fuse diverse waste streams into valuable construction materials.', image: '/assets/tech-binding.png' },
-                { title: 'Certified Aggregate', text: 'Our lightweight aggregate is <strong>ASTM C331 compliant</strong>. It offers superior thermal and acoustic insulation while reducing structural dead load.', image: '/assets/tech-aggregate.png' }
+                { title: 'Waste Materials', text: 'We accept over 40 types of waste including oil sludge, plastics, glass, and textiles, preventing them from reaching landfills.', image: import.meta.env.BASE_URL + 'assets/tech-waste.png' },
+                { title: 'Proprietary Binding', text: 'Our unique process uses 20+ specialized binder types to fuse diverse waste streams into valuable construction materials.', image: import.meta.env.BASE_URL + 'assets/tech-binding.png' },
+                { title: 'Certified Aggregate', text: 'Our lightweight aggregate is <strong>ASTM C331 compliant</strong>. It offers superior thermal and acoustic insulation while reducing structural dead load.', image: import.meta.env.BASE_URL + 'assets/tech-aggregate.png' }
             ],
             videoId: 'meGjrfgYuCk'
         },
@@ -53,26 +53,26 @@ export const translations = {
             title: 'Trusted by Leaders',
             subtitle: 'Our technology is validated by industry giants and municipal leaders.',
             logos: [
-                { name: 'Jerusalem City', img: '/assets/logo-jerusalem.png' },
-                { name: 'Ashdod City', img: '/assets/logo-ashdod.png' },
-                { name: 'Herzliya City', img: '/assets/logo-herzliya.png' },
-                { name: 'Hiriya', img: '/assets/logo-hiriya.png' },
-                { name: 'Shapir', img: '/assets/logo-shapir.png' },
-                { name: 'Redimix', img: '/assets/logo-redimix.png' },
-                { name: 'Ben-Ari', img: '/assets/logo-benari.png' },
-                { name: 'Oron Group', img: '/assets/logo-oron.png' },
-                { name: 'Mtzoda', img: '/assets/logo-mtzoda.png' },
-                { name: 'Mister Fix', img: '/assets/logo-misterfix.png' },
-                { name: 'Thermodan', img: '/assets/logo-thermodan.png' },
-                { name: 'Maffat', img: '/assets/logo-maffat.png' },
-                { name: 'iHLS', img: '/assets/logo-ihls.png' },
-                { name: 'IDF', img: '/assets/logo-idf.png' }
+                { name: 'Jerusalem City', img: import.meta.env.BASE_URL + 'assets/logo-jerusalem.png' },
+                { name: 'Ashdod City', img: import.meta.env.BASE_URL + 'assets/logo-ashdod.png' },
+                { name: 'Herzliya City', img: import.meta.env.BASE_URL + 'assets/logo-herzliya.png' },
+                { name: 'Hiriya', img: import.meta.env.BASE_URL + 'assets/logo-hiriya.png' },
+                { name: 'Shapir', img: import.meta.env.BASE_URL + 'assets/logo-shapir.png' },
+                { name: 'Redimix', img: import.meta.env.BASE_URL + 'assets/logo-redimix.png' },
+                { name: 'Ben-Ari', img: import.meta.env.BASE_URL + 'assets/logo-benari.png' },
+                { name: 'Oron Group', img: import.meta.env.BASE_URL + 'assets/logo-oron.png' },
+                { name: 'Mtzoda', img: import.meta.env.BASE_URL + 'assets/logo-mtzoda.png' },
+                { name: 'Mister Fix', img: import.meta.env.BASE_URL + 'assets/logo-misterfix.png' },
+                { name: 'Thermodan', img: import.meta.env.BASE_URL + 'assets/logo-thermodan.png' },
+                { name: 'Maffat', img: import.meta.env.BASE_URL + 'assets/logo-maffat.png' },
+                { name: 'iHLS', img: import.meta.env.BASE_URL + 'assets/logo-ihls.png' },
+                { name: 'IDF', img: import.meta.env.BASE_URL + 'assets/logo-idf.png' }
             ],
             images: [
-                { src: '/assets/pilot-road.png', caption: 'Paving Pilot' },
-                { src: '/assets/product_concrete_blocks_ai.png', caption: 'Construction Pilot' },
-                { src: '/assets/pilot-recycling.png', caption: 'Recycling Pilot' },
-                { src: '/assets/construction-site-eco-brick.jpg', caption: 'Flooring Application' }
+                { src: import.meta.env.BASE_URL + 'assets/pilot-road.png', caption: 'Paving Pilot' },
+                { src: import.meta.env.BASE_URL + 'assets/product_concrete_blocks_ai.png', caption: 'Construction Pilot' },
+                { src: import.meta.env.BASE_URL + 'assets/pilot-recycling.png', caption: 'Recycling Pilot' },
+                { src: import.meta.env.BASE_URL + 'assets/construction-site-eco-brick.jpg', caption: 'Flooring Application' }
             ]
         },
         impact: {
@@ -115,9 +115,9 @@ export const translations = {
             title: 'הטכנולוגיה',
             subtitle: 'הופכים פסולת לערך באמצעות טכנולוגיית הקישור הייחודית שלנו.',
             cards: [
-                { title: 'איסוף פסולת', text: 'אנו מקבלים מעל 40 סוגי פסולת כולל בוצת שמן, פלסטיק, זכוכית וטקסטיל, ומונעים את הגעתם למטמנות.', image: '/assets/tech-waste.png' },
-                { title: 'קישור ייחודי (Proprietary Binding)', text: 'התהליך הייחודי שלנו משתמש ב-20+ סוגי מחברים מתמחים למיזוג זרמי פסולת מגוונים לחומרי בנייה בעלי ערך.', image: '/assets/tech-binding.png' },
-                { title: 'אגרגט מאושר', text: 'האגרגט הקל שלנו הינו <strong>תואם תקן ASTM C331</strong>. הוא מציע בידוד תרמי ואקוסטי מעולה תוך הפחתת עומס מבני.', image: '/assets/tech-aggregate.png' }
+                { title: 'איסוף פסולת', text: 'אנו מקבלים מעל 40 סוגי פסולת כולל בוצת שמן, פלסטיק, זכוכית וטקסטיל, ומונעים את הגעתם למטמנות.', image: import.meta.env.BASE_URL + 'assets/tech-waste.png' },
+                { title: 'קישור ייחודי (Proprietary Binding)', text: 'התהליך הייחודי שלנו משתמש ב-20+ סוגי מחברים מתמחים למיזוג זרמי פסולת מגוונים לחומרי בנייה בעלי ערך.', image: import.meta.env.BASE_URL + 'assets/tech-binding.png' },
+                { title: 'אגרגט מאושר', text: 'האגרגט הקל שלנו הינו <strong>תואם תקן ASTM C331</strong>. הוא מציע בידוד תרמי ואקוסטי מעולה תוך הפחתת עומס מבני.', image: import.meta.env.BASE_URL + 'assets/tech-aggregate.png' }
             ],
             videoId: 'meGjrfgYuCk'
         },
@@ -146,26 +146,26 @@ export const translations = {
             title: 'בשימוש על ידי המובילים במשק',
             subtitle: 'הטכנולוגיה שלנו מאומתת על ידי ענקיות התעשייה ורשויות מובילות.',
             logos: [
-                { name: 'עיריית ירושלים', img: '/assets/logo-jerusalem.png' },
-                { name: 'עיריית אשדוד', img: '/assets/logo-ashdod.png' },
-                { name: 'עיריית הרצליה', img: '/assets/logo-herzliya.png' },
-                { name: 'חירייה', img: '/assets/logo-hiriya.png' },
-                { name: 'שפיר', img: '/assets/logo-shapir.png' },
-                { name: 'רדימיקס', img: '/assets/logo-redimix.png' },
-                { name: 'בן-ארי', img: '/assets/logo-benari.png' },
-                { name: 'קבוצת אורון', img: '/assets/logo-oron.png' },
-                { name: 'מצודה', img: '/assets/logo-mtzoda.png' },
-                { name: 'מיסטר פיקס', img: '/assets/logo-misterfix.png' },
-                { name: 'תרמודן', img: '/assets/logo-thermodan.png' },
-                { name: 'מפא"ת', img: '/assets/logo-maffat.png' },
-                { name: 'iHLS', img: '/assets/logo-ihls.png' },
-                { name: 'צה"ל', img: '/assets/logo-idf.png' }
+                { name: 'עיריית ירושלים', img: import.meta.env.BASE_URL + 'assets/logo-jerusalem.png' },
+                { name: 'עיריית אשדוד', img: import.meta.env.BASE_URL + 'assets/logo-ashdod.png' },
+                { name: 'עיריית הרצליה', img: import.meta.env.BASE_URL + 'assets/logo-herzliya.png' },
+                { name: 'חירייה', img: import.meta.env.BASE_URL + 'assets/logo-hiriya.png' },
+                { name: 'שפיר', img: import.meta.env.BASE_URL + 'assets/logo-shapir.png' },
+                { name: 'רדימיקס', img: import.meta.env.BASE_URL + 'assets/logo-redimix.png' },
+                { name: 'בן-ארי', img: import.meta.env.BASE_URL + 'assets/logo-benari.png' },
+                { name: 'קבוצת אורון', img: import.meta.env.BASE_URL + 'assets/logo-oron.png' },
+                { name: 'מצודה', img: import.meta.env.BASE_URL + 'assets/logo-mtzoda.png' },
+                { name: 'מיסטר פיקס', img: import.meta.env.BASE_URL + 'assets/logo-misterfix.png' },
+                { name: 'תרמודן', img: import.meta.env.BASE_URL + 'assets/logo-thermodan.png' },
+                { name: 'מפא"ת', img: import.meta.env.BASE_URL + 'assets/logo-maffat.png' },
+                { name: 'iHLS', img: import.meta.env.BASE_URL + 'assets/logo-ihls.png' },
+                { name: 'צה"ל', img: import.meta.env.BASE_URL + 'assets/logo-idf.png' }
             ],
             images: [
-                { src: '/assets/pilot-road.png', caption: 'פיילוט סלילה' },
-                { src: '/assets/pilot-construction.png', caption: 'פיילוט בנייה' },
-                { src: '/assets/pilot-recycling.png', caption: 'פיילוט מחזור' },
-                { src: '/assets/construction-site-eco-brick.jpg', caption: 'יישום ריצוף' }
+                { src: import.meta.env.BASE_URL + 'assets/pilot-road.png', caption: 'פיילוט סלילה' },
+                { src: import.meta.env.BASE_URL + 'assets/pilot-construction.png', caption: 'פיילוט בנייה' },
+                { src: import.meta.env.BASE_URL + 'assets/pilot-recycling.png', caption: 'פיילוט מחזור' },
+                { src: import.meta.env.BASE_URL + 'assets/construction-site-eco-brick.jpg', caption: 'יישום ריצוף' }
             ]
         },
         impact: {
