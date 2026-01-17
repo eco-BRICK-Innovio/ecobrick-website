@@ -197,7 +197,7 @@
           <a href="/privacy.html" style="color: white; text-decoration: none;">${e.privacy}</a>
           <a href="/terms.html" style="color: white; text-decoration: none;">${e.terms}</a>
           <a href="/accessibility.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-            <img src="/assets/accessibility-icon.png" alt="" style="height: 30px; width: 30px; border-radius: 50%;" />
+            <img src="/assets/accessibility-icon.png" alt="" style="height: 24px; width: 24px; border-radius: 50%;" />
             ${e.accessibility}
           </a>
           <a href="https://www.linkedin.com/company/ecobrick-innovio" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">LinkedIn</a>
