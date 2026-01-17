@@ -5,7 +5,7 @@ export function Header({ content, toggleLang, currentLang }) {
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
-          <img src="${import.meta.env.BASE_URL}logo.png" alt="Eco BRICK Innovio" class="logo-img" />
+          <img src="${import.meta.env.BASE_URL}logo.jpg" alt="Eco BRICK Innovio" class="logo-img" />
         </a>
         <nav class="nav">
           <ul class="nav-list">
