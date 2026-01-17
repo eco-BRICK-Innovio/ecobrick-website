@@ -75,14 +75,41 @@ function renderApp() {
         // Initialize Scroll Observer
         observeSections();
 
-        // Re-attach event listener to the toggle button
-        const toggleBtn = document.getElementById('lang-toggle');
-        if (toggleBtn) {
-            toggleBtn.removeEventListener('click', toggleLang);
-            toggleBtn.addEventListener('click', toggleLang);
-        }
+        // Initial re-attachment of event listeners
+        attachEventListeners();
     } else {
         console.error('Fatal Error: #app element not found');
+    }
+}
+
+function attachEventListeners() {
+    // Language Toggle
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.removeEventListener('click', toggleLang);
+        toggleBtn.addEventListener('click', toggleLang);
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    const links = document.querySelectorAll('.nav-link, .contact-btn');
+
+    if (mobileBtn && nav) {
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileBtn.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
     }
 }
 
