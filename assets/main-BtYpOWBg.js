@@ -191,9 +191,9 @@
     </section>
     
     <footer class="footer">
-      <div class="container footer-content">
-        <p>${e.footer}</p>
-        <div class="footer-links" style="display: flex; gap: 2rem; justify-content: center; align-items: center; margin-top: 1rem; flex-wrap: wrap;">
+      <div class="container footer-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <p style="margin: 0;">${e.footer}</p>
+        <div class="footer-links" style="display: flex; gap: 2rem; align-items: center;">
           <a href="/privacy.html">${e.privacy}</a>
           <a href="/terms.html">${e.terms}</a>
           <a href="https://www.linkedin.com/company/ecobrick-innovio" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -211,4 +211,4 @@
         ${I({content:e.impact})}
         ${C({content:e.contact})}
       </main>
-    `,t(),E()):console.error("Fatal Error: #app element not found")}function E(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",d),e.addEventListener("click",d));const t=document.querySelector(".mobile-menu-btn"),s=document.querySelector(".nav"),n=document.querySelectorAll(".nav-link, .contact-btn");t&&s&&(t.addEventListener("click",()=>{t.classList.toggle("active"),s.classList.toggle("active"),document.body.style.overflow=s.classList.contains("active")?"hidden":""}),n.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),s.classList.remove("active"),document.body.style.overflow=""})}))}function d(){l=l==="en"?"he":"en",g()}g();
+    `,t(),w()):console.error("Fatal Error: #app element not found")}function w(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",d),e.addEventListener("click",d));const t=document.querySelector(".mobile-menu-btn"),s=document.querySelector(".nav"),n=document.querySelectorAll(".nav-link, .contact-btn");t&&s&&(t.addEventListener("click",()=>{t.classList.toggle("active"),s.classList.toggle("active"),document.body.style.overflow=s.classList.contains("active")?"hidden":""}),n.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),s.classList.remove("active"),document.body.style.overflow=""})}))}function d(){l=l==="en"?"he":"en",g()}g();
