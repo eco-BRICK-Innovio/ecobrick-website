@@ -7,6 +7,7 @@ import { Carousel, cleanupCarousels } from './components/Carousel.js'
 import { Technology } from './components/Technology.js'
 import { Applications } from './components/Applications.js'
 import { Pilots } from './components/Pilots.js'
+import { GlobalPilots } from './components/GlobalPilots.js'
 import { Team } from './components/Team.js'
 import { Impact } from './components/Impact.js'
 import { Contact } from './components/Contact.js'
@@ -60,6 +61,7 @@ function renderApp() {
             ${Technology({ content: content.technology })}
             ${Applications({ content: content.applications })}
             ${Pilots({ content: content.pilots })}
+            ${GlobalPilots({ content: content.globalPilots })}
             ${Team({ content: content.team })}
             ${Impact({ content: content.impact })}
             ${Contact({ content: content.contact })}

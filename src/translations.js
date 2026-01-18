@@ -37,6 +37,18 @@ export const translations = {
                 { title: 'Industrial', text: 'Sound barriers, retaining walls, and warehouse flooring.' }
             ]
         },
+        globalPilots: {
+            title: 'Global Pilot Projects',
+            subtitle: 'See our technology in action around the world',
+            videos: [
+                { title: 'Hiriya Pilot: Recycling with Readymix & Shtang', videoId: 'HdTkN8Ya1SI' },
+                { title: 'Manufacturing Pilot: Sustainable Blocks with Termodan', videoId: 'RT5jCu6OIts' },
+                { title: 'Demolition Test: High Energy Absorption (Outperforming Concrete)', videoId: '3XEwgcN2U_U' },
+                { title: 'Jerusalem City Pilot: Restoring Asphalt Roads with Metzoda', videoId: 'pegS7a68k20' },
+                { title: 'Thermal Test: Demonstrating Heat Absorption & Insulation', videoId: 'soCjMZyFecI' },
+                { title: 'Durability Pilot: Stain Resistance Demonstration', videoId: 'DEC670fXd08' }
+            ]
+        },
         team: {
             title: 'Our Leadership',
             subtitle: 'Experts committed to a sustainable industrial future.',
@@ -131,6 +143,18 @@ export const translations = {
                 { title: 'רשויות מקומיות', text: 'ריצוף, פארקים ציבוריים ותשתיות עירוניות לא מבניות.' },
                 { title: 'מסחרי', text: 'בנייני משרדים ירוקים וגינון בר-קיימא.' },
                 { title: 'תעשייתי', text: 'מחסומי רעש, קירות תמך וריצוף מחסנים.' }
+            ]
+        },
+        globalPilots: {
+            title: 'פרויקטי פיילוט גלובליים',
+            subtitle: 'הטכנולוגיה שלנו בפעולה ברחבי העולם',
+            videos: [
+                { title: 'פיילוט חירייה: מחזור עם רדימיקס ושטנג', videoId: 'HdTkN8Ya1SI' },
+                { title: 'פיילוט ייצור: בלוקים קיימים עם תרמודן', videoId: 'RT5jCu6OIts' },
+                { title: 'מבחן הריסה: ספיגת אנרגיה גבוהה (ביצועים עדיפים על בטון)', videoId: '3XEwgcN2U_U' },
+                { title: 'פיילוט עיריית ירושלים: שיקום כבישים עם מצודה', videoId: 'pegS7a68k20' },
+                { title: 'מבחן תרמי: הדגמת ספיגת חום ובידוד', videoId: 'soCjMZyFecI' },
+                { title: 'פיילוט עמידות: הדגמת עמידות לכתמים', videoId: 'DEC670fXd08' }
             ]
         },
         team: {
