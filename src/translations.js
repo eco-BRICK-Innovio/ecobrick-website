@@ -12,10 +12,10 @@ export const translations = {
             ourTechnology: 'Our Technology',
             partnerWithUs: 'Partner With Us',
             slides: [
-                { alt: 'Eco BRICK Blocks', caption: 'eco BRICK blocks' },
-                { alt: 'Eco BRICK Tiles', caption: 'eco BRICK tiles' },
-                { alt: 'Eco BRICK Lightweight Aggregates', caption: 'eco BRICK lightweight aggregates' },
-                { alt: 'Cold Mix Asphalt', caption: 'Cold Mix Asphalt' }
+                { alt: 'Eco BRICK concrete blocks on a pallet', caption: 'eco BRICK blocks' },
+                { alt: 'Eco BRICK flooring tiles display', caption: 'eco BRICK tiles' },
+                { alt: 'Eco BRICK lightweight aggregate stones close up', caption: 'eco BRICK lightweight aggregates' },
+                { alt: 'Eco BRICK cold mix asphalt bag on pallet', caption: 'Cold Mix Asphalt' }
             ]
         },
         technology: {
@@ -58,7 +58,7 @@ export const translations = {
                 { name: 'Herzliya City', img: import.meta.env.BASE_URL + 'assets/logo-herzliya.png' },
                 { name: 'Hiriya', img: import.meta.env.BASE_URL + 'assets/logo-hiriya.png' },
                 { name: 'Shapir', img: import.meta.env.BASE_URL + 'assets/logo-shapir.png' },
-                { name: 'Redimix', img: import.meta.env.BASE_URL + 'assets/logo-redimix.png' },
+                { name: 'Readymix', img: import.meta.env.BASE_URL + 'assets/logo-redimix.png' },
                 { name: 'Ben-Ari', img: import.meta.env.BASE_URL + 'assets/logo-benari.png' },
                 { name: 'Oron Group', img: import.meta.env.BASE_URL + 'assets/logo-oron.png' },
                 { name: 'Mtzoda', img: import.meta.env.BASE_URL + 'assets/logo-mtzoda.png' },
@@ -89,7 +89,10 @@ export const translations = {
             text: 'Partner with eco BRICK Innovio to revolutionize your infrastructure projects.',
             placeholder: 'Enter your email',
             button: 'Request Partnership',
-            footer: '&copy; 2026 Eco BRICK Innovio. All rights reserved.'
+            footer: '&copy; 2026 Eco BRICK Innovio. All rights reserved.',
+            privacy: 'Privacy Policy',
+            terms: 'Terms of Service',
+            accessibility: 'Accessibility'
         }
     },
     he: {
@@ -182,7 +185,10 @@ export const translations = {
             text: 'שתפו פעולה עם Eco BRICK Innovio למהפכה בפרויקטי התשתית שלכם.',
             placeholder: 'הכנס את האימייל שלך',
             button: 'בקשת שותפות',
-            footer: '&copy; 2026 Eco BRICK Innovio. כל הזכויות שמורות.'
+            footer: '&copy; 2026 Eco BRICK Innovio. כל הזכויות שמורות.',
+            privacy: 'מדיניות פרטיות',
+            terms: 'תנאי שימוש',
+            accessibility: 'הצהרת נגישות'
         }
     }
 };

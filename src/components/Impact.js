@@ -9,14 +9,14 @@ export function Impact({ content }) {
           </p>
         </div>
         
-        <div class="impact-grid">
+        <ul class="impact-grid" style="list-style: none; padding: 0; margin: 0;">
           ${content.items.map(item => `
-            <div class="impact-card glass-card">
+            <li class="impact-card glass-card">
               <div class="impact-value">${item.value}</div>
               <div class="impact-label">${item.label}</div>
-            </div>
+            </li>
           `).join('')}
-        </div>
+        </ul>
       </div>
     </section>
   `;

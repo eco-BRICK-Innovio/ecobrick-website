@@ -6,17 +6,17 @@ export function Team({ content }) {
           <h2 class="section-title">${content.title}</h2>
           <p class="section-subtitle">${content.subtitle}</p>
         </div>
-        <div class="team-grid">
+        <ul class="team-grid" style="list-style: none; padding: 0; margin: 0;">
           ${content.members.map(member => `
-            <div class="team-card">
+            <li class="team-card">
               <div class="team-info">
                 <h3 class="team-name">${member.name}</h3>
                 <p class="team-role">${member.role}</p>
                 <p class="team-bio">${member.bio}</p>
               </div>
-            </div>
+            </li>
           `).join('')}
-        </div>
+        </ul>
       </div>
     </section>
   `;

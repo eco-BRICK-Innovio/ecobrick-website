@@ -7,18 +7,12 @@ export function Technology({ content }) {
           <p class="section-subtitle">${content.subtitle}</p>
         </div>
         
-        <div class="zigzag-grid">
+        <ul class="zigzag-grid" style="list-style: none; padding: 0; margin: 0;">
           ${content.cards.map((card, index) => {
     const isEven = index % 2 === 0;
-    // Text slides in from left on even rows (Image is right), right on odd rows (Image is left) -> wait, logic check
-    // Row 0 (Even): Image Right. Text Left (Slide Left). Image Right (Slide Right).
-    // Row 1 (Odd): Image Left (Slide Left). Text Right (Slide Right).
-
-    // Simpler: Just apply the class to the row and let children animate? 
-    // Better: Apply specific classes to children for independent movement.
 
     return `
-            <div class="zigzag-row">
+            <li class="zigzag-row">
               <div class="zigzag-content ${isEven ? 'slide-in-left' : 'slide-in-right'}">
                 <div class="zigzag-number">0${index + 1}</div>
                 <h3>${card.title}</h3>
@@ -27,10 +21,10 @@ export function Technology({ content }) {
               <div class="zigzag-image-wrapper ${isEven ? 'slide-in-right' : 'slide-in-left'}">
                 <img src="${card.image}" alt="${card.title}" class="zigzag-image" />
               </div>
-            </div>
+            </li>
             `;
   }).join('')}
-        </div>
+        </ul>
         
         ${content.videoId ? `
         <div class="video-container" style="margin-top: 4rem; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md);">

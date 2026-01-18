@@ -300,6 +300,19 @@ button {
   color: var(--color-text);
 }
 
+.header .contact-btn {
+  background-color: #ffffff !important;
+  color: var(--color-primary) !important;
+  border: 1px solid #000000;
+}
+
+.header .contact-btn:hover {
+  background-color: #ffffff !important;
+  color: var(--color-accent) !important;
+  box-shadow: 0 0 20px var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
 /* Header */
 .header {
   position: fixed;
@@ -498,6 +511,16 @@ button {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 140px;
+    /* More space for header */
+    height: auto;
+    /* Allow content to flow naturally */
+    min-height: 100vh;
+    justify-content: flex-start;
+    /* Start from top instead of center */
+  }
+
   .hero-title {
     font-size: 2.2rem;
     /* Smaller title */

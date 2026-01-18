@@ -1,5 +1,5 @@
 export function Pilots({ content }) {
-    return `
+  return `
     <section id="pilots" class="section pilots-section">
       <div class="container">
         <div class="section-header">
@@ -7,23 +7,23 @@ export function Pilots({ content }) {
           <p class="section-subtitle">${content.subtitle}</p>
         </div>
         
-        <div class="partners-grid">
+        <ul class="partners-grid" style="list-style: none; padding: 0; margin: 0 0 4rem 0;">
           ${content.logos.map(logo => `
-            <div class="partner-logo" title="${logo.name}">
-              <img src="${logo.img}" alt="${logo.name}" />
+            <li class="partner-logo" title="${logo.name}">
+              <img src="${logo.img}" alt="${logo.name} logo" />
               <span class="partner-name">${logo.name}</span>
-            </div>
+            </li>
           `).join('')}
-        </div>
+        </ul>
 
-        <div class="pilots-gallery">
+        <ul class="pilots-gallery" style="list-style: none; padding: 0; margin: 0;">
            ${content.images.map(img => `
-            <div class="pilot-card">
+            <li class="pilot-card">
               <img src="${img.src}" alt="${img.caption}" />
               <div class="pilot-caption">${img.caption}</div>
-            </div>
+            </li>
            `).join('')}
-        </div>
+        </ul>
       </div>
     </section>
   `;

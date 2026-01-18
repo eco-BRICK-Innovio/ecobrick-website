@@ -9,14 +9,14 @@ export function Applications({ content }) {
           <p class="section-subtitle">${content.subtitle}</p>
         </div>
         
-        <div class="apps-grid">
+        <ul class="apps-grid" style="list-style: none; padding: 0; margin: 0;">
           ${content.cards.map((card, index) => `
-            <div class="glass-card app-card ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}">
+            <li class="glass-card app-card ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}">
               <h3>${card.title}</h3>
               <p>${card.text}</p>
-            </div>
+            </li>
           `).join('')}
-        </div>
+        </ul>
       </div>
     </section>
   `;
