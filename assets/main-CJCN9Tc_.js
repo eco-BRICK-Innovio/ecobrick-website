@@ -142,9 +142,9 @@
         <div class="pilots-grid">
           ${e.videos.map((t,a)=>`
             <div class="video-card">
-              <div class="video-placeholder" 
-                   style="background-image: url('https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg'); background-size: cover; background-position: center;"
-                   onclick="this.innerHTML = '<iframe width='100%' height='100%' src='https://www.youtube.com/embed/${t.videoId}?autoplay=1' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>'">
+              <div class="video-placeholder js-video-trigger" 
+                   data-video-id="${t.videoId}"
+                   style="background-image: url('https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg'); background-size: cover; background-position: center;">
                 <div class="play-button">
                   <div class="play-icon"></div>
                 </div>
@@ -240,4 +240,4 @@
             ${x({content:t.contact})}
           </main>
           <!-- \${AccessibilityWidget()} -->
-        `,setTimeout(a,100),E()):console.error("Fatal Error: #app element not found")}catch(t){console.error("Critical Error in renderApp:",t)}}function E(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",g),e.addEventListener("click",g));const t=document.querySelector(".mobile-menu-btn"),a=document.querySelector(".nav"),o=document.querySelectorAll(".nav-link, .contact-btn");t&&a&&(t.addEventListener("click",()=>{const i=t.classList.contains("active");t.setAttribute("aria-expanded",!i),t.classList.toggle("active"),a.classList.toggle("active"),document.body.style.overflow=a.classList.contains("active")?"hidden":""}),o.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),a.classList.remove("active"),document.body.style.overflow=""})}))}function g(){l=l==="en"?"he":"en",p()}p();
+        `,setTimeout(a,100),E(),S()):console.error("Fatal Error: #app element not found")}catch(t){console.error("Critical Error in renderApp:",t)}}function E(){const e=document.getElementById("lang-toggle");e&&(e.removeEventListener("click",g),e.addEventListener("click",g));const t=document.querySelector(".mobile-menu-btn"),a=document.querySelector(".nav"),o=document.querySelectorAll(".nav-link, .contact-btn");t&&a&&(t.addEventListener("click",()=>{const i=t.classList.contains("active");t.setAttribute("aria-expanded",!i),t.classList.toggle("active"),a.classList.toggle("active"),document.body.style.overflow=a.classList.contains("active")?"hidden":""}),o.forEach(i=>{i.addEventListener("click",()=>{t.classList.remove("active"),a.classList.remove("active"),document.body.style.overflow=""})}))}function S(){document.querySelectorAll(".js-video-trigger").forEach(e=>{e.addEventListener("click",function(){const t=this.dataset.videoId;t&&(this.innerHTML=`<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${t}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,this.classList.add("is-playing"))})})}function g(){l=l==="en"?"he":"en",p()}p();
