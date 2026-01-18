@@ -9,9 +9,9 @@ export function GlobalPilots({ content }) {
         <div class="pilots-grid">
           ${content.videos.map((video, index) => `
             <div class="video-card">
-              <div class="video-placeholder" 
-                   style="background-image: url('https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg'); background-size: cover; background-position: center;"
-                   onclick="this.innerHTML = '<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/${video.videoId}?autoplay=1\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>'">
+              <div class="video-placeholder js-video-trigger" 
+                   data-video-id="${video.videoId}"
+                   style="background-image: url('https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg'); background-size: cover; background-position: center;">
                 <div class="play-button">
                   <div class="play-icon"></div>
                 </div>

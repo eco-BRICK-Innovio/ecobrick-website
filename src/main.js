@@ -74,6 +74,7 @@ function renderApp() {
 
             // Initial re-attachment of event listeners
             attachEventListeners();
+            setupVideoPlayers();
 
             // Initialize Accessibility Widget
             // try {
@@ -120,6 +121,18 @@ function attachEventListeners() {
             });
         });
     }
+}
+
+function setupVideoPlayers() {
+    document.querySelectorAll('.js-video-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function () {
+            const videoId = this.dataset.videoId;
+            if (videoId) {
+                this.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                this.classList.add('is-playing');
+            }
+        });
+    });
 }
 
 function toggleLang() {
