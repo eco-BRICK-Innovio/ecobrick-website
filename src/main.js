@@ -10,6 +10,7 @@ import { Pilots } from './components/Pilots.js'
 import { GlobalPilots } from './components/GlobalPilots.js'
 import { Team } from './components/Team.js'
 import { Impact } from './components/Impact.js'
+import { Proof } from './components/Proof.js';
 import { Contact } from './components/Contact.js'
 
 let currentLang = 'en';
@@ -47,7 +48,7 @@ function renderApp() {
             });
 
             // Observe new slide animations
-            document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(el => {
+            document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in, .slide-in-up').forEach(el => {
                 observer.observe(el);
             });
         }
@@ -64,6 +65,7 @@ function renderApp() {
             ${GlobalPilots({ content: content.globalPilots })}
             ${Team({ content: content.team })}
             ${Impact({ content: content.impact })}
+            ${Proof({ content: content.proof })}
             ${Contact({ content: content.contact })}
           </main>
           <!-- \${AccessibilityWidget()} -->

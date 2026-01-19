@@ -96,6 +96,10 @@ export const translations = {
                 { value: 'High', label: 'Insulation Properties' }
             ]
         },
+        proof: {
+            title: 'Undeniable Proof of Sustainable Innovation',
+            body: 'At eco Brick Innovio, we don’t just claim to lead in sustainability—we prove it. We are proud to announce a clean sweep of first-place victories across major international and local arenas, where we competed solely based on innovation in sustainability. From impressing global giant Saint-Gobain in Singapore and winning the SDG Israel competition, to securing top honors from the Israeli Ministry of Defense and the Association of Local Authorities in Israel, our technology is being recognized globally as the future of green construction.'
+        },
         contact: {
             title: 'Ready to Build?',
             text: 'Partner with eco BRICK Innovio to revolutionize your infrastructure projects.',
