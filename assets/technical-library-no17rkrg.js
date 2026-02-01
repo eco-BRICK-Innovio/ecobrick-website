@@ -82,7 +82,7 @@ import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology
                                 <div class="overlay" style="position: absolute; inset: 0; background: transparent;"></div>
                             </div>
                             <div class="doc-info" style="padding: 1.5rem;">
-                                <h3 style="margin-bottom: 0.5rem;">Shpir Pilot Reports</h3>
+                                <h3 style="margin-bottom: 0.5rem;">Shapir Pilot Reports</h3>
                                 <p style="font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem;">The project involves a pilot program that replaces 10% of Hot Mixed Asphalt (HMA) with the specialized eco BRICK add-on.</p>
                                 <button onclick="window.open('https://siautomation455-my.sharepoint.com/:b:/g/personal/shlomi_innovio_tech/IQCDNcs3ten8SrhrYsr6HsW4AUh7tBY8FnsQ8HA-Q8c2nY0?e=2DWpce', '_blank')" class="btn btn-primary" style="width: 100%;">See the Report</button>
                             </div>
