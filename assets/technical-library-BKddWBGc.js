@@ -1,5 +1,5 @@
-import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},a=()=>console.log("Lang toggle not implemented on this static page"),s="en";document.querySelector("#app").innerHTML=`
-            ${n({content:r.header,toggleLang:a,currentLang:s})}
+import{H as i}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},a=()=>console.log("Lang toggle not implemented on this static page"),s="en";document.querySelector("#app").innerHTML=`
+            ${i({content:r.header,toggleLang:a,currentLang:s})}
             <main style="padding-top: 100px; min-height: 80vh; background-color: #f8f9fa;">
                 <div class="container" style="max-width: 1200px;">
                     <h1 style="margin-bottom: 1rem; color: var(--color-primary);">Technical Library</h1>
@@ -40,7 +40,7 @@ import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology
                                 <div class="overlay" style="position: absolute; inset: 0; background: transparent;"></div>
                             </div>
                             <div class="doc-info" style="padding: 1.5rem;">
-                                <h3 style="margin-bottom: 0.5rem;">Israeli SII (מכון התקנים הישראלי)</h3>
+                                <h3 style="margin-bottom: 0.5rem;">the Standards Institution of Israel</h3>
                                 <p style="font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem;">Official Standard Compliance Certificate.</p>
                                 <button onclick="window.open('https://siautomation455-my.sharepoint.com/:b:/g/personal/shlomi_innovio_tech/IQAXH_4jYtUIRaUERkQ0UX1UAc0f1TSEMJFiLhHIdBtQYfo?e=EEVI2J', '_blank')" class="btn btn-primary" style="width: 100%;">View Certificate</button>
                             </div>
@@ -71,7 +71,7 @@ import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology
                     <iframe id="doc-frame" src="" style="width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
                 </div>
             </div>
-        `;window.openViewer=function(e){const t=document.getElementById("doc-viewer-modal"),i=document.getElementById("doc-frame");if(e.startsWith("http"))i.src=e;else{const o=`
+        `;window.openViewer=function(e){const t=document.getElementById("doc-viewer-modal"),n=document.getElementById("doc-frame");if(e.startsWith("http"))n.src=e;else{const o=`
                     <body style="background: #525659; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: white; font-family: sans-serif;">
                         <div style="text-align: center;">
                             <h2>Secure View Mode</h2>
@@ -79,4 +79,4 @@ import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology
                             <p><em>(Placeholder: Upload actual PDF to public/documents/)</em></p>
                         </div>
                     </body>
-                `;i.src="data:text/html;charset=utf-8,"+encodeURIComponent(o)}t.style.display="flex",t.addEventListener("contextmenu",o=>o.preventDefault())};window.closeViewer=function(){const e=document.getElementById("doc-viewer-modal"),t=document.getElementById("doc-frame");e.style.display="none",t.src=""};
+                `;n.src="data:text/html;charset=utf-8,"+encodeURIComponent(o)}t.style.display="flex",t.addEventListener("contextmenu",o=>o.preventDefault())};window.closeViewer=function(){const e=document.getElementById("doc-viewer-modal"),t=document.getElementById("doc-frame");e.style.display="none",t.src=""};
