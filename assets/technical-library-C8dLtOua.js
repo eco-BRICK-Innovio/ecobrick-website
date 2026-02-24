@@ -1,4 +1,4 @@
-import{H as n}from"./Header-dA1zBvZr.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},s=()=>console.log("Lang toggle not implemented on this static page"),a="en";document.querySelector("#app").innerHTML=`
+import{H as n}from"./Header-CDl48n2r.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},s=()=>console.log("Lang toggle not implemented on this static page"),a="en";document.querySelector("#app").innerHTML=`
             ${n({content:r.header,toggleLang:s,currentLang:a})}
             <main style="padding-top: 100px; min-height: 80vh; background-color: #f8f9fa;">
                 <div class="container" style="max-width: 1200px;">
