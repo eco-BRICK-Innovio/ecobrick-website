@@ -4,6 +4,7 @@ export const translations = {
             technology: 'Technology',
             applications: 'Applications',
             impact: 'Impact',
+            onePager: 'One-Pager',
             partner: 'Partner',
         },
         hero: {
@@ -58,7 +59,10 @@ export const translations = {
                 { name: 'Israel Bettelhaim', role: 'COO', bio: 'Mechanical Engineer. 25 years of experience as director of operations in a quarry and the construction industry.' },
                 { name: 'Eli Stav', role: 'Consultant', bio: 'PhD, Chemistry, Building Materials, Polymers. Over 40 years of experience, and out of that 20 years as Director of Technology Development at National Gypsum Company, USA' },
                 { name: 'Nechemia Masori', role: 'Consultant', bio: 'BSc. & MSc. In construction and building materials. More than 40 years of experience, Member of the Israeli Building Code for building materials. Member of standards committees at the Israeli Standards Institution. Professional Committee on Building Materials.' },
-                { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' }
+                { name: 'Eitan Berkovitch', role: 'CBO', bio: 'B.Sc. in Civil Engineering. M.A. in Real Estate. 25 years of expertise in building materials, especially concrete manufacturing and QA. 20 years of senior management. Expert in the field of sustainability and new developments.' },
+                { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' },
+                { name: 'Doron Afik', role: 'VP Legal', bio: 'LLB. Over 20 years of experience as a high-tech lawyer and in managerial positions.' },
+                { name: 'Eran Gorodezky', role: 'Consultant', bio: 'CPA & CFO with over 15 years of experience managing the finances of complex organizations across multiple sectors, including SaaS, e-commerce, financial services, and startups. Expert in international taxation, financial reporting, and managing cross-border teams.' }
             ]
         },
         pilots: {
@@ -92,7 +96,7 @@ export const translations = {
             subtitle: 'Halt the growth of massive waste landfills and combat global warming by transforming traditionally unrecyclable waste into valuable resources.',
             items: [
                 { value: '40+', label: 'Waste Streams Processed' },
-                { value: '99%', label: 'Landfill Diversion' },
+                { value: '~99%', label: 'Landfill Diversion' },
                 { value: 'High', label: 'Insulation Properties' }
             ]
         },
@@ -109,6 +113,36 @@ export const translations = {
             privacy: 'Privacy Policy',
             terms: 'Terms of Service',
             accessibility: 'Accessibility'
+        },
+        onePager: {
+            title: 'Eco BRICK Innovio: <span style="color: var(--color-primary);">At a Glance</span>',
+            subtitle: 'The future of sustainable infrastructure, explained.',
+            cards: [
+                {
+                    query: 'What is Eco BRICK technology?',
+                    answer: 'A proprietary binding solution that transforms 40+ waste streams into certified construction materials, diverting ~99% from landfills.'
+                },
+                {
+                    query: 'Where are your pilot projects located?',
+                    answer: 'We have successful pilots in Jerusalem, Ashdod, Herzliya, and Hiriya, working with leaders like Shapir, Readymix, and the IDF.'
+                },
+                {
+                    query: 'What are the main applications?',
+                    answer: 'From municipal paving and public parks to industrial sound barriers and warehouse flooring.'
+                },
+                {
+                    query: 'Is the material certified?',
+                    answer: 'Yes, our lightweight aggregate is ASTM C331 compliant and has been validated by official standards institutions.'
+                },
+                {
+                    query: 'Who is behind the innovation?',
+                    answer: 'A team of experts in software engineering, plastics engineering, chemical engineering, and construction operations.'
+                },
+                {
+                    query: 'How can we partner with you?',
+                    answer: 'We collaborate with municipalities, waste management firms, and construction companies to scale circular economy solutions.'
+                }
+            ]
         }
     },
     he: {
@@ -116,6 +150,7 @@ export const translations = {
             technology: 'טכנולוגיה',
             applications: 'יישומים',
             impact: 'השפעה',
+            onePager: 'One-Pager',
             partner: 'שותפות',
         },
         hero: {
@@ -170,7 +205,9 @@ export const translations = {
                 { name: 'Israel Bettelhaim', role: 'COO', bio: 'Mechanical Engineer. 25 years of experience as director of operations in a quarry and the construction industry.' },
                 { name: 'Eli Stav', role: 'Consultant', bio: 'PhD, Chemistry, Building Materials, Polymers. Over 40 years of experience, and out of that 20 years as Director of Technology Development at National Gypsum Company, USA' },
                 { name: 'Nechemia Masori', role: 'Consultant', bio: 'BSc. & MSc. In construction and building materials. More than 40 years of experience, Member of the Israeli Building Code for building materials. Member of standards committees at the Israeli Standards Institution. Professional Committee on Building Materials.' },
-                { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' }
+                { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' },
+                { name: 'Doron Afik', role: 'VP Legal', bio: 'LLB. Over 20 years of experience as a high-tech lawyer and in managerial positions.' },
+                { name: 'Eran Gorodezky', role: 'Consultant', bio: 'CPA & CFO with over 15 years of experience managing the finances of complex organizations across multiple sectors, including SaaS, e-commerce, financial services, and startups. Expert in international taxation, financial reporting, and managing cross-border teams.' }
             ]
         },
         pilots: {
@@ -204,7 +241,7 @@ export const translations = {
             subtitle: 'עצירת הגידול במטמנות פסולת עצומות ומאבק בהתחממות הגלובלית על ידי הפיכת פסולת מסורתית למשאבים יקרי ערך.',
             items: [
                 { value: '40+', label: 'זרמי פסולת מעובדים' },
-                { value: '99%', label: 'מניעת הטמנה' },
+                { value: '~99%', label: 'מניעת הטמנה' },
                 { value: 'גבוהה', label: 'יכולת בידוד' }
             ]
         },
@@ -217,6 +254,36 @@ export const translations = {
             privacy: 'מדיניות פרטיות',
             terms: 'תנאי שימוש',
             accessibility: 'הצהרת נגישות'
+        },
+        onePager: {
+            title: 'אקו בריק אינוביו: <span style="color: var(--color-primary);">במבט חטוף</span>',
+            subtitle: 'העתיד של תשתיות בנות-קיימא, מוסבר.',
+            cards: [
+                {
+                    query: 'מהי טכנולוגיית אקו בריק?',
+                    answer: 'פתרון קישור ייחודי ההופך מעל 40 סוגי פסולת לחומרי בנייה מאושרים, תוך מניעת הטמנה של ~99% מהפסולת.'
+                },
+                {
+                    query: 'איפה ממוקמים פרויקטי הפיילוט שלכם?',
+                    answer: 'יש לנו פיילוטים מוצלחים בירושלים, אשדוד, הרצליה וחירייה, בשיתוף פעולה עם מובילים כמו שפיר, רדימיקס וצה"ל.'
+                },
+                {
+                    query: 'מהם היישומים העיקריים?',
+                    answer: 'מריצוף עירוני ופארקים ציבוריים ועד מחסומי רעש תעשייתיים וריצוף מחסנים.'
+                },
+                {
+                    query: 'האם החומר מאושר?',
+                    answer: 'כן, האגרגט הקל שלנו תואם את תקן ASTM C331 ואושר על ידי מוסדות תקנים רשמיים.'
+                },
+                {
+                    query: 'מי עומד מאחורי החדשנות?',
+                    answer: 'צוות מומחים בהנדסת תוכנה, הנדסת פלסטיק, הנדסה כימית ותפעול בנייה.'
+                },
+                {
+                    query: 'איך אפשר לשתף איתכם פעולה?',
+                    answer: 'אנו משתפים פעולה עם רשויות מקומיות, חברות לניהול פסולת וחברות בנייה להרחבת פתרונות כלכלה מעגלית.'
+                }
+            ]
         }
     }
 };

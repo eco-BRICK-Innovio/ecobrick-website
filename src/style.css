@@ -898,10 +898,20 @@ button {
 }
 
 /* Team Section - Glassmorphism */
+.team-section .container {
+  max-width: 1200px;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .team-card {
@@ -1105,6 +1115,10 @@ button {
 
 .proof-content {
   margin-top: 0;
+}
+
+.proof-img-wrapper img:hover {
+  transform: scale(1.02);
 }
 
 /* Animations - Vertical */

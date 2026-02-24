@@ -9,7 +9,8 @@ export default defineConfig({
                 privacy: 'privacy.html',
                 terms: 'terms.html',
                 accessibility: 'accessibility.html',
-                'technical-library': 'technical-library.html'
+                'technical-library': 'technical-library.html',
+                'one-pager': 'one-pager.html'
             }
         }
     }

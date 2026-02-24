@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+backup_*
+src_v*_backup
+*.mp4

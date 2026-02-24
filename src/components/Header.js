@@ -20,6 +20,7 @@ export function Header({ content, toggleLang, currentLang }) {
             <li><a href="#applications" class="nav-link">${content.applications}</a></li>
             <li><a href="#impact" class="nav-link">${content.impact}</a></li>
             <li><a href="technical-library.html" class="nav-link">${content.technicalLibrary || 'Technical Library'}</a></li>
+            <li><a href="one-pager.html" class="nav-link">${content.onePager}</a></li>
             <li><button id="lang-toggle" class="btn btn-outline lang-btn">${btnText}</button></li>
             <li><a href="${content.partnerLink || '#contact'}" class="btn contact-btn" style="background-color: #ffffff; color: #1565C0; border: 1px solid #000000;">${content.partner}</a></li>
           </ul>
