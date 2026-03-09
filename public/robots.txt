@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /technical-library.html
+
+Sitemap: https://ecobrick.tech/sitemap.xml
