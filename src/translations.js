@@ -13,10 +13,10 @@ export const translations = {
             ourTechnology: 'Our Technology',
             partnerWithUs: 'Partner With Us',
             slides: [
-                { alt: 'Eco BRICK concrete blocks on a pallet', caption: 'eco BRICK blocks' },
-                { alt: 'Eco BRICK flooring tiles display', caption: 'eco BRICK tiles' },
-                { alt: 'Eco BRICK lightweight aggregate stones close up', caption: 'eco BRICK lightweight aggregates' },
-                { alt: 'Eco BRICK cold mix asphalt bag on pallet', caption: 'Cold Mix Asphalt' }
+                { alt: 'eco BRICK concrete blocks on a pallet', caption: 'eco BRICK blocks' },
+                { alt: 'eco BRICK flooring tiles display', caption: 'eco BRICK tiles' },
+                { alt: 'eco BRICK lightweight aggregate stones close up', caption: 'eco BRICK lightweight aggregates' },
+                { alt: 'eco BRICK cold mix asphalt bag on pallet', caption: 'Cold Mix Asphalt' }
             ]
         },
         technology: {
@@ -54,7 +54,7 @@ export const translations = {
             title: 'Our Leadership',
             subtitle: 'Experts committed to a sustainable industrial future.',
             members: [
-                { name: 'Shlomi Perry', role: 'Founder & CEO', bio: 'B.Sc. Software Engineering. Eco Brick Innovio founder. Entrepreneur in the fields of high-tech and education. Founder of the companies: Innovio Development Ltd., Easylinks Ltd., Matar Robotix Ltd' },
+                { name: 'Shlomi Perry', role: 'Founder & CEO', bio: 'B.Sc. Software Engineering. eco BRICK Innovio founder. Entrepreneur in the fields of high-tech and education. Founder of the companies: Innovio Development Ltd., Easylinks Ltd., Matar Robotix Ltd' },
                 { name: 'Jacob Biofcic', role: 'CTO', bio: 'BSc. & MSc. In Plastics Engineering. 14 years of experience in leading and managing projects in the field of plastics, lecturer in Shenkar College' },
                 { name: 'Israel Bettelhaim', role: 'COO', bio: 'Mechanical Engineer. 25 years of experience as director of operations in a quarry and the construction industry.' },
                 { name: 'Eli Stav', role: 'Consultant', bio: 'PhD, Chemistry, Building Materials, Polymers. Over 40 years of experience, and out of that 20 years as Director of Technology Development at National Gypsum Company, USA' },
@@ -109,17 +109,17 @@ export const translations = {
             text: 'Partner with eco BRICK Innovio to revolutionize your infrastructure projects.',
             placeholder: 'Enter your email',
             button: 'Request Partnership',
-            footer: '&copy; 2026 Eco BRICK Innovio. All rights reserved.',
+            footer: '&copy; 2026 eco BRICK Innovio. All rights reserved.',
             privacy: 'Privacy Policy',
             terms: 'Terms of Service',
             accessibility: 'Accessibility'
         },
         onePager: {
-            title: 'Eco BRICK Innovio: <span style="color: var(--color-primary);">At a Glance</span>',
+            title: 'eco BRICK Innovio: <span style="color: var(--color-primary);">At a Glance</span>',
             subtitle: 'The future of sustainable infrastructure, explained.',
             cards: [
                 {
-                    query: 'What is Eco BRICK technology?',
+                    query: 'What is eco BRICK technology?',
                     answer: 'A proprietary binding solution that transforms 40+ waste streams into certified construction materials, diverting ~99% from landfills.'
                 },
                 {
@@ -200,7 +200,7 @@ export const translations = {
             title: 'המנהיגות שלנו',
             subtitle: 'מומחים המחויבים לעתיד תעשייתי בר-קיימא.',
             members: [
-                { name: 'Shlomi Perry', role: 'Founder & CEO', bio: 'B.Sc. Software Engineering. Eco Brick Innovio founder. Entrepreneur in the fields of high-tech and education. Founder of the companies: Innovio Development Ltd., Easylinks Ltd., Matar Robotix Ltd' },
+                { name: 'Shlomi Perry', role: 'Founder & CEO', bio: 'B.Sc. Software Engineering. eco BRICK Innovio founder. Entrepreneur in the fields of high-tech and education. Founder of the companies: Innovio Development Ltd., Easylinks Ltd., Matar Robotix Ltd' },
                 { name: 'Jacob Biofcic', role: 'CTO', bio: 'BSc. & MSc. In Plastics Engineering. 14 years of experience in leading and managing projects in the field of plastics, lecturer in Shenkar College' },
                 { name: 'Israel Bettelhaim', role: 'COO', bio: 'Mechanical Engineer. 25 years of experience as director of operations in a quarry and the construction industry.' },
                 { name: 'Eli Stav', role: 'Consultant', bio: 'PhD, Chemistry, Building Materials, Polymers. Over 40 years of experience, and out of that 20 years as Director of Technology Development at National Gypsum Company, USA' },
@@ -247,10 +247,10 @@ export const translations = {
         },
         contact: {
             title: 'מוכנים לבנות?',
-            text: 'שתפו פעולה עם Eco BRICK Innovio למהפכה בפרויקטי התשתית שלכם.',
+            text: 'שתפו פעולה עם eco BRICK Innovio למהפכה בפרויקטי התשתית שלכם.',
             placeholder: 'הכנס את האימייל שלך',
             button: 'בקשת שותפות',
-            footer: '&copy; 2026 Eco BRICK Innovio. כל הזכויות שמורות.',
+            footer: '&copy; 2026 eco BRICK Innovio. כל הזכויות שמורות.',
             privacy: 'מדיניות פרטיות',
             terms: 'תנאי שימוש',
             accessibility: 'הצהרת נגישות'

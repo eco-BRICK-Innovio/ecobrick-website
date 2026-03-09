@@ -57,10 +57,10 @@ export const translations = {
         },
         contact: {
             title: 'Partner with Us',
-            text: 'Deploy Eco BRICK Innovio technology in your municipality or project.',
+            text: 'Deploy eco BRICK Innovio technology in your municipality or project.',
             placeholder: 'Corporate Email Address',
             button: 'Request Technical Proposal',
-            footer: '&copy; 2026 Eco BRICK Innovio. Industrial Solutions.'
+            footer: '&copy; 2026 eco BRICK Innovio. Industrial Solutions.'
         }
     },
     he: {
@@ -121,10 +121,10 @@ export const translations = {
         },
         contact: {
             title: 'שותפות עסקית',
-            text: 'הטמעת טכנולוגיית Eco BRICK Innovio ברשות או בפרויקט שלך.',
+            text: 'הטמעת טכנולוגיית eco BRICK Innovio ברשות או בפרויקט שלך.',
             placeholder: 'כתובת אימייל ארגונית',
             button: 'בקשת הצעה טכנית',
-            footer: '&copy; 2026 Eco BRICK Innovio. פתרונות תעשייתיים.'
+            footer: '&copy; 2026 eco BRICK Innovio. פתרונות תעשייתיים.'
         }
     }
 };

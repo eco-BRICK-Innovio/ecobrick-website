@@ -5,7 +5,7 @@ export function Header({ content, toggleLang, currentLang }) {
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
-          <img src="${import.meta.env.BASE_URL}assets/logo-v2.jpg" alt="Eco BRICK Innovio" class="logo-img" />
+          <img src="${import.meta.env.BASE_URL}assets/logo-v2.jpg" alt="eco BRICK Innovio" class="logo-img" />
         </a>
         
         <button class="mobile-menu-btn" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="main-nav">
