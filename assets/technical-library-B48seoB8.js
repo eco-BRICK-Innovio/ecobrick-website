@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{H as n}from"./Header-BAq5gMXk.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},s=()=>console.log("Lang toggle not implemented on this static page"),a="en";document.querySelector("#app").innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{H as n}from"./Header-CXBhWXi3.js";const r={header:{technology:"Technology",applications:"Applications",impact:"Impact",partner:"Home",partnerLink:"/",technicalLibrary:"Technical Library"}},s=()=>console.log("Lang toggle not implemented on this static page"),a="en";document.querySelector("#app").innerHTML=`
             ${n({content:r.header,toggleLang:s,currentLang:a})}
             <main style="padding-top: 100px; min-height: 80vh; background-color: #f8f9fa;">
                 <div class="container" style="max-width: 1200px;">
@@ -95,7 +95,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{H as n}from"./Header-BAq5gMX
             <!-- Copyright Footer -->
             <footer class="footer" style="margin-top: auto;">
                 <div class="container footer-content">
-                    <p>&copy; 2026 Eco BRICK Innovio. All rights reserved.</p>
+                    <p>&copy; 2026 eco BRICK Innovio. All rights reserved.</p>
                 </div>
             </footer>
 

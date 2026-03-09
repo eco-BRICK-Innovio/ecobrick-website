@@ -2,7 +2,7 @@ function i({content:a,toggleLang:s,currentLang:l}){const n=l==="en"?"🇮🇱 HE
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
-          <img src="./assets/logo-v2.jpg" alt="Eco BRICK Innovio" class="logo-img" />
+          <img src="./assets/logo-v2.jpg" alt="eco BRICK Innovio" class="logo-img" />
         </a>
         
         <button class="mobile-menu-btn" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="main-nav">
