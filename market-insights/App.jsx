@@ -352,17 +352,18 @@ const App = () => {
                                                     data={wasteTypeData}
                                                     cx="50%"
                                                     cy="50%"
-                                                    innerRadius={80}
-                                                    outerRadius={110}
-                                                    paddingAngle={10}
+                                                    innerRadius={50}
+                                                    outerRadius={80}
+                                                    paddingAngle={8}
                                                     dataKey="value"
                                                     stroke="none"
                                                 >
                                                     {wasteTypeData.map((entry, index) => (
-                                                        <Cell key={`cell-${index}`} fill={['#0891B2', '#172554', '#CBD5E1'][index % 3]} />
+                                                        <Cell key={`cell-${index}`} fill={['#2563EB', '#172554', '#94A3B8'][index % 3]} />
                                                     ))}
                                                 </Pie>
-                                                <Tooltip contentStyle={{ borderRadius: '24px', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+                                                <Tooltip contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+                                                <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px', fontWeight: 600, color: '#4B5563' }} />
                                             </PieChart>
                                         </ResponsiveContainer>
                                     </div>
@@ -392,22 +393,14 @@ const App = () => {
                                                     Results showed a stable mixture with strength increasing <span className="text-[#1D4ED8]">4x more</span> than standard compositions.
                                                 </span>
                                             </p>
-                                            <button
+                                            <a
+                                                href="https://siautomation455-my.sharepoint.com/:b:/g/personal/shlomi_innovio_tech/IQDtDzyFR9BkQqTlxoUpy9LpAfZOOWU9Eoe0rOY4KakJcd4?e=b9BzJd"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                                 className="flex items-center justify-center gap-2 w-full py-4 bg-[#1D4ED8] hover:brightness-110 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl transition-all shadow-lg shadow-blue-100"
-                                                onClick={() => {
-                                                    setShowPdfMessage(true);
-                                                    setTimeout(() => setShowPdfMessage(false), 5000);
-                                                }}
                                             >
                                                 <ExternalLink size={14} /> View Verified Report
-                                            </button>
-                                            {showPdfMessage && (
-                                                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center p-6 text-center animate-in fade-in duration-300">
-                                                    <p className="text-xs font-bold text-[#1E3A8A] leading-relaxed">
-                                                        PDF access is secured. Lab reports are available upon request for verified partners.
-                                                    </p>
-                                                </div>
-                                            )}
+                                            </a>
                                         </div>
                                     )}
 
