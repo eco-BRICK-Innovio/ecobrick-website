@@ -220,7 +220,7 @@ const App = () => {
                 <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Technological Edge</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Unlike competitors who use binders to "glit" waste, our <strong>Cold-Press Extrusion</strong> uses molecular stabilization to turn abrasive waste into high-density products.
+                Unlike competitors who use binders to "sparkle" waste, our technology transforms diverse waste into high-quality engineered raw materials.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-3 bg-slate-50 rounded-xl">
