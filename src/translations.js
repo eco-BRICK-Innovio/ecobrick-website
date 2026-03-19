@@ -5,6 +5,7 @@ export const translations = {
             applications: 'Applications',
             impact: 'Impact',
             onePager: 'One-Pager',
+            financialPitch: 'Financial Pitch',
             partner: 'Partner',
         },
         hero: {
@@ -151,6 +152,7 @@ export const translations = {
             applications: 'יישומים',
             impact: 'השפעה',
             onePager: 'One-Pager',
+            financialPitch: 'מצגת פיננסית',
             partner: 'שותפות',
         },
         hero: {
