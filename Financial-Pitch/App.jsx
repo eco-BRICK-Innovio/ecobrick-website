@@ -14,7 +14,10 @@ import {
   Leaf,
   Layers,
   Zap,
-  AlertCircle
+  AlertCircle,
+  Globe,
+  Clock,
+  Lightbulb
 } from 'lucide-react';
 
 const App = () => {
@@ -52,6 +55,10 @@ const App = () => {
               onClick={() => setActiveTab('overview')}
               className={`px-6 py-1.5 rounded-full transition-all ${activeTab === 'overview' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}
             >Overview</button>
+            <button 
+              onClick={() => setActiveTab('strategy')}
+              className={`px-6 py-1.5 rounded-full transition-all ${activeTab === 'strategy' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}
+            >Strategy</button>
             <button 
               onClick={() => setActiveTab('site')}
               className={`px-6 py-1.5 rounded-full transition-all ${activeTab === 'site' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}
@@ -146,13 +153,104 @@ const App = () => {
           </div>
         )}
 
+        {activeTab === 'strategy' && (
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-red-50 p-2 rounded-lg"><AlertCircle className="text-red-600 w-6 h-6" /></div>
+                <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">The Problem</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                The construction industry faces a dual crisis: a critical shortage of raw materials and skyrocketing landfill fees for industrial waste. Traditional recycling handles less than 30% of construction waste, while the remaining 70% creates a multi-billion dollar liability for governments and private builders.
+              </p>
+              <div className="mt-6 flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-xl font-bold text-sm">
+                <Target className="w-4 h-4" /> 
+                Our Fix: Transforming waste from a "taxable liability" into a "high-value infrastructure asset."
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-blue-50 p-2 rounded-lg"><Globe className="text-blue-600 w-6 h-6" /></div>
+                <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Market Size</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                The global Green Building Materials market is projected to reach <strong>$573.91 Billion by 2030</strong>. 
+              </p>
+              <div className="space-y-3">
+                <div className="flex justify-between border-b border-slate-100 pb-2">
+                  <span className="text-sm font-medium text-slate-500">Global TAM</span>
+                  <span className="text-sm font-bold text-slate-800">$400B+</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-100 pb-2">
+                  <span className="text-sm font-medium text-slate-500">Israel's Infrastructure Demand</span>
+                  <span className="text-sm font-bold text-slate-800">$2.5B Annual</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-100 pb-2">
+                  <span className="text-sm font-medium text-slate-500">Waste Management Liability</span>
+                  <span className="text-sm font-bold text-slate-800">$100B+ Annually</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-orange-50 p-2 rounded-lg"><Clock className="text-orange-600 w-6 h-6" /></div>
+                <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Why Now?</h3>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex gap-3">
+                  <ChevronRight className="text-orange-500 w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm text-slate-600"><strong>Regulatory Pressure:</strong> New "Net-Zero" building mandates in the EU and Israel making traditional materials expensive.</p>
+                </li>
+                <li className="flex gap-3">
+                  <ChevronRight className="text-orange-500 w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm text-slate-600"><strong>Landfill Scarcity:</strong> Space is running out; gate fees have increased by 200% in the last decade.</p>
+                </li>
+                <li className="flex gap-3">
+                  <ChevronRight className="text-orange-500 w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm text-slate-600"><strong>Supply Chain Fragility:</strong> Global disruption has tripled the cost of traditional cement and binders.</p>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm border-l-4 border-l-blue-600">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-blue-50 p-2 rounded-lg"><Lightbulb className="text-blue-600 w-6 h-6" /></div>
+                <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Technological Edge</h3>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                Unlike competitors who use binders to "glit" waste, our <strong>Cold-Press Extrusion</strong> uses molecular stabilization to turn abrasive waste into high-density products.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-3 bg-slate-50 rounded-xl">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase block">99% Waste Ratio</span>
+                  <span className="text-xs text-slate-500 italic">Highest in the industry</span>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase block">Zero-Heat Process</span>
+                  <span className="text-xs text-slate-500 italic">90% energy reduction</span>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase block">Hardox® Core</span>
+                  <span className="text-xs text-slate-500 italic">Built for silica-heavy waste</span>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-xl">
+                  <span className="text-[10px] font-bold text-blue-600 uppercase block">Multi-Shape Die</span>
+                  <span className="text-xs text-slate-500 italic">Square, Star, Circle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {activeTab === 'site' && (
           <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="p-8 grid lg:grid-cols-5 gap-8">
               <div className="lg:col-span-3 space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-blue-900 mb-2">Israel Flagship Facility</h3>
-                  <p className="text-slate-600 text-sm">A strategic 5,000 sqm industrial hub designed for high industrial production. Each eco BRICK unit produces ~6.8 tons/hr, with infrastructure built for modular expansion to 30 machines and more.</p>
+                  <p className="text-slate-600 text-sm">A strategic 5,000 sqm industrial hub designed for high industrial production. Each eco BRICK unit produces ~6.8 tons/hr, with infrastructure built for modular expansion to 30 units and more.</p>
                 </div>
                 
                 {/* Visual Site Plan / Layout */}
@@ -227,7 +325,7 @@ const App = () => {
                   </div>
                   <div className="flex justify-between items-end border-b border-slate-200 pb-2">
                     <span className="text-sm text-slate-500 font-medium">Scaling Potential</span>
-                    <span className="text-sm font-bold text-slate-700">Up to 30 machines</span>
+                    <span className="text-sm font-bold text-slate-700">Up to 30 units</span>
                   </div>
                   <div className="flex justify-between items-end border-b border-slate-200 pb-2">
                     <span className="text-sm text-slate-500 font-medium">Total Site Area - (minimum )</span>
