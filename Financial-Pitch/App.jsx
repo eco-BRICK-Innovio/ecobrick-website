@@ -411,9 +411,6 @@ const App = () => {
                       <p className="text-lg font-semibold leading-snug">Projected cumulative liquidity in 48 months:</p>
                     </div>
                     <div className="text-6xl font-black text-white mt-4">50.2M <span className="text-xl font-light text-blue-400">ILS</span></div>
-                    <button className="mt-8 bg-blue-600 hover:bg-blue-500 transition-colors w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2 group">
-                      Review Full Pro-Forma <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
                   </div>
                   <div className="absolute bottom-0 right-0 left-0 h-32 opacity-20 flex items-end gap-1 px-4 text-right">
                     <div className="bg-blue-400 w-full h-[20%]"></div>
@@ -435,12 +432,9 @@ const App = () => {
               <p>© 2026 eco BRICK Innovio. All rights reserved.</p>
             </div>
             <div className="flex gap-4">
-              <a href="mailto:shlomi@ecobrick.tech" className="bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">
+              <a href="/Contact/index.html" className="bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm relative -left-[20%]">
                 Contact Founder
               </a>
-              <button className="bg-blue-900 px-6 py-3 rounded-xl font-bold text-white hover:bg-blue-800 transition-colors shadow-lg flex items-center gap-2 group">
-                Request Meeting <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
             </div>
           </div>
         </footer>

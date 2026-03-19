@@ -15,7 +15,8 @@ export default defineConfig({
                 'technical-library': 'technical-library.html',
                 'One-Pager': 'One-Pager/index.html',
                 'market-insights': 'market-insights.html',
-                'Financial-Pitch': 'Financial-Pitch/index.html'
+                'Financial-Pitch': 'Financial-Pitch/index.html',
+                'Contact': 'Contact/index.html'
             }
         }
     }
