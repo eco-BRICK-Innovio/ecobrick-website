@@ -13,7 +13,7 @@ export default defineConfig({
                 terms: 'terms.html',
                 accessibility: 'accessibility.html',
                 'technical-library': 'technical-library.html',
-                'one-pager': 'One-Pager/index.html',
+                'one-pager': 'one-pager.html',
                 'market-insights': 'market-insights.html',
                 'Financial-Pitch': 'Financial-Pitch/index.html'
             }
