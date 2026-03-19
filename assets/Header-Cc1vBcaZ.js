@@ -16,7 +16,7 @@ function s({content:a,toggleLang:n,currentLang:l}){const i=l==="en"?"🇮🇱 HE
             <li><a href="#technology" class="nav-link">${a.technology}</a></li>
             <li><a href="#applications" class="nav-link">${a.applications}</a></li>
             <li><a href="#impact" class="nav-link">${a.impact}</a></li>
-            <li><a href="one-pager.html" class="nav-link">${a.onePager}</a></li>
+            <li><a href="One-Pager/index.html" class="nav-link">${a.onePager}</a></li>
             <li><a href="Financial-Pitch/index.html" class="nav-link">${a.financialPitch}</a></li>
             <li><a href="technical-library.html" class="nav-link">${a.technicalLibrary||"Technical Library"}</a></li>
             <li><button id="lang-toggle" class="btn btn-outline lang-btn">${i}</button></li>
