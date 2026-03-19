@@ -66,7 +66,7 @@ const App = () => {
             <button 
               onClick={() => setActiveTab('financials')}
               className={`px-6 py-1.5 rounded-full transition-all ${activeTab === 'financials' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}
-            >Returns</button>
+            >ROI</button>
           </div>
         </div>
       </header>
