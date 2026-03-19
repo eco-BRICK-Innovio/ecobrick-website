@@ -1,4 +1,4 @@
-function s({content:a,toggleLang:i,currentLang:l}){const n=l==="en"?"🇮🇱 HE":"🇺🇸 EN";return`
+function i({content:a,toggleLang:s,currentLang:l}){const n=l==="en"?"🇮🇱 HE":"🇺🇸 EN";return`
     <header class="header">
       <div class="container header-content">
         <a href="#" class="logo-link">
@@ -17,7 +17,6 @@ function s({content:a,toggleLang:i,currentLang:l}){const n=l==="en"?"🇮🇱 HE
             <li><a href="#applications" class="nav-link">${a.applications}</a></li>
             <li><a href="#impact" class="nav-link">${a.impact}</a></li>
 
-            <li><a href="Financial-Pitch/index.html" class="nav-link">${a.financialPitch}</a></li>
             <li><a href="technical-library.html" class="nav-link">${a.technicalLibrary||"Technical Library"}</a></li>
             <li><button id="lang-toggle" class="btn btn-outline lang-btn">${n}</button></li>
             <li><a href="${a.partnerLink||"#contact"}" class="btn contact-btn" style="background-color: #ffffff; color: #1565C0; border: 1px solid #000000;">${a.partner}</a></li>
@@ -25,4 +24,4 @@ function s({content:a,toggleLang:i,currentLang:l}){const n=l==="en"?"🇮🇱 HE
         </nav>
       </div>
     </header>
-  `}export{s as H};
+  `}export{i as H};
