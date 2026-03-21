@@ -22,8 +22,8 @@ import {
   Beaker, 
   Package, 
   ArrowLeftRight,
-  ShieldCheck,
-  Zap,
+  ShieldCheck, 
+  Zap, 
   Box
 } from 'lucide-react';
 
@@ -34,7 +34,7 @@ const ProcessStep = ({ icon: Icon, title, subtitle, items, colorClass, stats, ra
         <Icon className="w-8 h-8" />
       </div>
       <div>
-        <h3 className="text-xl font-black leading-tight text-inherit">{title}</h3>
+        <h3 className="text-xl font-black leading-tight">{title}</h3>
         <p className="text-sm font-bold opacity-80">{subtitle}</p>
       </div>
     </div>
@@ -50,7 +50,7 @@ const ProcessStep = ({ icon: Icon, title, subtitle, items, colorClass, stats, ra
       )}
       {rate && (
         <div className="bg-white/50 backdrop-blur-md p-3 rounded-xl border border-white/30">
-          <div className="text-[10px] font-bold opacity-80 uppercase tracking-wider">יעד/מדד</div>
+          <div className="text-[10px] font-bold opacity-80 uppercase tracking-wider">יעד</div>
           <div className="text-xs font-black leading-tight">{rate}</div>
         </div>
       )}
@@ -94,7 +94,7 @@ const App = () => {
   // --- Data Calculations (Ratios 1/8, 1/8, 3/4) ---
   const dryWasteBase = 105761;
   const constructionWaste = dryWasteBase * 2; // 211,522 tons
-  const totalProcessableMass = dryWasteBase + constructionWaste; // 317,283 tons
+  const totalProcessableMass = dryWasteBase + constructionWaste; 
   
   const hotAsphaltTons = totalProcessableMass * 0.125;
   const coldAsphaltTons = totalProcessableMass * 0.125;
@@ -102,15 +102,20 @@ const App = () => {
 
   const hotAsphaltPricePerTon = 700;
   const coldAsphaltPricePer20kg = 140;
-  const coldAsphaltPricePerTon = (1000 / 20) * coldAsphaltPricePer20kg; // 7,000 NIS/ton
+  const coldAsphaltPricePerTon = (1000 / 20) * coldAsphaltPricePer20kg; 
   const aggregatePricePerCubic = 210;
   const tonsToCubicFactor = 1.5; 
 
-  const homeWasteRev = 44357 * 315;
-  const mixedWasteRev = 78244 * 336;
-  const constructionWasteRev = constructionWaste * 120;
-  const industrialWasteRev = 136 * 336;
+  // --- Revenue estimation (Waste Intake) ---
+  const homeWasteRev = 44357 * 315; 
+  const mixedWasteRev = 78244 * 302; 
+  const constructionWasteRev = constructionWaste * 108; 
+  const industrialWasteRev = 136 * 302; 
   const totalWasteRevenue = homeWasteRev + mixedWasteRev + constructionWasteRev + industrialWasteRev;
+
+  // --- Discount Calculation for Step 1 Text ---
+  // (350-315)*44357 + (336-302)*78244 + (120-108)*211522 + (336-302)*136
+  const totalAshdodDiscount = 1552495 + 2660296 + 2538264 + 4624;
 
   const hotAsphaltRevenue = hotAsphaltTons * hotAsphaltPricePerTon;
   const coldAsphaltRevenue = coldAsphaltTons * coldAsphaltPricePerTon;
@@ -182,13 +187,13 @@ const App = () => {
         <section className="text-center mb-24 max-w-5xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-5 py-2 rounded-full text-xs font-black mb-8 border border-blue-100 shadow-sm">
             <Target className="w-4 h-4" />
-            <span className="uppercase tracking-widest">המרת פסולת לערך כלכלי וסביבתי בשיתוף עיריית אשדוד</span>
+            <span className="uppercase tracking-widest font-black text-[10px]">המרת פסולת לערך כלכלי וסביבתי בשיתוף עיריית אשדוד וחפ"א</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-10 leading-[1.1] tracking-tight">
             מתקן אקו בריק אינוביו - אשדוד 2026: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600 font-black whitespace-nowrap">מודל עסקי דו-ערוצי</span>
           </h2>
           <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-3xl mx-auto">
-            מתקן <strong>eco BRICK Innovio</strong> באשדוד מיישם טכנולוגיות המרה מתקדמות לטיפול ב-<strong>230,860 טון</strong> פסולת בשנה, תוך יצירת מודל רווחיות מבוסס כלכלה מעגלית.
+            מתקן <strong>eco BRICK Innovio</strong> באשדוד מיישם טכנולוגיות המרה מתקדמות לטיפול ב-<strong>230,860 טון</strong> פסולת בשנה, תוך יצירת מודל רווחיות מבוסס כלכלה מעגלית ושותפות מוניציפלית.
           </p>
         </section>
 
@@ -203,9 +208,16 @@ const App = () => {
             colorClass="bg-blue-50 border-blue-100 text-blue-900"
             items={[
               "קליטת 44,357 טון אשפה ביתית",
-              "ניהול 78,244 טון מעורבת",
+              "קליטת 78,244 טון מעורבת",
               "קליטת 136 טון תעשייה יבשה",
-              "הנחת עירייה של 10% מובנית",
+              (
+                <span key="discount-line">
+                  הנחת עירייה של 10% על כלל הפסולת כ -
+                  <span className="font-black text-blue-600 text-base mr-1 underline underline-offset-4 tracking-tight">
+                    (₪{formatNumber(totalAshdodDiscount)})
+                  </span>
+                </span>
+              ),
               "הפרדת ברזל וחומרים מגנטיים"
             ]}
           />
@@ -254,7 +266,7 @@ const App = () => {
               "שילוב המוצקים האורגניים",
               "ייצור משחה ביו-ביטומנית",
               "הפקת אמולסיה לאספלט קר",
-              "חיסכון ברכש חומרים חיצוניים"
+              "חיסכון ברכש חומרים חיצוניים בדגש ביטומן"
             ]}
           />
 
@@ -269,7 +281,7 @@ const App = () => {
               "אספקת אגרגט לבנייה ירוקה",
               "הפצת תוספי אספלט חם",
               "מינימום הטמנה (3% בלבד)",
-              "עמידה בתקינה אירופאית"
+              "עמידה בתקינה אמריקאית"
             ]}
           />
 
@@ -281,13 +293,14 @@ const App = () => {
             colorClass="bg-orange-600 border-orange-500 text-white shadow-orange-200"
             subSections={[
               {
-                title: "דמי קליטה (Tipping)",
+                title: "דמי קליטה (מקורי ➔ אחרי הנחה)",
                 icon: Tags,
                 items: [
-                  { label: "ביתית (טון)", value: "₪315" },
-                  { label: "מעורבת (טון)", value: "₪336" },
-                  { label: "בניין (טון)", value: "₪120" },
-                  { label: "תעשייה יבשה", value: "₪336" }
+                  { label: "ביתית (טון)", value: "₪350 ➔ ₪315" },
+                  { label: "מעורבת (טון)", value: "₪336 ➔ ₪302" },
+                  { label: "בניין (טון)", value: "₪120 ➔ ₪108" },
+                  { label: "תעשייה יבשה", value: "₪336 ➔ ₪302" },
+                  { label: "מכירת ברזל", value: "בהתאם לשוק" }
                 ]
               },
               {
@@ -313,8 +326,8 @@ const App = () => {
                       <ArrowLeftRight className="w-10 h-10 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="text-4xl font-black text-slate-900 tracking-tight">תחזית הכנסות שנתית 2026</h3>
-                      <p className="text-slate-500 font-bold uppercase tracking-widest text-sm mt-1">מבט כפול לפי מקורות הכנסה</p>
+                      <h3 className="text-4xl font-black text-slate-900 tracking-tight">אומדן הכנסות שנתי למתקן</h3>
+                      <p className="text-slate-500 font-bold uppercase tracking-widest text-sm mt-1">מבט כפול לפי מקורות הכנסה (הצגת הנחת עירייה 10%)</p>
                     </div>
                   </div>
                   <div className="bg-emerald-50 px-8 py-4 rounded-3xl border border-emerald-100 text-center">
@@ -324,13 +337,13 @@ const App = () => {
                </div>
                
                <div className="grid lg:grid-cols-2 gap-16">
-                  {/* Side A: Waste Revenues */}
+                  {/* Side A: Waste Absorption */}
                   <div>
                      <div className="flex items-center gap-4 mb-10">
                         <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
                           <Trash2 className="w-6 h-6" />
                         </div>
-                        <h4 className="text-2xl font-black text-slate-900">הכנסות מניהול פסולת</h4>
+                        <h4 className="text-2xl font-black text-slate-900">קליטה של פסולת</h4>
                      </div>
                      <div className="space-y-8">
                         <div className="group relative">
@@ -341,7 +354,7 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[25%] group-hover:w-[28%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">44,357 טון × ₪315</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">44,357 טון × <span className="text-blue-500">₪350 ➔ ₪315</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="group relative">
@@ -350,9 +363,9 @@ const App = () => {
                               <span className="text-xl font-black text-slate-800">{formatCurrency(mixedWasteRev + industrialWasteRev)}</span>
                            </div>
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                              <div className="bg-blue-500 h-full w-[45%] group-hover:w-[48%] transition-all duration-700"></div>
+                              <div className="bg-blue-600 h-full w-[45%] group-hover:w-[48%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">78,380 טון × ₪336</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">78,380 טון × <span className="text-blue-500">₪336 ➔ ₪302</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="group relative">
@@ -361,13 +374,13 @@ const App = () => {
                               <span className="text-xl font-black text-slate-800">{formatCurrency(constructionWasteRev)}</span>
                            </div>
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
-                              <div className="bg-blue-400 h-full w-[40%] group-hover:w-[43%] transition-all duration-700"></div>
+                              <div className="bg-blue-600 h-full w-[40%] group-hover:w-[43%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">{formatNumber(constructionWaste)} טון × ₪120</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">{formatNumber(constructionWaste)} טון × <span className="text-blue-500">₪120 ➔ ₪108</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="pt-10 mt-10 border-t-2 border-dashed border-slate-100 flex justify-between items-center">
-                           <span className="text-lg font-black text-slate-900">סה"כ מניהול פסולת:</span>
+                           <span className="text-lg font-black text-slate-900">סה"כ מקליטת פסולת:</span>
                            <span className="text-4xl font-black text-blue-600">{formatCurrency(totalWasteRevenue)}</span>
                         </div>
                      </div>
