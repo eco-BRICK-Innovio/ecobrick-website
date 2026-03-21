@@ -154,12 +154,15 @@ const App = () => {
                 />
               </div>
               <div className="w-px h-8 bg-slate-200"></div>
-              <div className="flex flex-col items-center">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-slate-600 max-w-[100px] text-right leading-tight" dir="rtl">
+                  חפ״א – החברה לפיתוח אשדוד
+                </span>
                 <img 
                   src="../hapa-logo.png" 
                   alt="חפא - החברה הכלכלית אשדוד" 
                   className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help"
-                  title="חפ״א - החברה העירונית לפיתוח אשדוד"
+                  title="חפ״א - החברה לפיתוח אשדוד"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
