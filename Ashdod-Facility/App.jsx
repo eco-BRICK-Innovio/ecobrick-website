@@ -329,7 +329,7 @@ const App = () => {
                     </div>
                     <div>
                       <h3 className="text-4xl font-black text-slate-900 tracking-tight">אומדן הכנסות שנתי למתקן</h3>
-                      <p className="text-slate-500 font-bold uppercase tracking-widest text-sm mt-1">מבט כפול לפי מקורות הכנסה (הצגת הנחת עירייה 10%)</p>
+                      <p className="text-slate-500 font-bold uppercase tracking-widest text-sm mt-1">מקורות הכנסה</p>
                     </div>
                   </div>
                   <div className="bg-emerald-50 px-8 py-4 rounded-3xl border border-emerald-100 text-center">
