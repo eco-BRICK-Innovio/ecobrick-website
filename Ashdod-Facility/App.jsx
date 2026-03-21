@@ -445,7 +445,7 @@ const App = () => {
             <div className="bg-slate-900 p-3 rounded-2xl text-white">
               <Cpu className="w-8 h-8" />
             </div>
-            <h3 className="text-3xl font-black text-slate-900 tracking-tight">מפרט תשתיות וציוד קריטי</h3>
+            <h3 className="text-3xl font-black text-slate-900 tracking-tight">מפרט תשתיות וציוד ייצור</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="p-8 bg-orange-50/50 rounded-[2rem] border border-orange-100 group">
