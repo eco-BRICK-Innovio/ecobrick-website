@@ -293,13 +293,13 @@ const App = () => {
             colorClass="bg-orange-600 border-orange-500 text-white shadow-orange-200"
             subSections={[
               {
-                title: "דמי קליטה (מקורי ➔ אחרי הנחה)",
+                title: "דמי קליטה (מקורי ← אחרי הנחה)",
                 icon: Tags,
                 items: [
-                  { label: "ביתית (טון)", value: "₪350 ➔ ₪315" },
-                  { label: "מעורבת (טון)", value: "₪336 ➔ ₪302" },
-                  { label: "בניין (טון)", value: "₪120 ➔ ₪108" },
-                  { label: "תעשייה יבשה", value: "₪336 ➔ ₪302" },
+                  { label: "ביתית (טון)", value: "₪350 ← ₪315" },
+                  { label: "מעורבת (טון)", value: "₪336 ← ₪302" },
+                  { label: "בניין (טון)", value: "₪120 ← ₪108" },
+                  { label: "תעשייה יבשה", value: "₪336 ← ₪302" },
                   { label: "מכירת ברזל", value: "בהתאם לשוק" }
                 ]
               },
@@ -354,7 +354,7 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[25%] group-hover:w-[28%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">44,357 טון × <span className="text-blue-500">₪350 ➔ ₪315</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">44,357 טון × <span className="text-blue-500">₪350 ← ₪315</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="group relative">
@@ -365,7 +365,7 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[45%] group-hover:w-[48%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">78,380 טון × <span className="text-blue-500">₪336 ➔ ₪302</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">78,380 טון × <span className="text-blue-500">₪336 ← ₪302</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="group relative">
@@ -376,7 +376,7 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[40%] group-hover:w-[43%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">{formatNumber(constructionWaste)} טון × <span className="text-blue-500">₪120 ➔ ₪108</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2">{formatNumber(constructionWaste)} טון × <span className="text-blue-500">₪120 ← ₪108</span> (אחרי הנחה)</p>
                         </div>
 
                         <div className="pt-10 mt-10 border-t-2 border-dashed border-slate-100 flex justify-between items-center">
