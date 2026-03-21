@@ -211,14 +211,6 @@ const App = () => {
               "קליטת 44,357 טון אשפה ביתית",
               "קליטת 78,244 טון מעורבת",
               "קליטת 136 טון תעשייה יבשה",
-              (
-                <span key="discount-line">
-                  הנחת עירייה של 10% על כלל הפסולת כ -
-                  <span className="font-black text-blue-600 text-base mr-1 underline underline-offset-4 tracking-tight">
-                    (₪{formatNumber(totalAshdodDiscount)})
-                  </span>
-                </span>
-              ),
               "הפרדת ברזל וחומרים מגנטיים"
             ]}
           />
@@ -301,7 +293,8 @@ const App = () => {
                   { label: "מעורבת (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪302 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪336</span> },
                   { label: "בניין (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪108 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪120</span> },
                   { label: "תעשייה יבשה", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪302 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪336</span> },
-                  { label: "מכירת ברזל", value: "בהתאם לשוק" }
+                  { label: "מכירת ברזל", value: "בהתאם לשוק" },
+                  { label: "הנחת עירייה של 10% על כלל הפסולת כ -", value: <span dir="ltr">(₪{formatNumber(totalAshdodDiscount)})</span> }
                 ]
               },
               {
