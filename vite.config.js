@@ -16,7 +16,8 @@ export default defineConfig({
                 'One-Pager': 'One-Pager/index.html',
                 'market-insights': 'market-insights.html',
                 'Financial-Pitch': 'Financial-Pitch/index.html',
-                'Contact': 'Contact/index.html'
+                'Contact': 'Contact/index.html',
+                'Ashdod-Facility': 'Ashdod-Facility/index.html'
             }
         }
     }
