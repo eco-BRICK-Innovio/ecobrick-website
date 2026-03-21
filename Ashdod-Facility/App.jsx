@@ -146,20 +146,21 @@ const App = () => {
             <div className="hidden sm:flex items-center gap-5 border-r border-slate-200 pr-6 h-12">
               <div className="flex flex-col items-center">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/he/thumb/8/8b/Ashdod_Logo.svg/1200px-Ashdod_Logo.svg.png" 
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/23/%D7%9C%D7%95%D7%92%D7%95_%D7%90%D7%A9%D7%93%D7%95%D7%93.png" 
                   alt="עיריית אשדוד" 
-                  className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 cursor-help" 
+                  className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help" 
                   title="עיריית אשדוד"
+                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
               <div className="w-px h-8 bg-slate-200"></div>
               <div className="flex flex-col items-center">
                 <img 
-                  src="https://www.hapa.co.il/wp-content/themes/hapa/images/logo.png" 
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Logo_of_the_Ashdod_Development_Company.svg/512px-Logo_of_the_Ashdod_Development_Company.svg.png" 
                   alt="חפא - החברה הכלכלית אשדוד" 
-                  className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 cursor-help"
+                  className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help"
                   title="חפ״א - החברה העירונית לפיתוח אשדוד"
-                  onError={(e) => { e.target.src = 'https://via.placeholder.com/100x40?text=HAPA'; }}
+                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
             </div>
