@@ -144,11 +144,11 @@ const App = () => {
 
             {/* Partners Logo Section - Dividers and Partners */}
             <div className="hidden sm:flex items-center gap-5 border-r border-slate-200 pr-6 h-12">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center ml-2">
                 <img 
                   src="../ashdod-logo.png" 
                   alt="עיריית אשדוד" 
-                  className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help" 
+                  className="h-10 scale-[1.7] object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help" 
                   title="עיריית אשדוד"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
