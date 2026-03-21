@@ -24,7 +24,8 @@ import {
   ArrowLeftRight,
   ShieldCheck, 
   Zap, 
-  Box
+  Box,
+  ArrowLeft
 } from 'lucide-react';
 
 const ProcessStep = ({ icon: Icon, title, subtitle, items, colorClass, stats, rate, subSections }) => (
@@ -293,13 +294,13 @@ const App = () => {
             colorClass="bg-orange-600 border-orange-500 text-white shadow-orange-200"
             subSections={[
               {
-                title: "דמי קליטה (מקורי ← אחרי הנחה)",
+                title: <span className="inline-flex items-center gap-1.5">דמי קליטה (מקורי <ArrowLeft className="w-3.5 h-3.5 mx-0.5" strokeWidth={3} /> אחרי הנחה)</span>,
                 icon: Tags,
                 items: [
-                  { label: "ביתית (טון)", value: "₪350 ← ₪315" },
-                  { label: "מעורבת (טון)", value: "₪336 ← ₪302" },
-                  { label: "בניין (טון)", value: "₪120 ← ₪108" },
-                  { label: "תעשייה יבשה", value: "₪336 ← ₪302" },
+                  { label: "ביתית (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪315 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪350</span> },
+                  { label: "מעורבת (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪302 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪336</span> },
+                  { label: "בניין (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪108 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪120</span> },
+                  { label: "תעשייה יבשה", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪302 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪336</span> },
                   { label: "מכירת ברזל", value: "בהתאם לשוק" }
                 ]
               },
@@ -354,7 +355,13 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[25%] group-hover:w-[28%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">44,357 טון × <span className="text-blue-500">₪350 ← ₪315</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2 flex items-center gap-1.5">
+                              <span>44,357 טון ×</span>
+                              <span className="text-blue-500 inline-flex items-center gap-1" dir="ltr">
+                                ₪315 <ArrowLeft className="w-3 h-3 text-blue-600" strokeWidth={3}/> ₪350
+                              </span>
+                              <span>(אחרי הנחה)</span>
+                           </p>
                         </div>
 
                         <div className="group relative">
@@ -365,7 +372,13 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[45%] group-hover:w-[48%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">78,380 טון × <span className="text-blue-500">₪336 ← ₪302</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2 flex items-center gap-1.5">
+                              <span>78,380 טון ×</span>
+                              <span className="text-blue-500 inline-flex items-center gap-1" dir="ltr">
+                                ₪302 <ArrowLeft className="w-3 h-3 text-blue-600" strokeWidth={3}/> ₪336
+                              </span>
+                              <span>(אחרי הנחה)</span>
+                           </p>
                         </div>
 
                         <div className="group relative">
@@ -376,7 +389,13 @@ const App = () => {
                            <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                               <div className="bg-blue-600 h-full w-[40%] group-hover:w-[43%] transition-all duration-700"></div>
                            </div>
-                           <p className="text-[10px] text-slate-400 font-bold mt-2">{formatNumber(constructionWaste)} טון × <span className="text-blue-500">₪120 ← ₪108</span> (אחרי הנחה)</p>
+                           <p className="text-[10px] text-slate-400 font-bold mt-2 flex items-center gap-1.5">
+                              <span>{formatNumber(constructionWaste)} טון ×</span>
+                              <span className="text-blue-500 inline-flex items-center gap-1" dir="ltr">
+                                ₪108 <ArrowLeft className="w-3 h-3 text-blue-600" strokeWidth={3}/> ₪120
+                              </span>
+                              <span>(אחרי הנחה)</span>
+                           </p>
                         </div>
 
                         <div className="pt-10 mt-10 border-t-2 border-dashed border-slate-100 flex justify-between items-center">
