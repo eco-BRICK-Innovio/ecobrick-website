@@ -146,7 +146,7 @@ const App = () => {
             <div className="hidden sm:flex items-center gap-5 border-r border-slate-200 pr-6 h-12">
               <div className="flex flex-col items-center">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/2/23/%D7%9C%D7%95%D7%92%D7%95_%D7%90%D7%A9%D7%93%D7%95%D7%93.png" 
+                  src="../ashdod-logo.png" 
                   alt="עיריית אשדוד" 
                   className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help" 
                   title="עיריית אשדוד"
@@ -156,7 +156,7 @@ const App = () => {
               <div className="w-px h-8 bg-slate-200"></div>
               <div className="flex flex-col items-center">
                 <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Logo_of_the_Ashdod_Development_Company.svg/512px-Logo_of_the_Ashdod_Development_Company.svg.png" 
+                  src="../hapa-logo.png" 
                   alt="חפא - החברה הכלכלית אשדוד" 
                   className="h-10 object-contain transition-all duration-300 opacity-80 hover:opacity-100 cursor-help"
                   title="חפ״א - החברה העירונית לפיתוח אשדוד"
