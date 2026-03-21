@@ -294,7 +294,15 @@ const App = () => {
                   { label: "בניין (טון)", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪108 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪120</span> },
                   { label: "תעשייה יבשה", value: <span className="inline-flex items-center gap-1.5" dir="ltr">₪302 <ArrowLeft className="w-4 h-4 text-orange-200 drop-shadow-sm" strokeWidth={3}/> ₪336</span> },
                   { label: "מכירת ברזל", value: "בהתאם לשוק" },
-                  { label: "הנחת עירייה של 10% על כלל הפסולת כ -", value: <span dir="ltr">(₪{formatNumber(totalAshdodDiscount)})</span> }
+                  { 
+                    label: (
+                      <div className="flex flex-col gap-0.5">
+                        <span>הנחת עירייה של 10%</span>
+                        <span>על כלל הפסולת כ-</span>
+                      </div>
+                    ), 
+                    value: <span dir="ltr" className="text-sm font-black text-white/95 mt-1">(₪{formatNumber(totalAshdodDiscount)})</span> 
+                  }
                 ]
               },
               {
