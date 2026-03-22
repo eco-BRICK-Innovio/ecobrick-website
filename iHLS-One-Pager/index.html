@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eco BRICK - iHLS Victory & Gaza Reconstruction Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+        }
+        
+        .win-badge {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .product-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-container {
+            height: 260px;
+            width: 100%;
+            overflow: hidden;
+            background-color: #cbd5e1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image {
+            height: 100%;
+            width: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+        }
+        
+        .fallback-ui {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            width: 100%;
+            height: 100%;
+            background: #f1f5f9;
+            z-index: 1;
+        }
+        
+        .prototype-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(15, 23, 42, 0.85);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+        }
+        
+        .stats-border {
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 20;
+            margin-top: -8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                margin-top: -4rem;
+            }
+            .image-container {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="hero-gradient text-white pt-20 pb-48 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10">
+            <div class="mb-12 md:mb-0 text-center md:text-left md:w-2/3">
+                <div class="inline-block win-badge text-slate-900 font-bold px-6 py-2 rounded-full text-sm mb-8 tracking-wide uppercase">
+                    <i class="fas fa-trophy mr-2"></i> iHLS Competition Winner
+                </div>
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-8 leading-tight tracking-tight">
+                    ec<i class="fas fa-recycle text-green-400 mx-1"></i>BRICK
+                </h1>
+                <p class="text-2xl md:text-3xl text-blue-100 font-light max-w-2xl leading-relaxed opacity-90">
+                    Transforming conflict debris into the foundations of sustainable peace.
+                </p>
+            </div>
+            <div class="text-center md:text-right border-t md:border-t-0 md:border-l border-blue-400/30 pt-10 md:pt-0 md:pl-12">
+                <p class="text-blue-300 uppercase tracking-widest text-sm font-bold mb-3">The Vision</p>
+                <p class="text-4xl font-black mb-2">The "Day After"</p>
+                <p class="text-2xl font-semibold text-blue-200">Gaza Reconstruction</p>
+                <div class="flex flex-wrap justify-center md:justify-end gap-3 mt-4">
+                    <span class="bg-blue-900/40 px-3 py-1 rounded text-xs font-bold border border-blue-500/30 uppercase">Rapid</span>
+                    <span class="bg-blue-900/40 px-3 py-1 rounded text-xs font-bold border border-blue-500/30 uppercase">Sustainable</span>
+                    <span class="bg-blue-900/40 px-3 py-1 rounded text-xs font-bold border border-blue-500/30 uppercase">Local</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="h-full w-full">
+                <path fill="#FFFFFF" d="M44.7,-76.4C58.3,-69.2,70,-58.1,78.1,-44.8C86.2,-31.5,90.7,-15.7,89.1,-0.9C87.5,13.9,79.8,27.7,70.5,39.2C61.2,50.7,50.2,59.8,37.8,67.6C25.4,75.4,12.7,81.9,-1.2,84C-15.1,86.1,-30.2,83.8,-43.3,76.5C-56.3,69.2,-67.3,56.9,-75.4,43.2C-83.5,29.5,-88.7,14.3,-88.9,-0.1C-89.1,-14.5,-84.3,-29,-75.4,-41.2C-66.5,-53.4,-53.5,-63.3,-39.7,-70.4C-25.9,-77.5,-13,-81.8,1.2,-83.8C15.3,-85.8,31.1,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <main class="max-w-6xl mx-auto px-6">
+            
+            <section class="bg-white rounded-3xl shadow-2xl p-10 md:p-14 mb-16 border border-slate-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-green-500"></div>
+                <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                    <div class="bg-green-100 text-green-600 p-8 rounded-3xl mb-8 md:mb-0 md:mr-12 shrink-0">
+                        <i class="fas fa-award text-5xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-extrabold text-slate-800 mb-6">Unprecedented Success: Engineering Beyond Expectations</h2>
+                        <p class="text-xl text-slate-600 leading-relaxed font-light">
+                            Following our win at the iHLS competition, eco BRICK has successfully validated our technology for the "Day After" vision. With an estimated 40 million tons of construction debris currently cluttering Gaza, we have proven that this massive logistical burden can be transformed into high-strength material that meets the <strong>American standard ASTM C331</strong>. With that material, we developed new structural blocks that can meet international standards.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                
+                <!-- Card 1: VAD Modular Blocks -->
+                <div class="product-card">
+                    <div class="image-container">
+                        <div class="prototype-tag">Structural Innovation</div>
+                        <div class="fallback-ui">
+                            <i class="fas fa-cubes text-5xl mb-3"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest">Structural Blocks</span>
+                        </div>
+                        <img src="eco%20BRICK%20new%20Blocks.jpg" 
+                             alt="VAD structural block" 
+                             class="product-image"
+                             onerror="this.style.opacity='0'">
+                    </div>
+                    <div class="p-10 flex-grow">
+                        <p class="text-xs font-black text-blue-600 mb-3 uppercase tracking-widest">Housing Revolution</p>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-5 leading-tight">99% Waste Modular Blocks</h3>
+                        <p class="text-slate-600 mb-8 text-sm leading-relaxed">New structural wall system produced from nearly 100% onsite ruins. Engineered for high-speed assembly without traditional binding agents.</p>
+                        <ul class="space-y-4 text-slate-700 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Supports <strong>2-story</strong> houses</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span><strong>No Cement, Iron, or Glue</strong> needed</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Self-locking vertical wall assembly</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Flow Concrete -->
+                <div class="product-card">
+                    <div class="image-container">
+                        <div class="fallback-ui">
+                            <i class="fas fa-fill-drip text-5xl mb-3"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest">High-Flow Concrete</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" 
+                             alt="Industrial Concrete" 
+                             class="product-image"
+                             onerror="this.style.opacity='0'">
+                    </div>
+                    <div class="p-10 flex-grow">
+                        <p class="text-xs font-black text-blue-600 mb-3 uppercase tracking-widest">Security Infrastructure</p>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-5 leading-tight">95% Waste High-Flow Concrete</h3>
+                        <p class="text-slate-600 mb-8 text-sm leading-relaxed">High-viscosity flow concrete designed specifically for sealing underground voids and stabilizing foundations.</p>
+                        <ul class="space-y-4 text-slate-700 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Engineered to <strong>seal tunnels</strong></span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Self-leveling waste composite</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Controlling solidification</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Cold Asphalt -->
+                <div class="product-card">
+                    <div class="image-container">
+                        <div class="fallback-ui">
+                            <i class="fas fa-road text-5xl mb-3"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest">Cold-Mix Asphalt</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1533000932821-233763327663?auto=format&fit=crop&q=80&w=800" 
+                             alt="Road Paving" 
+                             class="product-image"
+                             onerror="this.style.opacity='0'">
+                    </div>
+                    <div class="p-10 flex-grow">
+                        <p class="text-xs font-black text-blue-600 mb-3 uppercase tracking-widest">Road Infrastructure</p>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-5 leading-tight">95%+ Waste Cold-Mix Asphalt</h3>
+                        <p class="text-slate-600 mb-8 text-sm leading-relaxed">A low-energy solution for immediate road paving and repair, converting rubble into load-bearing surfaces.</p>
+                        <ul class="space-y-4 text-slate-700 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span><strong>No heating</strong> plants required</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span><strong>Superior industrial durability</strong></span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-4"></i> <span>Traffic-ready within minutes</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-24 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-5xl font-black text-slate-800 mb-10 leading-tight">Proven Technology. Ready for Deployment.</h2>
+                    <div class="space-y-12">
+                        <div class="stats-border pl-10">
+                            <p class="text-6xl font-black text-blue-600 mb-2">~99%</p>
+                            <p class="text-xl text-slate-500 font-semibold tracking-wide uppercase">Waste Transformation Efficiency</p>
+                        </div>
+                        <div class="stats-border pl-10">
+                            <p class="text-6xl font-black text-blue-600 mb-2">ASTM C331</p>
+                            <p class="text-xl text-slate-500 font-semibold tracking-wide uppercase">International Structural Compliance</p>
+                        </div>
+                        <div class="stats-border pl-10">
+                            <p class="text-6xl font-black text-blue-600 mb-2">PCT Patent</p>
+                            <p class="text-xl text-slate-500 font-semibold tracking-wide uppercase">Proprietary Greentech Process</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 bg-slate-900 rounded-[4rem] p-16 relative shadow-2xl">
+                    <div class="absolute -top-10 -left-10 bg-blue-600 text-white w-20 h-20 flex items-center justify-center rounded-3xl shadow-2xl">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                    <p class="text-3xl italic text-blue-100 leading-relaxed mb-12 font-light">
+                        "We produce construction-grade structural walls directly from the ruins. This isn't just recycling; it's rapid humanitarian response."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-3xl mr-8 shadow-inner border-4 border-slate-800">EB</div>
+                        <div>
+                            <p class="font-bold text-2xl text-white">eco BRICK Innovio Ltd.</p>
+                            <p class="text-blue-400 font-bold uppercase tracking-widest text-sm mt-1">Winning the iHLS Challenge</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-slate-900 text-white py-24 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+            <div class="lg:col-span-2">
+                <h2 class="text-4xl font-black mb-6 tracking-tighter italic">ec<i class="fas fa-recycle text-green-400"></i>BRICK</h2>
+                <p class="text-slate-400 text-xl max-w-sm leading-relaxed">Turning the weight of the past into the structure of the future.</p>
+            </div>
+            <div>
+                <p class="font-bold text-lg mb-8 text-blue-400 uppercase tracking-widest">Connect</p>
+                <ul class="space-y-5 text-slate-300">
+                    <li class="flex items-center"><i class="fas fa-envelope mr-4 text-blue-500 w-5"></i> office@ecobrick.tech</li>
+                    <li class="flex items-center"><i class="fas fa-phone mr-4 text-blue-500 w-5"></i> +972.732.0732.20</li>
+                    <li class="flex items-center"><i class="fas fa-globe mr-4 text-blue-500 w-5"></i> www.ecobrick.tech</li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-bold text-lg mb-8 text-blue-400 uppercase tracking-widest">Global HQ</p>
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    103 Ha'Hashmonaim St.<br>
+                    Tel-Aviv, Israel<br>
+                    6120101
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
