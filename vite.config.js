@@ -17,7 +17,8 @@ export default defineConfig({
                 'market-insights': 'market-insights.html',
                 'Financial-Pitch': 'Financial-Pitch/index.html',
                 'Contact': 'Contact/index.html',
-                'Ashdod-Facility': 'Ashdod-Facility/index.html'
+                'Ashdod-Facility': 'Ashdod-Facility/index.html',
+                'iHLS-One-Pager': 'iHLS-One-Pager/index.html'
             }
         }
     }
