@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eco BRICK Innovio | המהפכה במיגון טכנולוגי ופריק</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
+        
+        body {
+            font-family: 'Assistant', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #020617 70%);
+        }
+        
+        /* Simulation Stage Styles */
+        
+        .simulation-stage {
+            position: relative;
+            background-color: #0f172a;
+            background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            height: 480px;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: inset 0 0 60px rgba(59, 130, 246, 0.15);
+        }
+        
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+            background: #1e293b;
+            z-index: 5;
+            border-top: 2px solid #3b82f6;
+            box-shadow: 0 -10px 40px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Missile */
+        
+        .missile {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            background: #1e293b;
+            border-radius: 5px 80% 80% 5px;
+            z-index: 50;
+            display: none;
+            box-shadow: -20px 0 25px rgba(59, 130, 246, 0.7);
+        }
+        
+        .missile::after {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #3b82f6, #93c5fd);
+            filter: blur(8px);
+        }
+        
+        @keyframes missile-flight {
+            0% { transform: translate(100vw, -150px) rotate(-25deg); opacity: 1; }
+            100% { transform: translate(50vw, 400px) rotate(-25deg); opacity: 1; }
+        }
+        
+        /* Explosion */
+        
+        .impact-flash {
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background: #60a5fa;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 200px 100px #3b82f6;
+            opacity: 0;
+            z-index: 60;
+        }
+        
+        .shockwave {
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 10;
+        }
+        
+        @keyframes wave-expand {
+            0% { width: 0; height: 0; opacity: 1; }
+            100% { width: 2000px; height: 2000px; opacity: 0; }
+        }
+        
+        .shrapnel {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #1e293b;
+            border-radius: 50%;
+            z-index: 20;
+            opacity: 0;
+        }
+        
+        @keyframes fly-shrapnel {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: var(--travel); opacity: 0; }
+        }
+        
+        /* Shelters */
+        
+        .shelter-sim {
+            position: absolute;
+            bottom: 80px;
+            width: 150px;
+            height: 120px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            transition: transform 0.1s;
+        }
+        
+        #concrete-sim { left: 10%; background: #cbd5e1; border: 4px solid #94a3b8; }
+        
+        #eco-sim { right: 10%; background: #1e293b; border: 4px solid #1e1b4b; }
+        
+        .shaking { animation: shake-intense 0.1s infinite; }
+        
+        @keyframes shake-intense {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            50% { transform: translate(-5px, 5px); }
+            75% { transform: translate(5px, 5px); }
+        }
+        
+        .cracks-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10L40 40M60 20L30 60M80 80L50 40' stroke='%23334155' stroke-width='4' fill='none'/%3E%3C/svg%3E");
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .absorption-pulse {
+            position: absolute;
+            inset: -15px;
+            border: 5px solid #3b82f6;
+            border-radius: 25px;
+            opacity: 0;
+            filter: blur(10px);
+        }
+        
+        /* Physics Panel */
+        
+        .physics-info {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(12px);
+            color: #f8fafc;
+            padding: 25px;
+            border-radius: 1.5rem;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .physics-info.visible { opacity: 1; transform: translateY(0); }
+        
+        .formula-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 1rem;
+            border-right: 4px solid #3b82f6;
+            border-left: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .ballistic-stat {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border-right: 6px solid #3b82f6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .ballistic-stat:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-300">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-[110] bg-slate-900/95 backdrop-blur-lg text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center text-right">
+            <div class="text-2xl font-black tracking-tighter">
+                eco BRICK <span class="text-blue-500 italic">Innovio</span>
+            </div>
+            <div class="hidden md:flex gap-10 font-bold text-sm">
+                <a href="#physics" class="hover:text-blue-400 transition">פיזיקה והנדסה</a>
+                <a href="#ballistics" class="hover:text-blue-400 transition text-blue-400">ניסויי בליסטיקה</a>
+                <a href="#simulation" class="hover:text-blue-400 transition">ניתוח הדף</a>
+                <a href="#specs" class="hover:text-blue-400 transition">מפרט טכני</a>
+                <a href="/" class="bg-blue-600 px-6 py-2 rounded-xl hover:bg-blue-500 transition shadow-lg">חזרה לדף הבית</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-48 pb-32 px-6 overflow-hidden relative text-right">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+             <div class="grid grid-cols-12 h-full gap-2 rotate-12 scale-150">
+                 {[...Array(48)].map((_, i) => <div key={i} class="border border-white/20 h-24"></div>)}
+             </div>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tighter text-white">
+                    ביטחון <br> <span class="text-blue-500 italic drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">מונוליטי</span> פריק
+                </h1>
+                <p class="text-2xl text-slate-400 mb-12 max-w-xl leading-relaxed font-medium">
+                    טכנולוגיית ה-eco BRICK משנה את הפיזיקה של המיגון. פתרון משיך הסופג אנרגיה ומבטיח פנים חלק מרסיסים גם תחת פגיעה ישירה של פגז 155 מ"מ.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#simulation" class="bg-blue-600 hover:bg-blue-500 border border-blue-400/50 text-white px-12 py-5 rounded-xl font-black text-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transition transform hover:scale-105 active:scale-95 text-center">הפעל סימולציית הדף</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="bg-slate-900/60 rounded-3xl p-8 border border-blue-900/30 shadow-[0_0_40px_rgba(0,0,0,0.5)] backdrop-blur-md">
+                    <div class="aspect-square bg-slate-950/80 rounded-2xl flex items-center justify-center text-blue-500 overflow-hidden relative border border-blue-900/40">
+                        <i class="fas fa-atom text-8xl text-blue-500 mb-8 drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]"></i>
+                        <p class="font-black text-white uppercase tracking-[0.3em] text-xl">Material Science v3.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Physics Formulas Section -->
+    <section id="physics" class="py-32 px-6 bg-black text-right">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-black mb-6 text-white tracking-tight">הפיזיקה של ה-eco BRICK</h2>
+                <p class="text-xl text-slate-400 font-medium max-w-3xl mx-auto">מעבר ממיגון פסיבי המבוסס על מסה, למיגון אקטיבי המבוסס על ספיגת אנרגיה.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-slate-900 border border-blue-900/50 p-10 rounded-2xl shadow-2xl">
+                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4 flex-row-reverse">
+                        <i class="fas fa-wave-square"></i>
+                        ניהול גלי הדף (\(P_r\))
+                    </h3>
+                    <p class="text-slate-400 mb-8 font-medium">הנוסחה לחישוב הלחץ המוחזר מראה כיצד ה-eco BRICK מאריך את משך זמן הספיגה ומוריד את שיא הכוח הדינמי.</p>
+                    <div class="bg-black border border-slate-800 text-blue-400 p-8 rounded-xl text-center text-2xl font-mono shadow-inner" dir="ltr">
+                        \[P_r = 2P_{so} \cdot \left( \frac{7P_0 + 4P_{so}}{7P_0 + P_{so}} \right)\]
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-blue-900/50 p-10 rounded-2xl shadow-2xl">
+                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4 flex-row-reverse">
+                        <i class="fas fa-crosshairs"></i>
+                        בלימת רסיסים (155mm)
+                    </h3>
+                    <p class="text-slate-600 mb-8 font-medium">שימוש בנוסחת Modified Petry לחישוב חדירה. המטריצה הפולימרית בולעת את האנרגיה ללא התנפצות פנימית.</p>
+                    <div class="bg-slate-900 text-blue-400 p-8 rounded-2xl text-center text-2xl font-mono" dir="ltr">
+                        \[x = k \cdot \frac{M}{A} \cdot \log_{10}\left(1 + \frac{V^2}{215,000}\right)\]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Ballistic Range Testing Results -->
+    <section id="ballistics" class="py-32 px-6 bg-zinc-950 text-right">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8 relative z-10">
+                <div>
+                    <h2 class="text-5xl font-black mb-4 text-white tracking-tight">הוכחה מהשטח: ניסויי ירי</h2>
+                    <p class="text-xl text-slate-400 font-bold">סיכום ניסויי בליסטיקה – אקדח 9 מ"מ ממרחק 6 מטר</p>
+                </div>
+                <div class="bg-blue-900/50 border border-blue-500/50 text-blue-100 px-8 py-3 rounded-full font-black text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)] backdrop-blur-sm">
+                    <i class="fas fa-bullseye ml-2 text-blue-400"></i> Range Test Certified
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 relative z-10">
+                <div class="ballistic-stat">
+                    <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">9/9</div>
+                    <h4 class="text-xl font-black mb-2 text-white">עצירת קליעים (Multi-hit)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed">ירי רציף על שטח פנים מצומצם. עובי של 4 ס"מ בלבד מספק הגנה של קרוב ל-100% מול תחמושת קלה ורסיסים.</p>
+                </div>
+                <div class="ballistic-stat">
+                    <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">0%</div>
+                    <h4 class="text-xl font-black mb-2 text-white">התנפצות (No Shattering)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed">המטריצה הפולימרית הפגינה התנהגות משיכה (Ductile). הלבנה שמרה על שלמות מבנית ללא נתזים (Ricochets).</p>
+                </div>
+                <div class="ballistic-stat">
+                    <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">ZERO</div>
+                    <h4 class="text-xl font-black mb-2 text-white">רסיסי פנים (Spalling)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed">אפס "ריג'קטים" מהצד האחורי. הקליעים נבלעו בתוך הלבנה או איבדו את כל האנרגיה הקינטית שלהם.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-gradient-to-br from-slate-900 to-blue-950 border border-blue-800/50 text-white p-10 rounded-3xl relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[60px] -translate-x-16 -translate-y-16 pointer-events-none"></div>
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-black mb-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]">המשמעות ההנדסית של הניסוי</h3>
+                        <ul class="space-y-4 font-bold">
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">חיסכון של 30%-50% במשקל המיגונית ללא פגיעה ברמת המיגון.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">בטיחות מקסימלית: פנים המבנה נקי מרסיסים קטלניים.</span></li>
+                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">עמידות תחת אש רציפה בזכות המבנה הפולימרי הסופג.</span></li>
+                        </ul>
+                    </div>
+                    <div class="text-center italic text-blue-100 border-r-4 border-blue-600 pr-8">
+                        <p class="text-2xl font-medium leading-relaxed">
+                            "הוכחנו שפסולת היא לא רק חומר גלם בר-קיימא, אלא חומר מיגון עדיף מבחינה פיזיקלית על פני בטון קונבנציונלי."
+                        </p>
+                        <p class="mt-4 font-black uppercase tracking-widest text-sm">— צוות ההנדסה, eco BRICK Innovio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Simulation -->
+    <section id="simulation" class="py-32 px-6 bg-black overflow-hidden text-right">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 relative z-20">
+                <h2 class="text-5xl font-black mb-6 text-white tracking-tight">סימולציית פגיעה הנדסית</h2>
+                <button onclick="runAdvancedBlast()" id="blastBtn" class="mt-12 bg-red-600 hover:bg-red-500 text-white px-16 py-5 rounded-2xl font-black text-2xl shadow-[0_0_30px_rgba(220,38,38,0.5)] transition-all transform hover:scale-105 active:scale-95 flex items-center gap-6 mx-auto border border-red-400/50">
+                    <i class="fas fa-rocket animate-bounce"></i>
+                    שגר טיל וייצר פיצוץ
+                </button>
+            </div>
+
+            <div class="simulation-stage">
+                <div id="physics-panel" class="physics-info text-right">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="formula-card">
+                            <h4 class="font-black text-cyan-400 mb-3 text-xl italic underline underline-offset-8">התקף (Impulse - \(J\))</h4>
+                            <p class="text-sm leading-relaxed font-bold text-slate-300">המדד לשינוי בתנע. ב-eco BRICK, גמישות החומר מאריכה את משך זמן הספיגה (\(dt\)), מה שמוריד דרמטית את שיא הכוח.</p>
+                        </div>
+                        <div class="formula-card">
+                            <h4 class="font-black text-cyan-400 mb-3 text-xl italic underline underline-offset-8">תנע (Momentum - \(p\))</h4>
+                            <p class="text-sm leading-relaxed font-bold text-slate-300">כמות התנועה המועברת (\(p = mv\)). המטריצה בולעת את התנע בצורה בטוחה ללא ניתוק חומר (Anti-Spalling).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="missile" class="missile"></div>
+                <div id="flash" class="impact-flash"></div>
+                <div id="shockwave" class="shockwave"></div>
+                
+                <div id="concrete-sim" class="shelter-sim">
+                    <div class="cracks-overlay" id="concrete-cracks"></div>
+                    <span class="absolute top-3 text-[12px] text-white font-black tracking-widest bg-black/60 backdrop-blur-sm px-3 py-1 rounded border border-white/10">BRITTLE</span>
+                    <i class="fas fa-building text-slate-400 text-6xl"></i>
+                    <div id="concrete-debris-field" class="absolute inset-0"></div>
+                </div>
+
+                <div id="eco-sim" class="shelter-sim shadow-[0_0_50px_rgba(59,130,246,0.3)]">
+                    <div class="absorption-pulse" id="eco-glow"></div>
+                    <span class="absolute top-3 text-[12px] text-cyan-400 font-black tracking-widest bg-blue-950/80 backdrop-blur-sm px-3 py-1 rounded border border-cyan-500/30 italic drop-shadow-[0_0_5px_rgba(34,211,238,0.8)]">DUCTILE</span>
+                    <i class="fas fa-shield-halved text-cyan-400 text-6xl drop-shadow-[0_0_25px_rgba(34,211,238,0.6)]"></i>
+                </div>
+
+                <div class="ground"></div>
+                <div id="shrapnel-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Field Imagery (Backyard) -->
+    <section id="gallery" class="py-32 px-6 bg-slate-950 text-right">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-black mb-12 text-center text-white tracking-tight">המיגונית בחצר הבית</h2>
+            <div class="relative rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border-4 border-slate-700 aspect-[21/9] bg-slate-900 group flex justify-center items-center">
+                <div class="absolute inset-0 bg-[url('/assets/shelter-premium.jpg')] bg-cover bg-center"></div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-16 flex flex-col justify-end text-white z-10 h-1/2">
+                    <h4 class="text-4xl font-black mb-4 tracking-tighter italic text-cyan-400 drop-shadow-md">דגם $3 \times 2$ פרימיום</h4>
+                    <p class="text-blue-100 font-bold text-xl leading-relaxed drop-shadow-md">עיצוב מודרני פריק שמעניק שקט נפשי מלא למשפחה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs -->
+    <section id="specs" class="py-32 px-6 bg-slate-900 text-white text-right">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-black mb-20 text-center tracking-tight">מפרט טכני מאושר</h2>
+            <div class="bg-slate-950/80 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.6)] border border-blue-900 overflow-hidden">
+                <table class="w-full text-right border-collapse">
+                    <thead>
+                        <tr class="bg-blue-950/40 text-blue-200 border-b border-blue-900/60">
+                            <th class="p-10 font-black text-2xl text-right">קריטריון הנדסי</th>
+                            <th class="p-10 font-black text-2xl text-cyan-400 text-right text-center drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">eco BRICK Innovio</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-blue-900/30 font-bold text-xl">
+                        <tr><td class="p-8 pr-12 text-slate-300">צפיפות חומר (Density)</td><td class="p-8 text-cyan-400 font-mono">~1,120 kg/m³ <span class="text-sm font-sans text-slate-400 ml-2">(קל ב-55% מבטון)</span></td></tr>
+                        <tr><td class="p-8 pr-12 text-slate-300">עמידות הדף (Blast Resistance)</td><td class="p-8 text-cyan-400 font-mono italic">עד 1.0 Bar <span class="text-sm font-sans text-slate-400 ml-2">(תקן פקע"ר)</span></td></tr>
+                        <tr><td class="p-8 pr-12 text-slate-300">בלימת רסיסים (155mm)</td><td class="p-8 text-cyan-400 font-mono">12-14 cm <span class="text-sm font-sans text-slate-400 ml-2">(ללא רסיסי פנים)</span></td></tr>
+                        <tr><td class="p-8 pr-12 text-slate-300">משקל כולל (דגם 3x2)</td><td class="p-8 text-cyan-400 font-mono">~9.5 טון</td></tr>
+                        <tr><td class="p-8 pr-12 text-slate-300">שיטת חיבור (Connectivity)</td><td class="p-8 text-cyan-400 font-mono">Bolted Plate</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-20 px-6 text-center border-t border-slate-900">
+        <div class="max-w-7xl mx-auto border-b border-slate-900 pb-12 mb-12">
+            <div class="text-4xl font-black mb-6 tracking-tighter uppercase text-right md:text-center">
+                eco BRICK <span class="text-blue-500 italic">Innovio</span>
+            </div>
+            <p class="text-blue-400/60 text-sm max-w-sm mx-auto uppercase tracking-[0.4em] font-black">Sustainable Defense Engineering</p>
+        </div>
+        <p class="text-slate-500 text-xs font-black">© 2026 כל הזכויות שמורות ל-eco BRICK Innovio. הטכנולוגיה מוגנת בפטנט בינלאומי רשום.</p>
+    </footer>
+
+    <script>
+        function runAdvancedBlast() {
+            const btn = document.getElementById('blastBtn');
+            const missile = document.getElementById('missile');
+            const flash = document.getElementById('flash');
+            const wave = document.getElementById('shockwave');
+            const concrete = document.getElementById('concrete-sim');
+            const eco = document.getElementById('eco-sim');
+            const concreteCracks = document.getElementById('concrete-cracks');
+            const ecoGlow = document.getElementById('eco-glow');
+            const physicsPanel = document.getElementById('physics-panel');
+            const shrapnelContainer = document.getElementById('shrapnel-overlay');
+            const concreteDebris = document.getElementById('concrete-debris-field');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin ml-2"></i> מנתח נתונים פיזיקליים...';
+            
+            missile.style.display = 'block';
+            missile.style.animation = 'none';
+            void missile.offsetWidth; 
+            missile.style.animation = 'missile-flight 1.3s cubic-bezier(0.6, 0.04, 0.98, 0.33) forwards';
+            
+            flash.style.opacity = '0';
+            wave.style.animation = 'none';
+            concrete.classList.remove('shaking');
+            eco.classList.remove('shaking');
+            concreteCracks.style.opacity = '0';
+            ecoGlow.style.opacity = '0';
+            physicsPanel.classList.remove('visible');
+            shrapnelContainer.innerHTML = '';
+            concreteDebris.innerHTML = '';
+
+            setTimeout(() => {
+                missile.style.display = 'none';
+                flash.style.opacity = '1';
+                flash.style.transition = 'none';
+                physicsPanel.classList.add('visible');
+
+                setTimeout(() => {
+                    flash.style.transition = 'opacity 0.8s';
+                    flash.style.opacity = '0';
+                }, 200);
+
+                void wave.offsetWidth;
+                wave.style.animation = 'wave-expand 1.2s ease-out forwards';
+                
+                setTimeout(() => {
+                    concrete.classList.add('shaking');
+                    eco.classList.add('shaking');
+                    concreteCracks.style.opacity = '1';
+                    ecoGlow.style.opacity = '1';
+
+                    for(let i=0; i<35; i++) {
+                        spawnShrapnel(shrapnelContainer);
+                    }
+
+                    for(let i=0; i<10; i++) {
+                        setTimeout(() => spawnDebris(concreteDebris), i * 120);
+                    }
+                }, 200);
+
+                setTimeout(() => {
+                    concrete.classList.remove('shaking');
+                    eco.classList.remove('shaking');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-rocket animate-bounce ml-2"></i> שגר טיל נוסף';
+                }, 1800);
+
+            }, 1300);
+        }
+
+        function spawnShrapnel(container) {
+            const el = document.createElement('div');
+            el.className = 'shrapnel';
+            el.style.left = '50%';
+            el.style.top = '400px';
+            const angle = (Math.random() * Math.PI) + Math.PI; 
+            const dist = 600 + Math.random() * 500;
+            const tx = (Math.cos(angle) * dist);
+            const ty = -(Math.sin(angle) * dist);
+            el.style.setProperty('--travel', `translate(${tx}px, ${ty}px)`);
+            el.style.animation = 'fly-shrapnel 0.9s ease-out forwards';
+            el.style.opacity = '1';
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 900);
+        }
+
+        function spawnDebris(container) {
+            const el = document.createElement('div');
+            el.style.position = 'absolute';
+            el.style.width = '10px';
+            el.style.height = '10px';
+            el.style.background = '#475569';
+            el.style.left = '20px';
+            el.style.top = (35 + Math.random() * 60) + 'px';
+            el.style.transition = 'all 1.2s ease-in';
+            container.appendChild(el);
+            setTimeout(() => {
+                el.style.transform = 'translate(-70px, 100px) rotate(120deg)';
+                el.style.opacity = '0';
+            }, 80);
+            setTimeout(() => el.remove(), 1200);
+        }
+    </script>
+</body>
+</html>
