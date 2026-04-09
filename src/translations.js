@@ -7,6 +7,7 @@ export const translations = {
             onePager: 'One-Pager',
             financialPitch: 'Financial Pitch',
             partner: 'Partner',
+            shelter: 'Defense & Shelter',
         },
         hero: {
             title: 'Circular solution for <span style="color: var(--color-primary);">over 40 waste streams</span>',
@@ -154,6 +155,7 @@ export const translations = {
             onePager: 'One-Pager',
             financialPitch: 'מצגת פיננסית',
             partner: 'שותפות',
+            shelter: 'מיגון וביטחון',
         },
         hero: {
             title: 'פתרון מעגלי עבור <br> <span style="color: var(--color-primary);">למעלה מ-40 סוגי פסולת</span>',

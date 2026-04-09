@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eco BRICK - הופכים פסולת למשאבים</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* הגדרות בסיס - פלטת צבעים מודרנית ומקצועית */
+        :root {
+            --primary: #0F172A; /* כחול-צי כהה מאוד (Slate 900) לטקסטים ורקעים כהים */
+            --secondary: #2563EB; /* כחול טכנולוגי (Blue 600) לכפתורים והדגשות */
+            --secondary-hover: #1D4ED8;
+            --accent: #10B981; /* ירוק אמרלד נקי לאזכור האקולוגיה */
+            --surface: #FFFFFF;
+            --bg-light: #F8FAFC; /* אפור-תכלכל בהיר מאוד למראה נקי */
+            --text-dark: #334155;
+            --text-light: #64748B;
+            --border-light: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--surface);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        html[lang="ar"] body {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 1.15rem;
+        }
+
+        /* תפריט ניווט עליון - מינימליסטי ויוקרתי */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* מחליף שפות עיצוב מודרני */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher:hover {
+            border-color: var(--secondary);
+            background: var(--surface);
+        }
+
+        .lang-switcher i {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .lang-switcher select {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        /* מבנה אזורים כללי */
+        section {
+            padding: 4.5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 15px auto 0;
+            border-radius: 4px;
+        }
+
+        /* עיצוב גנרי לתמונות חסרות */
+        img[src^="[Image"] {
+            background-color: #E2E8F0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            object-fit: cover;
+            position: relative;
+            color: var(--text-dark);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 250px; /* תצוגה זמנית לטקסט */
+        }
+
+        /* אזור פתיחה (Hero) - מראה בהיר ונקי */
+        .hero {
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: var(--bg-light);
+            color: var(--primary);
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('/assets/presentation-bg.jpg') center/cover;
+            opacity: 0.7;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            letter-spacing: -0.03em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            background-color: var(--secondary);
+            color: var(--surface);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 100px;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            color: var(--surface);
+        }
+
+        /* משימה וחזון - כרטיסיות נקיות ומרחפות */
+        .mission-vision {
+            background-color: var(--bg-light);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .card-box {
+            background: var(--surface);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+        }
+
+        .card-box h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* כלכלה מעגלית (תמונה וטקסט) */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .split-content > p {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin-bottom: 2.5rem;
+        }
+
+        .split-content ul {
+            list-style: none;
+        }
+
+        .split-content li {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .icon-wrapper {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #EFF6FF; /* תכלת בהיר מאוד */
+            color: var(--secondary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .split-content li:nth-child(2) .icon-wrapper { background-color: #ECFDF5; color: var(--accent); }
+
+        .split-content li strong {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .split-content li p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .image-box {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            position: relative;
+            background: #E2E8F0;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.03);
+        }
+
+        /* טכנולוגיה - מראה בהיר ונקי */
+        .tech-section {
+            background-color: #EFF6FF; /* תכלת בהיר מאוד */
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .tech-section .section-title {
+            color: var(--primary);
+        }
+
+        .tech-section .section-title::after {
+            background-color: var(--secondary);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: var(--surface);
+            border-color: rgba(37, 99, 235, 0.2);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+        }
+
+        .feature-card .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 2rem;
+            border-radius: 18px;
+            font-size: 1.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: #60A5FA;
+        }
+        
+        .feature-card:nth-child(2) .icon-wrapper { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+        .feature-card:nth-child(3) .icon-wrapper { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* גלריית תמונות מהמצגת */
+        .gallery-section {
+            background-color: var(--surface);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            position: relative;
+            aspect-ratio: 4/3;
+            background-color: var(--bg-light);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            line-height: 200px; /* תצוגה זמנית לטקסט */
+        }
+
+        /* מספרים ומעבדה - מינימליזם ונקיון */
+        .stats-section {
+            background-color: var(--bg-light);
+            text-align: center;
+            padding: 5rem 5%;
+        }
+
+        .stat-number {
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+        }
+
+        .stat-text {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stats-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stats-content p {
+            font-size: 1.25rem;
+        }
+
+        /* פוטר / יצירת קשר - עיצוב חברות מקצועי ובהיר */
+        footer {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 5rem 5% 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        footer > p {
+            color: var(--text-light);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            background: var(--surface);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .contact-item:hover {
+            background: var(--surface);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+            font-size: 1.25rem;
+        }
+
+        .copyright {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* רספונסיביות למובייל */
+        @media (max-width: 992px) {
+            .grid-2, .split-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .grid-3 {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-actions {
+                gap: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .split-section.reverse {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .stat-number {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- תפריט ניווט עליון -->
+    <header>
+        <a href="#" class="logo">eco BRICK <span>Innovio</span></a>
+        <div class="header-actions">
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">מי אנחנו</a></li>
+                <li><a href="#economy" data-i18n="nav_economy">כלכלה מעגלית</a></li>
+                <li><a href="#tech" data-i18n="nav_tech">טכנולוגיה</a></li>
+                <li><a href="#products" data-i18n="nav_products">מוצרים</a></li>
+                <li><a href="#gallery" data-i18n="nav_gallery">גלריה</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">צור קשר</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <i class="fa-solid fa-globe"></i>
+                <select id="language-select" onchange="changeLanguage(this.value)">
+                    <option value="he">עברית</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="ar">العربية</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- אזור פתיחה -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>eco BRICK</h1>
+            <p data-i18n="hero_subtitle">הופכים פסולת בלתי ניתנת למחזור למשאבי בנייה רבי ערך. טכנולוגיה ירוקה למען עתיד בר-קיימא.</p>
+            <a href="#about" class="btn" data-i18n="hero_btn">גלה כיצד זה עובד</a>
+        </div>
+    </section>
+
+    <!-- חזון ומשימה -->
+    <section class="mission-vision" id="about">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sec_vision_title">הדרך שלנו לעתיד ירוק</h2>
+            <div class="grid-2">
+                <div class="card-box">
+                    <h3 data-i18n="mission_title">המשימה שלנו</h3>
+                    <p data-i18n="mission_p1">להפחית באופן מהותי את ההתחממות הגלובלית ולחסל מטמנות פסולת ענקיות על ידי שימוש בטכנולוגיית עיבוד החומרים החדשנית והבלעדית שלנו.</p>
+                    <p data-i18n="mission_p2">אנו מחויבים להפוך בעיות אקולוגיות לפתרונות בני-קיימא עבור תעשיית הבנייה המודרנית.</p>
+                </div>
+                <div class="card-box">
+                    <h3 data-i18n="vision_title">החזון שלנו</h3>
+                    <p data-i18n="vision_p1">יצירת תהליך אקולוגי נקי, יעיל ורווחי אשר צורך במהירות כמויות עצומות של פסולת שאינה ניתנת למחזור.</p>
+                    <p data-i18n="vision_p2">באמצעות כך, אנו מקדמים באופן פעיל עתיד הרבה יותר ירוק ובר-קיימא עבור הדורות הבאים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- כלכלה מעגלית וסקירה -->
+    <section class="container" id="economy">
+        <h2 class="section-title" data-i18n="sec_economy_title">כלכלה מעגלית הלכה למעשה</h2>
+        <div class="split-section">
+            <div class="split-content">
+                <p data-i18n="economy_intro">eco BRICK היא חברת הייטק ירוק (Greentech) המניעה חדשנות בכלכלה מעגלית על ידי מחזור מוצלח של חומרים שבאופן מסורתי לא ניתן למחזר.</p>
+                <ul>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-recycle"></i></div>
+                        <div>
+                            <strong data-i18n="economy_f1_title">התמרת פסולת:</strong>
+                            <p data-i18n="economy_f1_desc">אנו מעבדים מעל ל-40 סוגים שונים של פסולת, ומסיטים בהצלחה כ-99% מהחומרים ממטמנות מזיקות.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-layer-group"></i></div>
+                        <div>
+                            <strong data-i18n="economy_f2_title">אגרגטים מלאכותיים:</strong>
+                            <p data-i18n="economy_f2_desc">התהליך שלנו יוצר אגרגטים קלי משקל ואיכותיים המותאמים בצורה מושלמת לתעשיות המלט והאספלט.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <strong data-i18n="economy_f3_title">חומרים מהונדסים:</strong>
+                            <p data-i18n="economy_f3_desc">שילוב תכונות טרמוסטיות וטרמופלסטיות מאפשר ייצור חומרים בעלי תכונות משופרות כגון בידוד אקוסטי ותרמי.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-box">
+                <img src="/assets/circular-economy.png" alt="Circular Economy">
+            </div>
+        </div>
+    </section>
+
+    <!-- טכנולוגיה -->
+    <section class="tech-section" id="tech">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sec_tech_title">טכנולוגיה קניינית</h2>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 data-i18n="tech_f1_title">אפס זיהום</h3>
+                    <p data-i18n="tech_f1_desc">התהליך של אקו בריק בטוח לחלוטין לסביבה. אנו לא שורפים פסולת באף שלב של תהליך הייצור, מה שמבטיח אפס פליטות רעילות.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 data-i18n="tech_f2_title">מינימום הכנה</h3>
+                    <p data-i18n="tech_f2_desc">התהליך המוגן בפטנט שלנו כמעט ואינו דורש הכנה מוקדמת. מעל 40 סוגי פסולת נכנסים ישירות לתהליך - הדרישה היחידה היא הוצאת מתכות.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper"><i class="fa-solid fa-industry"></i></div>
+                    <h3 data-i18n="tech_f3_title">קיבולת עצומה</h3>
+                    <p data-i18n="tech_f3_desc">המכונות התעשייתיות שלנו פועלות ביעילות מדהימה, ומסוגלות לייצר כול אחת כ-4 מטרים מעוקבים של חומר אקו בריק בכל שעה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- קו מוצרים -->
+    <section class="container" id="products">
+        <h2 class="section-title" data-i18n="sec_products_title">קו המוצרים שלנו</h2>
+        <div class="split-section reverse">
+            <div class="image-box">
+                <img src="/assets/hero-product.png" alt="Recycled Materials">
+            </div>
+            <div class="split-content">
+                <ul>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-cubes"></i></div>
+                        <div>
+                            <strong data-i18n="prod_f1_title">מוצרים ללא מלט:</strong>
+                            <p data-i18n="prod_f1_desc">אנו מייצרים רעפי גגות צבעוניים, אריחי ריצוף תעשייתי, אריחי חניה חיצונית, בלוקים משתלבים, תעלות ניקוז מים וכבישי אספלט איכותיים.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-trowel-bricks"></i></div>
+                        <div>
+                            <strong data-i18n="prod_f2_title">מוצרים בשילוב מלט:</strong>
+                            <p data-i18n="prod_f2_desc">האגרגטים שלנו משתלבים באופן מושלם ליצירת בטון קל משקל, לוחות צמנט, מלט, רצפות פילוס עצמי, קירות טרום-בנויים קלים ועוד.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper"><i class="fa-solid fa-star"></i></div>
+                        <div>
+                            <strong data-i18n="prod_f3_title">יתרונות חומר מרכזיים:</strong>
+                            <p data-i18n="prod_f3_desc">החומרים מנצלים כ-99% פסולת, קלים מאוד לניקוי, אינם סופגים מים, מספקים בידוד אקוסטי ותרמי מעולה, והם קלי משקל אך עמידים במיוחד.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- גלריית תמונות מהמצגת -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sec_gallery_title">המוצרים שלנו בפעולה</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/assets/product-tiles.png" alt="רעפי גגות צבעוניים">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/product-concrete.png" alt="בלוקים משתלבים לבנייה">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/product_aggregates_ai.png" alt="אריחי ריצוף תעשייתי">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/asphalt-pile.png" alt="ערמה של אספלט טרי">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- תוצאות מעבדה -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sec_stats_title">ביצועים ובדיקות מעבדה</h2>
+            <div class="stat-number">0.012%</div>
+            <div class="stat-text" data-i18n="stats_subtitle">בלבד של ספיגת מים</div>
+            <div class="stats-content">
+                <p data-i18n="stats_p1">אנו עובדים בשיתוף פעולה עם מעבדות מוסמכות כדי לבדוק בקפדנות את החומרים שלנו. התוצאות מציגות עמידות מדהימה בפני לחות ורטיבות.</p>
+                <p data-i18n="stats_p2">בנוסף, החומרים שלנו מפגינים עמידות גבוהה בפני כתמים מ-18 חומרים שונים. האגרגטים נטולי ברזל לחלוטין, מה שמבטיח אינטראקציות בטוחות ונטולות כימיקלים לשימוש בבנייה ירוקה וללא זיהום.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- פוטר -->
+    <footer id="contact">
+        <div class="container">
+            <h2 data-i18n="footer_title">Turn Trash Into Cash</h2>
+            <p data-i18n="footer_subtitle">מובילים את החדשנות בכלכלה המעגלית בישראל ובעולם.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fa-solid fa-building"></i>
+                    <span>eco BRICK Innovio Ltd.</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span data-i18n="contact_address">רחוב החשמונאים 103, תל-אביב</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>office@ecobrick.tech</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>www.ecobrick.tech</span>
+                </div>
+            </div>
+
+            <div class="copyright" data-i18n="footer_rights">
+                &copy; 2026 eco BRICK Innovio Ltd. כל הזכויות שמורות.
+            </div>
+        </div>
+    </footer>
+
+    <!-- מערכת תרגום (JavaScript) -->
+    <script>
+        const translations = {
+            // Navigation
+            nav_about: { he: "מי אנחנו", en: "About Us", fr: "À propos", ar: "من نحن" },
+            nav_economy: { he: "כלכלה מעגלית", en: "Circular Economy", fr: "Économie Circulaire", ar: "الاقتصاد الدائري" },
+            nav_tech: { he: "טכנולוגיה", en: "Technology", fr: "Technologie", ar: "التكنولوجيا" },
+            nav_products: { he: "מוצרים", en: "Products", fr: "Produits", ar: "المنتجات" },
+            nav_gallery: { he: "גלריה", en: "Gallery", fr: "Galerie", ar: "صالة عرض" },
+            nav_contact: { he: "צור קשר", en: "Contact", fr: "Contact", ar: "اتصل بنا" },
+            
+            // Hero
+            hero_subtitle: { 
+                he: "הופכים פסולת בלתי ניתנת למחזור למשאבי בנייה רבי ערך. טכנולוגיה ירוקה למען עתיד בר-קיימא.", 
+                en: "Turning unrecyclable waste into valuable construction resources. Green tech for a sustainable future.", 
+                fr: "Transformer les déchets non recyclables en précieuses ressources de construction. La technologie verte pour un avenir durable.", 
+                ar: "تحويل النفايات غير القابلة لإعادة التدوير إلى موارد بناء قيمة. التكنولوجيا الخضراء لمستقبل مستدام." 
+            },
+            hero_btn: { he: "גלה כיצד זה עובד", en: "Discover How It Works", fr: "Découvrez Comment Ça Marche", ar: "اكتشف كيف يعمل" },
+            
+            // Mission & Vision
+            sec_vision_title: { he: "הדרך שלנו לעתיד ירוק", en: "Our Path to a Green Future", fr: "Notre Voie vers un Avenir Vert", ar: "طريقنا إلى مستقبل أخضر" },
+            mission_title: { he: "המשימה שלנו", en: "Our Mission", fr: "Notre Mission", ar: "مهمتنا" },
+            mission_p1: { 
+                he: "להפחית באופן מהותי את ההתחממות הגלובלית ולחסל מטמנות פסולת ענקיות על ידי שימוש בטכנולוגיית עיבוד החומרים החדשנית והבלעדית שלנו.", 
+                en: "To fundamentally reduce global warming and eliminate massive waste landfills by utilizing our innovative, proprietary material processing technology.", 
+                fr: "Réduire fondamentalement le réchauffement climatique et éliminer les décharges massives de déchets en utilisant notre technologie innovante de traitement des matériaux.", 
+                ar: "للحد بشكل أساسي من الاحتباس الحراري والقضاء على مدافن النفايات الضخمة من خلال استخدام تقنية معالجة المواد المبتكرة والمملوكة لنا." 
+            },
+            mission_p2: { 
+                he: "אנו מחויבים להפוך בעיות אקולוגיות לפתרונות בני-קיימא עבור תעשיית הבנייה המודרנית.", 
+                en: "We are dedicated to transforming ecological problems into sustainable solutions for the modern construction industry.", 
+                fr: "Nous sommes dédiés à la transformation des problèmes écologiques en solutions durables pour l'industrie moderne de la construction.", 
+                ar: "نحن ملتزمون بتحويل المشاكل البيئية إلى حلول مستدامة لصناعة البناء الحديثة." 
+            },
+            vision_title: { he: "החזון שלנו", en: "Our Vision", fr: "Notre Vision", ar: "رؤيتنا" },
+            vision_p1: { 
+                he: "יצירת תהליך אקולוגי נקי, יעיל ורווחי אשר צורך במהירות כמויות עצומות של פסולת שאינה ניתנת למחזור.", 
+                en: "Creating a clean, efficient, and profitable ecological process that rapidly consumes large volumes of unrecyclable waste.", 
+                fr: "Créer un processus écologique propre, efficace et rentable qui consomme rapidement de grands volumes de déchets non recyclables.", 
+                ar: "خلق عملية بيئية نظيفة وفعالة ومربحة تستهلك بسرعة كميات كبيرة من النفايات غير القابلة لإعادة التدوير." 
+            },
+            vision_p2: { 
+                he: "באמצעות כך, אנו מקדמים באופן פעיל עתיד הרבה יותר ירוק ובר-קיימא עבור הדורות הבאים.", 
+                en: "By doing so, we are actively promoting a much more sustainable and greener future for upcoming generations.", 
+                fr: "Ce faisant, nous promouvons activement un avenir beaucoup plus durable et plus vert pour les générations à venir.", 
+                ar: "من خلال القيام بذلك، نحن نشجع بنشاط مستقبلا أكثر استدامة وأكثر خضرة للأجيال القادمة." 
+            },
+
+            // Economy
+            sec_economy_title: { he: "כלכלה מעגלית הלכה למעשה", en: "The Circular Economy in Action", fr: "L'Économie Circulaire en Action", ar: "الاقتصاد الدائري في العمل" },
+            economy_intro: { 
+                he: "eco BRICK היא חברת הייטק ירוק (Greentech) המניעה חדשנות בכלכלה מעגלית על ידי מחזור מוצלח של חומרים שבאופן מסורתי לא ניתן למחזר.", 
+                en: "eco BRICK is a Greentech company driving circular economy innovation by successfully recycling traditionally unrecyclable materials.", 
+                fr: "eco BRICK est une entreprise Greentech qui stimule l'innovation dans l'économie circulaire en recyclant avec succès des matériaux traditionnellement non recyclables.", 
+                ar: "إيكو بريك هي شركة تكنولوجيا خضراء تقود الابتكار في الاقتصاد الدائري من خلال إعادة تدوير المواد التي لا يمكن إعادة تدويرها تقليديًا بنجاح." 
+            },
+            economy_f1_title: { he: "התמרת פסולת:", en: "Waste Transformation:", fr: "Transformation des déchets :", ar: "تحويل النفايات:" },
+            economy_f1_desc: { 
+                he: "אנו מעבדים מעל ל-40 סוגים שונים של פסולת, ומסיטים בהצלחה כ-99% מהחומרים ממטמנות מזיקות.", 
+                en: "We process over 40 distinct types of waste, successfully diverting ~99% of materials away from harmful landfills.", 
+                fr: "Nous traitons plus de 40 types de déchets distincts, détournant avec succès environ 99 % des matériaux des décharges nocives.", 
+                ar: "نقوم بمعالجة أكثر من 40 نوعًا مختلفًا من النفايات، مما ينجح في تحويل ~ 99٪ من المواد بعيدًا عن مدافن النفايات الضارة." 
+            },
+            economy_f2_title: { he: "אגרגטים מלאכותיים:", en: "Artificial Aggregates:", fr: "Agrégats artificiels :", ar: "الركام الاصطناعي:" },
+            economy_f2_desc: { 
+                he: "התהליך שלנו יוצר אגרגטים קלי משקל ואיכותיים המותאמים בצורה מושלמת לתעשיות המלט והאספלט.", 
+                en: "Our process creates high-quality, lightweight artificial aggregates perfectly suited for the cement and asphalt industries.", 
+                fr: "Notre processus crée des agrégats artificiels légers et de haute qualité parfaitement adaptés aux industries du ciment et de l'asphalte.", 
+                ar: "تخلق عمليتنا ركامًا اصطناعيًا عالي الجودة وخفيف الوزن ومناسب تمامًا لصناعات الأسمنت والأسفلت." 
+            },
+            economy_f3_title: { he: "חומרים מהונדסים:", en: "Engineered Materials:", fr: "Matériaux d'ingénierie :", ar: "المواد الهندسية:" },
+            economy_f3_desc: { 
+                he: "שילוב תכונות טרמוסטיות וטרמופלסטיות מאפשר ייצור חומרים בעלי תכונות משופרות כגון בידוד אקוסטי ותרמי.", 
+                en: "Combining Thermosetting and Thermoplastic properties allows the production of materials with enhanced attributes like acoustic and heat insulation.", 
+                fr: "La combinaison des propriétés thermodurcissables et thermoplastiques permet la production de matériaux avec des attributs améliorés comme l'isolation acoustique et thermique.", 
+                ar: "يتيح الجمع بين الخصائص المتصلدة بالحرارة واللدائن الحرارية إنتاج مواد ذات سمات محسنة مثل العزل الصوتي والحراري." 
+            },
+
+            // Technology
+            sec_tech_title: { he: "טכנולוגיה קניינית", en: "Proprietary Technology", fr: "Technologie Propriétaire", ar: "التكنولوجيا الاحتكارية" },
+            tech_f1_title: { he: "אפס זיהום", en: "Zero Pollution", fr: "Zéro Pollution", ar: "انعدام التلوث" },
+            tech_f1_desc: { 
+                he: "התהליך של אקו בריק בטוח לחלוטין לסביבה. אנו לא שורפים פסולת באף שלב של תהליך הייצור, מה שמבטיח אפס פליטות רעילות.", 
+                en: "The eco BRICK process is entirely environmentally safe. We do not burn waste at any stage, ensuring zero toxic emissions.", 
+                fr: "Le processus eco BRICK est entièrement sûr pour l'environnement. Nous ne brûlons aucun déchet, garantissant zéro émission toxique.", 
+                ar: "عملية إيكو بريك آمنة تمامًا على البيئة. نحن لا نحرق النفايات في أي مرحلة، مما يضمن عدم وجود انبعاثات سامة." 
+            },
+            tech_f2_title: { he: "מינימום הכנה", en: "Minimal Prep", fr: "Préparation Minimale", ar: "الحد الأدنى من التحضير" },
+            tech_f2_desc: { 
+                he: "התהליך המוגן בפטנט שלנו כמעט ואינו דורש הכנה מוקדמת. מעל 40 סוגי פסולת נכנסים ישירות לתהליך - הדרישה היחידה היא הוצאת מתכות.", 
+                en: "Our patented process requires almost no prep. Over 40 types of waste go directly into the process—the only requirement is removing metal.", 
+                fr: "Notre processus breveté ne nécessite presque aucune préparation. Plus de 40 types de déchets entrent directement - la seule exigence est de retirer le métal.", 
+                ar: "عمليتنا الحاصلة على براءة اختراع لا تتطلب أي تحضير تقريبًا. يدخل أكثر من 40 نوعًا من النفايات مباشرة في العملية - المطلب الوحيد هو إزالة المعدن." 
+            },
+            tech_f3_title: { he: "קיבולת עצומה", en: "High Capacity", fr: "Haute Capacité", ar: "قدرة عالية" },
+            tech_f3_desc: { 
+                he: "המכונות התעשייתיות שלנו פועלות ביעילות מדהימה, ומסוגלות לייצר כול אחת כ-4 מטרים מעוקבים של חומר אקו בריק בכל שעה.", 
+                en: "Our heavy-duty machinery operates with incredible efficiency, each capable of producing approximately 4 cubic meters of eco BRICK material per hour.", 
+                fr: "Nos machines robustes fonctionnent avec une efficacité incroyable, chacune capable de produire environ 4 mètres cubes de matériau eco BRICK par heure.", 
+                ar: "تعمل آلاتنا الثقيلة بكفاءة لا تصدق، وكل منها قادرة على إنتاج حوالي 4 أمتار مكعبة من مادة إيكو بريك في الساعة." 
+            },
+
+            // Products
+            sec_products_title: { he: "קו המוצרים שלנו", en: "Our Product Line", fr: "Notre Gamme de Produits", ar: "خط منتجاتنا" },
+            prod_f1_title: { he: "מוצרים ללא מלט:", en: "Products WITHOUT Cement:", fr: "Produits SANS Ciment :", ar: "منتجات بدون أسمنت:" },
+            prod_f1_desc: { 
+                he: "אנו מייצרים רעפי גגות צבעוניים, אריחי ריצוף תעשייתי, אריחי חניה חיצונית, בלוקים משתלבים, תעלות ניקוז מים וכבישי אספלט איכותיים.", 
+                en: "We manufacture multi-color roofing tiles, industrial flooring slabs, outdoor parking tiles, interlocking blocks, water drainage ducts, and high-quality asphalt.", 
+                fr: "Nous fabriquons des tuiles de toiture multicolores, des dalles de sol industriel, des blocs de verrouillage, des conduits de drainage d'eau et de l'asphalte de haute qualité.", 
+                ar: "نقوم بتصنيع بلاط الأسقف متعدد الألوان ، وألواح الأرضيات الصناعية ، وبلاط وقوف السيارات في الهواء الطلق ، والكتل المتشابكة ، وقنوات تصريف المياه ، والأسفلت عالي الجودة." 
+            },
+            prod_f2_title: { he: "מוצרים בשילוב מלט:", en: "Products WITH Cement:", fr: "Produits AVEC Ciment :", ar: "منتجات مع أسمنت:" },
+            prod_f2_desc: { 
+                he: "האגרגטים שלנו משתלבים באופן מושלם ליצירת בטון קל משקל, לוחות צמנט, מלט, רצפות פילוס עצמי, קירות טרום-בנויים קלים ועוד.", 
+                en: "Our aggregates perfectly integrate to create lightweight concrete, cement boards, mortar, self-leveling floors, and precast lightweight walls.", 
+                fr: "Nos agrégats s'intègrent parfaitement pour créer du béton léger, des panneaux de ciment, du mortier, des sols autonivelants et des murs légers préfabriqués.", 
+                ar: "تتكامل مجاميعنا بشكل مثالي لإنشاء خرسانة خفيفة الوزن ، وألواح أسمنتية ، وملاط ، وأرضيات ذاتية التسوية ، وجدران خفيفة الوزن مسبقة الصب." 
+            },
+            prod_f3_title: { he: "יתרונות חומר מרכזיים:", en: "Key Material Advantages:", fr: "Principaux Avantages :", ar: "مزايا المواد الرئيسية:" },
+            prod_f3_desc: { 
+                he: "החומרים מנצלים כ-99% פסולת, קלים מאוד לניקוי, אינם סופגים מים, מספקים בידוד אקוסטי ותרמי מעולה, והם קלי משקל אך עמידים במיוחד.", 
+                en: "The materials utilize ~99% waste, are extremely easy to clean, do not absorb water, provide superior insulation, and are lightweight yet highly durable.", 
+                fr: "Les matériaux utilisent ~99 % de déchets, sont faciles à nettoyer, n'absorbent pas l'eau, offrent une isolation supérieure, sont légers mais très durables.", 
+                ar: "تستخدم المواد ~ 99٪ من النفايات ، وهي سهلة التنظيف للغاية ، ولا تمتص الماء ، وتوفر عزلاً فائقًا ، وخفيفة الوزن ولكنها متينة للغاية." 
+            },
+
+            // Gallery
+            sec_gallery_title: { he: "המוצרים שלנו בפעולה", en: "Our Products in Action", fr: "Nos Produits en Action", ar: "منتجاتنا في العمل" },
+
+            // Stats
+            sec_stats_title: { he: "ביצועים ובדיקות מעבדה", en: "Lab Tests & Performance", fr: "Tests de Laboratoire et Performances", ar: "الاختبارات المعملية والأداء" },
+            stats_subtitle: { he: "בלבד של ספיגת מים", en: "Water Absorption Only", fr: "Absorption d'eau seulement", ar: "فقط من امتصاص الماء" },
+            stats_p1: { 
+                he: "אנו עובדים בשיתוף פעולה עם מעבדות מוסמכות כדי לבדוק בקפדנות את החומרים שלנו. התוצאות מציגות עמידות מדהימה בפני לחות ורטיבות.", 
+                en: "We partner with certified labs to rigorously test our materials. The results showcase incredible resistance to moisture.", 
+                fr: "Nous nous associons à des laboratoires certifiés pour tester rigoureusement nos matériaux. Les résultats montrent une résistance incroyable à l'humidité.", 
+                ar: "نحن نتشارك مع مختبرات معتمدة لاختبار موادنا بدقة. تعرض النتائج مقاومة لا تصدق للرطوبة." 
+            },
+            stats_p2: { 
+                he: "בנוסף, החומרים שלנו מפגינים עמידות גבוהה בפני כתמים מ-18 חומרים שונים. האגרגטים נטולי ברזל לחלוטין, מה שמבטיח אינטראקציות בטוחות ונטולות כימיקלים לשימוש בבנייה ירוקה וללא זיהום.", 
+                en: "Furthermore, materials demonstrate high resistance to stains from 18 different substances. Iron-free aggregates ensure safe, contamination-free construction.", 
+                fr: "De plus, les matériaux démontrent une haute résistance aux taches de 18 substances différentes. Les agrégats sans fer garantissent une construction sûre.", 
+                ar: "علاوة على ذلك ، تظهر المواد مقاومة عالية للبقع من 18 مادة مختلفة. تضمن الركام الخالي من الحديد بناءًا آمنًا وخاليًا من التلوث." 
+            },
+
+            // Footer
+            footer_title: { he: "Turn Trash Into Cash", en: "Turn Trash Into Cash", fr: "Turn Trash Into Cash", ar: "Turn Trash Into Cash" },
+            footer_subtitle: { 
+                he: "מובילים את החדשנות בכלכלה המעגלית בישראל ובעולם.", 
+                en: "Leading circular economy innovation in Israel and worldwide.", 
+                fr: "Leader de l'innovation en économie circulaire en Israël et dans le monde.", 
+                ar: "قيادة ابتكار الاقتصاد الدائري في إسرائيل وجميع أنحاء العالم." 
+            },
+            contact_address: { he: "רחוב החשמונאים 103, תל-אביב", en: "103 Ha'Hashmonaim St. Tel-Aviv", fr: "103 Rue Ha'Hashmonaim, Tel-Aviv", ar: "شارع الحشمونائيم 103 ، تل أبيب" },
+            footer_rights: { 
+                he: "&copy; 2026 eco BRICK Innovio Ltd. כל הזכויות שמורות.", 
+                en: "&copy; 2026 eco BRICK Innovio Ltd. All rights reserved.", 
+                fr: "&copy; 2026 eco BRICK Innovio Ltd. Tous droits réservés.", 
+                ar: "&copy; 2026 إيكو بريك إنوفيو المحدودة. كل الحقوق محفوظة." 
+            }
+        };
+
+        function changeLanguage(lang) {
+            // קביעת כיווניות המסמך
+            const dir = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = dir;
+
+            // החלפת טקסטים
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    el.innerHTML = translations[key][lang];
+                }
+            });
+            
+            // עדכון שדה הבחירה (במידה והפונקציה מופעלת מבחוץ)
+            document.getElementById('language-select').value = lang;
+        }
+    </script>
+</body>
+</html>

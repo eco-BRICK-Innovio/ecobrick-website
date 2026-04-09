@@ -18,7 +18,9 @@ export default defineConfig({
                 'Financial-Pitch': 'Financial-Pitch/index.html',
                 'Contact': 'Contact/index.html',
                 'Ashdod-Facility': 'Ashdod-Facility/index.html',
-                'iHLS-One-Pager': 'iHLS-One-Pager/index.html'
+                'iHLS-One-Pager': 'iHLS-One-Pager/index.html',
+                'shelter': 'shelter.html',
+                'presentation': 'presentation/index.html'
             }
         }
     }

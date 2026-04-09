@@ -29,7 +29,7 @@
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
+  --spacing-xl: 2.5rem;
 
   /* Borders & Effects */
   --border-radius-sm: 4px;
@@ -131,7 +131,7 @@ button {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 3rem 0;
   /* Tighter vertical spacing */
 }
 
@@ -139,7 +139,7 @@ button {
 .zigzag-section .container {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 4rem;
   /* Good vertical separation between rows */
 }
 
@@ -201,7 +201,7 @@ button {
 .section-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 2.5rem;
 }
 
 .section-title {
@@ -635,8 +635,8 @@ button {
   }
 
   .hero-title {
-    font-size: 3.5rem;
-    /* Reduced from 4.5rem */
+    font-size: 3rem;
+    /* Reduced from 3.5rem */
     margin-bottom: 1rem;
   }
 

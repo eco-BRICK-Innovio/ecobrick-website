@@ -32,10 +32,10 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] font-sans text-slate-900 pb-12 text-left" dir="ltr">
+    <div className="min-h-screen bg-[#f8fafc] font-sans text-slate-900 pb-8 text-left" dir="ltr">
       {/* Header & Navigation */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-4">
             <div className="bg-blue-600 p-2.5 rounded-xl shadow-lg shadow-blue-200">
               <Factory className="text-white w-6 h-6" />
@@ -71,14 +71,14 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 pt-8 space-y-8">
+      <main className="max-w-6xl mx-auto px-6 pt-6 space-y-6">
         
         {/* Hero Section */}
         <section className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 bg-gradient-to-br from-blue-700 to-indigo-900 rounded-3xl p-8 text-white relative overflow-hidden shadow-xl">
+          <div className="lg:col-span-2 bg-gradient-to-br from-blue-700 to-indigo-900 rounded-3xl p-6 text-white relative overflow-hidden shadow-xl">
             <div className="relative z-10">
               <span className="bg-blue-400/30 text-blue-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Round A Fundraising</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">Scaling Waste-to-Asset <br/>Infrastructure.</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold mt-4 leading-tight">Scaling Waste-to-Asset <br/>Infrastructure.</h2>
               <p className="mt-4 text-blue-100 text-lg max-w-xl opacity-90">
                 Building the first high-capacity industrial upcycling facility in Israel. Converting 99% waste into construction and infrastructure materials at an industrial scale.
               </p>
@@ -96,12 +96,12 @@ const App = () => {
             <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <h3 className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
                 <BarChart3 className="w-4 h-4" /> Scaled Cash Projection
               </h3>
-              <div className="text-5xl font-black text-blue-900">50.2M <span className="text-xl font-medium text-slate-400">ILS</span></div>
+              <div className="text-4xl font-black text-blue-900">50.2M <span className="text-lg font-medium text-slate-400">ILS</span></div>
               <p className="text-sm text-slate-500 mt-2">Projected cumulative liquidity by Year 4 at 100% site capacity.</p>
             </div>
             <div className="mt-6 pt-6 border-t border-slate-100 space-y-4">
@@ -155,7 +155,7 @@ const App = () => {
 
         {activeTab === 'strategy' && (
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-red-50 p-2 rounded-lg"><AlertCircle className="text-red-600 w-6 h-6" /></div>
                 <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">The Problem</h3>
@@ -169,7 +169,7 @@ const App = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-blue-50 p-2 rounded-lg"><Globe className="text-blue-600 w-6 h-6" /></div>
                 <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Market Size</h3>
@@ -193,7 +193,7 @@ const App = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-orange-50 p-2 rounded-lg"><Clock className="text-orange-600 w-6 h-6" /></div>
                 <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Why Now?</h3>
@@ -214,7 +214,7 @@ const App = () => {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm border-l-4 border-l-blue-600">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm border-l-4 border-l-blue-600">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-blue-50 p-2 rounded-lg"><Lightbulb className="text-blue-600 w-6 h-6" /></div>
                 <h3 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Technological Edge</h3>
@@ -246,7 +246,7 @@ const App = () => {
 
         {activeTab === 'site' && (
           <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="p-8 grid lg:grid-cols-5 gap-8">
+            <div className="p-6 grid lg:grid-cols-5 gap-6">
               <div className="lg:col-span-3 space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-blue-900 mb-2">Israel Flagship Facility</h3>
@@ -383,7 +383,7 @@ const App = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+            <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
               <div className="flex flex-col md:flex-row justify-between gap-8">
                 <div className="md:w-1/2 space-y-6">
                   <h3 className="text-xl font-bold text-slate-800">Series A Capital Allocation</h3>
