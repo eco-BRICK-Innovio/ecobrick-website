@@ -21,7 +21,7 @@ export default defineConfig({
                 'iHLS-One-Pager': 'iHLS-One-Pager/index.html',
                 'shelter': 'shelter.html',
                 'presentation': 'presentation/index.html',
-                'eco-brick-eden': 'eco-brick-eden/index.html'
+                'eco-BRICK-Eden': 'eco-BRICK-Eden/index.html'
             }
         }
     }
