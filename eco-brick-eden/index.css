@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer base {
+  body {
+    @apply antialiased text-slate-900;
+  }
+}
+
+/* Gantt Specific Fixes for RTL */
+.gantt-scroll-container {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.gantt-month {
+  flex-shrink: 0 !important;
+  width: 100px !important;
+}
+
+.gantt-sidebar {
+  width: 288px !important; /* w-72 */
+  flex-shrink: 0 !important;
+}

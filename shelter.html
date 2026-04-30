@@ -14,26 +14,13 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ecobrick.tech/shelter.html" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ecobrick.tech/shelter.html" />
-    <meta property="og:title" content="eco BRICK Innovio | המהפכה במיגון טכנולוגי ופריק" />
-    <meta property="og:description" content="טכנולוגיית ה-eco BRICK משנה את הפיזיקה של המיגון. פתרון פריק לספיגת אנרגיה מקסימלית." />
-    <meta property="og:image" content="https://ecobrick.tech/assets/shelter-premium.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ecobrick.tech/shelter.html" />
-    <meta property="twitter:title" content="eco BRICK Innovio | המהפכה במיגון טכנולוגי ופריק" />
-    <meta property="twitter:description" content="טכנולוגיית ה-eco BRICK משנה את הפיזיקה של המיגון. פתרון פריק לספיגת אנרגיה מקסימלית." />
-    <meta property="twitter:image" content="https://ecobrick.tech/assets/shelter-premium.jpg" />
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap');
         
         body {
             font-family: 'Assistant', sans-serif;
@@ -43,118 +30,127 @@
         .hero-gradient {
             background: radial-gradient(circle at top right, #1e3a8a 0%, #020617 70%);
         }
-
-
+        
+        :root[dir="ltr"] .hero-gradient {
+            background: radial-gradient(circle at top left, #1e3a8a 0%, #020617 70%);
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-300">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-[110] bg-slate-900/95 backdrop-blur-lg text-white border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center text-right">
-            <div class="text-2xl font-black tracking-tighter">
+    <nav class="fixed w-full z-[110] bg-slate-900/95 backdrop-blur-lg text-white border-b border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-5 flex justify-between items-center text-start header-container">
+            <div class="text-2xl font-black tracking-tighter shrink-0">
                 eco BRICK <span class="text-blue-500 italic">Innovio</span>
             </div>
-            <div class="hidden md:flex gap-10 font-bold text-sm">
-                <a href="#physics" class="hover:text-blue-400 transition">פיזיקה והנדסה</a>
-                <a href="#ballistics" class="hover:text-blue-400 transition text-blue-400">ניסויי בליסטיקה</a>
-                <a href="#simulation" class="hover:text-blue-400 transition">ניתוח הדף</a>
-                <a href="#specs" class="hover:text-blue-400 transition">מפרט טכני</a>
-                <a href="/" class="bg-blue-600 px-6 py-2 rounded-xl hover:bg-blue-500 transition shadow-lg">חזרה לדף הבית</a>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Mobile Menu Button could go here if needed -->
+                
+                <div class="hidden lg:flex gap-6 lg:gap-10 font-bold text-sm items-center">
+                    <a href="#physics" class="hover:text-blue-400 transition" data-i18n="navPhysics">פיזיקה והנדסה</a>
+                    <a href="#ballistics" class="hover:text-blue-400 transition text-blue-400" data-i18n="navBallistics">ניסויי בליסטיקה</a>
+                    <a href="#simulation" class="hover:text-blue-400 transition" data-i18n="navSimulation">ניתוח הדף</a>
+                    <a href="#specs" class="hover:text-blue-400 transition" data-i18n="navSpecs">מפרט טכני</a>
+                    <a href="/" class="bg-blue-600 px-6 py-2 rounded-xl hover:bg-blue-500 transition shadow-lg whitespace-nowrap" data-i18n="navBack">חזרה לדף הבית</a>
+                </div>
+                
+                <!-- Language Switcher -->
+                <div class="flex gap-1 border border-slate-700 rounded-lg p-1 bg-slate-900/50 shrink-0">
+                    <button onclick="setLang('he')" id="btn-he" class="lang-btn px-2 md:px-3 py-1 text-xs font-bold rounded-md bg-blue-600 text-white transition tracking-wide">HE</button>
+                    <button onclick="setLang('en')" id="btn-en" class="lang-btn px-2 md:px-3 py-1 text-xs font-bold rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition tracking-wide">EN</button>
+                    <button onclick="setLang('ar')" id="btn-ar" class="lang-btn px-2 md:px-3 py-1 text-xs font-bold rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition tracking-wide">AR</button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white pt-32 pb-20 px-6 overflow-hidden relative text-right">
+    <section class="hero-gradient text-white pt-32 pb-20 px-6 overflow-hidden relative text-start">
         <div class="absolute inset-0 opacity-10 pointer-events-none">
              <div class="grid grid-cols-12 h-full gap-2 rotate-12 scale-150">
-                 <!-- Static pattern to replace the React map that doesn't work in static HTML -->
-                 <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
-                 <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
-                 <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
-                 <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
                  <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
                  <div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div><div class="border border-white/20 h-24"></div>
              </div>
         </div>
         <div class="max-w-4xl mx-auto relative z-10 text-center">
             <div class="flex flex-col items-center">
-                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter text-white">
+                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tighter text-white" data-i18n="titleDesc">
                     אקו-מיגונית <span class="text-blue-500 italic drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">פריקה</span>
                 </h1>
-                <p class="text-2xl text-slate-400 mb-12 max-w-2xl leading-relaxed font-medium mx-auto">
+                <p class="text-2xl text-slate-400 mb-12 max-w-2xl leading-relaxed font-medium mx-auto" data-i18n="heroP">
                     טכנולוגיית ה-eco BRICK משנה את הפיזיקה של המיגון. פתרון בעל משיכות (Ductility) גבוהה הסופג אנרגיה ומבטיח פנים נקי מרסיסים גם תחת פגיעה ישירה של פגז 155 מ"מ.
                 </p>
-                <div class="flex flex-wrap gap-5 justify-center">
-                    <a href="#contact" class="bg-blue-600 hover:bg-blue-500 border border-blue-400/50 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] transition transform hover:scale-105 active:scale-95 text-center">צור קשר לייעוץ ביטחוני</a>
-                    <a href="#specs" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 px-10 py-4 rounded-xl font-bold text-lg transition transform hover:scale-105 active:scale-95 text-center">למפרט הטכני המלא</a>
+                <div class="flex flex-wrap gap-5 justify-center mt-4">
+                    <a href="#contact" data-i18n="heroBtn1" class="bg-blue-600 hover:bg-blue-500 border border-blue-400/50 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-[0_0_20px_rgba(59,130,246,0.3)] transition transform hover:scale-105 active:scale-95 text-center">צור קשר לייעוץ ביטחוני</a>
+                    <a href="#specs" data-i18n="heroBtn2" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 px-10 py-4 rounded-xl font-bold text-lg transition transform hover:scale-105 active:scale-95 text-center">למפרט הטכני המלא</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Field Imagery (Backyard) -->
-    <section id="gallery" class="py-16 px-6 bg-slate-950 text-right">
+    <section id="gallery" class="py-16 px-6 bg-slate-950 text-start">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl font-black mb-12 text-center text-white tracking-tight">המיגונית בחצר הבית</h2>
+            <h2 class="text-5xl font-black mb-12 text-center text-white tracking-tight" data-i18n="galleryTitle">המיגונית בחצר הבית</h2>
             <div class="relative rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border-4 border-slate-700 aspect-[21/9] bg-slate-900 group flex justify-center items-center">
                 <div class="absolute inset-0 bg-[url('/assets/shelter-premium.jpg')] bg-cover bg-center"></div>
                 <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-16 flex flex-col justify-end text-white z-10 h-1/2">
-                    <h4 class="text-4xl font-black mb-4 tracking-tighter italic text-cyan-400 drop-shadow-md">דגם פרימיום 3X2 מ'</h4>
-                    <p class="text-blue-100 font-bold text-xl leading-relaxed drop-shadow-md">עיצוב מודרני פריק שמעניק שקט נפשי מלא למשפחה.</p>
+                    <h4 class="text-4xl font-black mb-4 tracking-tighter italic text-cyan-400 drop-shadow-md" data-i18n="galleryPremium">דגם פרימיום 3X2 מ'</h4>
+                    <p class="text-blue-100 font-bold text-xl leading-relaxed drop-shadow-md" data-i18n="galleryDesc">עיצוב מודרני פריק שמעניק שקט נפשי מלא למשפחה.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: Ballistic Range Testing Results -->
-    <section id="ballistics" class="py-16 px-6 bg-zinc-950 text-right">
+    <!-- Ballistic Range Testing Results -->
+    <section id="ballistics" class="py-16 px-6 bg-zinc-950 text-start">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8 relative z-10">
                 <div>
-                    <h2 class="text-3xl font-black mb-3 text-white tracking-tight">הוכחה מהשטח: ניסויי ירי</h2>
-                    <p class="text-xl text-slate-400 font-bold">סיכום ניסויי בליסטיקה – אקדח 9 מ"מ ממרחק 6 מטר</p>
+                    <h2 class="text-3xl font-black mb-3 text-white tracking-tight" data-i18n="ballisticsTitle">הוכחה מהשטח: ניסויי ירי</h2>
+                    <p class="text-xl text-slate-400 font-bold" data-i18n="ballisticsSub">סיכום ניסויי בליסטיקה – אקדח 9 מ"מ ממרחק 6 מטר</p>
                 </div>
-                <div class="bg-blue-900/50 border border-blue-500/50 text-blue-100 px-8 py-3 rounded-full font-black text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)] backdrop-blur-sm">
-                    <i class="fas fa-bullseye ml-2 text-blue-400"></i> Range Test Certified
+                <div class="bg-blue-900/50 border border-blue-500/50 text-blue-100 px-8 py-3 rounded-full font-black text-sm shadow-[0_0_20px_rgba(59,130,246,0.3)] backdrop-blur-sm whitespace-nowrap">
+                    <i class="fas fa-bullseye ms-2 me-2 text-blue-400"></i> Range Test Certified
                 </div>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8 relative z-10">
                 <div class="ballistic-stat">
                     <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">9/9</div>
-                    <h4 class="text-xl font-black mb-2 text-white">עצירת קליעים (Multi-hit)</h4>
-                    <p class="text-sm text-slate-400 font-medium leading-relaxed">ירי רציף על שטח פנים מצומצם. עובי של 4 ס"מ בלבד מספק הגנה של קרוב ל-100% מול תחמושת קלה ורסיסים.</p>
+                    <h4 class="text-xl font-black mb-2 text-white" data-i18n="bal1Title">עצירת קליעים (Multi-hit)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed" data-i18n="bal1Desc">ירי רציף על שטח פנים מצומצם. עובי של 4 ס"מ בלבד מספק הגנה של קרוב ל-100% מול תחמושת קלה ורסיסים.</p>
                 </div>
                 <div class="ballistic-stat">
                     <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">0%</div>
-                    <h4 class="text-xl font-black mb-2 text-white">התנפצות (No Shattering)</h4>
-                    <p class="text-sm text-slate-400 font-medium leading-relaxed">המטריצה הפולימרית הפגינה תכונת משיכות גבוהה (Ductile). הלבנה שמרה על שלמות מבנית ללא נתזים (Ricochets).</p>
+                    <h4 class="text-xl font-black mb-2 text-white" data-i18n="bal2Title">התנפצות (No Shattering)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed" data-i18n="bal2Desc">המטריצה הפולימרית הפגינה תכונת משיכות גבוהה (Ductile). הלבנה שמרה על שלמות מבנית ללא נתזים (Ricochets).</p>
                 </div>
                 <div class="ballistic-stat">
                     <div class="text-blue-500 text-4xl mb-4 font-black drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">ZERO</div>
-                    <h4 class="text-xl font-black mb-2 text-white">רסיסי פנים (Spalling)</h4>
-                    <p class="text-sm text-slate-400 font-medium leading-relaxed">אפס נתזי פנים מהצד האחורי. הקליעים נבלעו בתוך הלבנה או איבדו את כל האנרגיה הקינטית שלהם.</p>
+                    <h4 class="text-xl font-black mb-2 text-white" data-i18n="bal3Title">רסיסי פנים (Spalling)</h4>
+                    <p class="text-sm text-slate-400 font-medium leading-relaxed" data-i18n="bal3Desc">אפס נתזי פנים מהצד האחורי. הקליעים נבלעו בתוך הלבנה או איבדו את כל האנרגיה הקינטית שלהם.</p>
                 </div>
             </div>
 
             <div class="mt-16 bg-gradient-to-br from-slate-900 to-blue-950 border border-blue-800/50 text-white p-10 rounded-3xl relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] z-10">
-                <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[60px] -translate-x-16 -translate-y-16 pointer-events-none"></div>
+                <div class="absolute top-0 start-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[60px] ltr:-translate-x-16 rtl:translate-x-16 -translate-y-16 pointer-events-none"></div>
                 <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h3 class="text-3xl font-black mb-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]">המשמעות ההנדסית של הניסוי</h3>
+                        <h3 class="text-3xl font-black mb-6 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]" data-i18n="engTitle">המשמעות ההנדסית של הניסוי</h3>
                         <ul class="space-y-4 font-bold">
-                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">חיסכון של 30%-50% במשקל המיגונית ללא פגיעה ברמת המיגון.</span></li>
-                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">בטיחות מקסימלית: פנים המבנה נקי מרסיסים קטלניים.</span></li>
-                            <li class="flex gap-4"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200">עמידות תחת אש רציפה בזכות המבנה הפולימרי הסופג.</span></li>
+                            <li class="flex gap-4 items-start"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200" data-i18n="eng1">חיסכון של 30%-50% במשקל המיגונית ללא פגיעה ברמת המיגון.</span></li>
+                            <li class="flex gap-4 items-start"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200" data-i18n="eng2">בטיחות מקסימלית: פנים המבנה נקי מרסיסים קטלניים.</span></li>
+                            <li class="flex gap-4 items-start"><i class="fas fa-check-circle text-cyan-400 mt-1"></i> <span class="text-slate-200" data-i18n="eng3">עמידות תחת אש רציפה בזכות המבנה הפולימרי הסופג.</span></li>
                         </ul>
                     </div>
-                    <div class="text-center italic text-blue-100 border-r-4 border-blue-600 pr-8">
-                        <p class="text-2xl font-medium leading-relaxed">
+                    <div class="text-center italic text-blue-100 border-s-4 border-blue-600 ps-8 pe-8">
+                        <p class="text-2xl font-medium leading-relaxed" data-i18n="quote">
                             "הוכחנו שפסולת היא לא רק חומר גלם בר-קיימא, אלא חומר מיגון עדיף מבחינה פיזיקלית על פני בטון קונבנציונלי."
                         </p>
-                        <p class="mt-4 font-black uppercase tracking-widest text-sm">— צוות ההנדסה, eco BRICK Innovio</p>
+                        <p class="mt-4 font-black uppercase tracking-widest text-sm" data-i18n="quoteAuthor">— צוות ההנדסה, eco BRICK Innovio</p>
                     </div>
                 </div>
             </div>
@@ -162,23 +158,23 @@
     </section>
 
     <!-- Technical Specs -->
-    <section id="specs" class="py-16 px-6 bg-slate-900 text-white text-right">
+    <section id="specs" class="py-16 px-6 bg-slate-900 text-white text-start">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl font-black mb-10 text-center tracking-tight">מפרט טכני מאושר</h2>
+            <h2 class="text-5xl font-black mb-10 text-center tracking-tight" data-i18n="specsTitle">מפרט טכני מאושר</h2>
             <div class="bg-slate-950/80 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.6)] border border-blue-900 overflow-hidden">
-                <table class="w-full text-right border-collapse">
+                <table class="w-full text-start border-collapse">
                     <thead>
                         <tr class="bg-blue-950/40 text-blue-200 border-b border-blue-900/60">
-                            <th class="p-10 font-black text-2xl text-right">קריטריון הנדסי</th>
-                            <th class="p-10 font-black text-2xl text-cyan-400 text-right text-center drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">eco BRICK Innovio</th>
+                            <th class="p-10 font-black text-2xl text-start" data-i18n="specsTh1">קריטריון הנדסי</th>
+                            <th class="p-10 font-black text-2xl text-cyan-400 text-center drop-shadow-[0_0_5px_rgba(34,211,238,0.5)]">eco BRICK Innovio</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-blue-900/30 font-bold text-xl">
-                        <tr><td class="p-8 pr-12 text-slate-300">צפיפות חומר (Density)</td><td class="p-8 text-cyan-400 font-mono">~1,120 kg/m³ <span class="text-sm font-sans text-slate-400 ml-2">(קל ב-55% מבטון)</span></td></tr>
-                        <tr><td class="p-8 pr-12 text-slate-300">עמידות הדף (Blast Resistance)</td><td class="p-8 text-cyan-400 font-mono italic">עד 1.0 Bar <span class="text-sm font-sans text-slate-400 ml-2">(תקן פקע"ר)</span></td></tr>
-                        <tr><td class="p-8 pr-12 text-slate-300">בלימת רסיסים (155mm)</td><td class="p-8 text-cyan-400 font-mono">12-14 cm <span class="text-sm font-sans text-slate-400 ml-2">(ללא רסיסי פנים)</span></td></tr>
-                        <tr><td class="p-8 pr-12 text-slate-300">משקל כולל (דגם פרימיום 3X2 מ')</td><td class="p-8 text-cyan-400 font-mono">~9.5 טון</td></tr>
-                        <tr><td class="p-8 pr-12 text-slate-300">שיטת חיבור (Connectivity)</td><td class="p-8 text-cyan-400 font-mono">לוחות מוברגים (Bolted Plate)</td></tr>
+                        <tr><td class="p-8 pe-12 text-slate-300" data-i18n="spec1">צפיפות חומר (Density)</td><td class="p-8 text-cyan-400 font-mono" data-i18n="spec1d">~1,120 kg/m³ <span class="text-sm font-sans text-slate-400 mx-2">(קל ב-55% מבטון)</span></td></tr>
+                        <tr><td class="p-8 pe-12 text-slate-300" data-i18n="spec2">עמידות הדף (Blast Resistance)</td><td class="p-8 text-cyan-400 font-mono italic" data-i18n="spec2d">עד 1.0 Bar <span class="text-sm font-sans text-slate-400 mx-2">(תקן פקע"ר)</span></td></tr>
+                        <tr><td class="p-8 pe-12 text-slate-300" data-i18n="spec3">בלימת רסיסים (155mm)</td><td class="p-8 text-cyan-400 font-mono" data-i18n="spec3d">12-14 cm <span class="text-sm font-sans text-slate-400 mx-2">(ללא רסיסי פנים)</span></td></tr>
+                        <tr><td class="p-8 pe-12 text-slate-300" data-i18n="spec4">משקל כולל (דגם פרימיום 3X2 מ')</td><td class="p-8 text-cyan-400 font-mono" data-i18n="spec4d">~9.5 טון</td></tr>
+                        <tr><td class="p-8 pe-12 text-slate-300" data-i18n="spec5">שיטת חיבור (Connectivity)</td><td class="p-8 text-cyan-400 font-mono" data-i18n="spec5d">לוחות מוברגים (Bolted Plate)</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -186,31 +182,31 @@
     </section>
 
     <!-- Physics Formulas Section -->
-    <section id="physics" class="py-16 px-6 bg-black text-right">
+    <section id="physics" class="py-16 px-6 bg-black text-start">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-black mb-4 text-white tracking-tight">הפיזיקה של ה-eco BRICK</h2>
-                <p class="text-xl text-slate-400 font-medium max-w-3xl mx-auto">מעבר ממיגון פסיבי המבוסס על מסה, למיגון אקטיבי המבוסס על ספיגת אנרגיה.</p>
+                <h2 class="text-3xl font-black mb-4 text-white tracking-tight" data-i18n="physicsTitle">הפיזיקה של ה-eco BRICK</h2>
+                <p class="text-xl text-slate-400 font-medium max-w-3xl mx-auto" data-i18n="physicsSub">מעבר ממיגון פסיבי המבוסס על מסה, למיגון אקטיבי המבוסס על ספיגת אנרגיה.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="bg-slate-900 border border-blue-900/50 p-10 rounded-2xl shadow-2xl">
-                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4 flex-row-reverse">
+                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4">
                         <i class="fas fa-wave-square"></i>
-                        ניהול גלי הדף (\(P_r\))
+                        <span data-i18n="phys1Title">ניהול גלי הדף</span> (\(P_r\))
                     </h3>
-                    <p class="text-slate-400 mb-8 font-medium">הנוסחה לחישוב הלחץ המוחזר מראה כיצד ה-eco BRICK מאריך את משך זמן הספיגה ומוריד את שיא הכוח הדינמי.</p>
+                    <p class="text-slate-400 mb-8 font-medium" data-i18n="phys1Desc">הנוסחה לחישוב הלחץ המוחזר מראה כיצד ה-eco BRICK מאריך את משך זמן הספיגה ומוריד את שיא הכוח הדינמי.</p>
                     <div class="bg-black border border-slate-800 text-blue-400 p-8 rounded-xl text-center text-2xl font-mono shadow-inner" dir="ltr">
                         \[P_r = 2P_{so} \cdot \left( \frac{7P_0 + 4P_{so}}{7P_0 + P_{so}} \right)\]
                     </div>
                 </div>
 
                 <div class="bg-slate-900 border border-blue-900/50 p-10 rounded-2xl shadow-2xl">
-                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4 flex-row-reverse">
+                    <h3 class="text-2xl font-black mb-6 text-blue-400 flex items-center gap-4">
                         <i class="fas fa-crosshairs"></i>
-                        בלימת רסיסים (155mm)
+                        <span data-i18n="phys2Title">בלימת רסיסים (155mm)</span>
                     </h3>
-                    <p class="text-slate-600 mb-8 font-medium">שימוש בנוסחת Modified Petry לחישוב חדירה. המטריצה הפולימרית בולעת את האנרגיה ללא התנפצות פנימית.</p>
+                    <p class="text-slate-600 mb-8 font-medium" data-i18n="phys2Desc">שימוש בנוסחת Modified Petry לחישוב חדירה. המטריצה הפולימרית בולעת את האנרגיה ללא התנפצות פנימית.</p>
                     <div class="bg-slate-900 text-blue-400 p-8 rounded-2xl text-center text-2xl font-mono" dir="ltr">
                         \[x = k \cdot \frac{M}{A} \cdot \log_{10}\left(1 + \frac{V^2}{215,000}\right)\]
                     </div>
@@ -222,35 +218,226 @@
     <!-- YouTube Video Demonstration -->
     <section id="simulation" class="py-16 px-6 bg-black overflow-hidden text-center">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-black mb-10 text-white tracking-tight">המלצות פיקוד העורף לראשי הערים</h2>
+            <h2 class="text-3xl font-black mb-10 text-white tracking-tight" data-i18n="simTitle">המלצות פיקוד העורף לראשי הערים</h2>
             
             <div class="max-w-sm mx-auto relative rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(34,211,238,0.3)] border-2 border-cyan-500/30 aspect-[9/16] bg-slate-900 group">
-                <iframe class="absolute inset-0 w-full h-full z-10" src="https://www.youtube.com/embed/ITRvrJCMjOc" title="eco BRICK Live Blast Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="blast-video" class="absolute inset-0 w-full h-full z-10" src="https://www.youtube.com/embed/ITRvrJCMjOc" title="eco BRICK Live Blast Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 
-                <!-- Placeholder background loading indicator -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 text-blue-500 z-0 text-center">
                     <i class="fas fa-spinner fa-spin text-5xl mb-4"></i>
-                    <p class="font-bold">טוען נתוני וידאו...</p>
+                    <p class="font-bold" data-i18n="simLoading">טוען נתוני וידאו...</p>
                 </div>
             </div>
             
-            <p class="text-slate-400 font-bold mt-10 max-w-xl mx-auto text-lg leading-relaxed">
+            <p class="text-slate-400 font-bold mt-10 max-w-xl mx-auto text-lg leading-relaxed" data-i18n="simDesc">
                 צפו בתיעוד וידאו מניסוי הבליסטיקה וההדף, הממחיש כיצד מטריצת הפולימר החדשנית של eco BRICK סופגת אנרגיה קינטית ומגנה באופן מלא על חלל המבנה.
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-white py-20 px-6 text-center border-t border-slate-900">
+    <footer class="bg-slate-950 text-white py-20 px-6 text-center border-t border-slate-900 text-start">
         <div class="max-w-7xl mx-auto border-b border-slate-900 pb-12 mb-12">
-            <div class="text-4xl font-black mb-6 tracking-tighter uppercase text-right md:text-center">
+            <div class="text-4xl font-black mb-6 tracking-tighter uppercase text-center">
                 eco BRICK <span class="text-blue-500 italic">Innovio</span>
             </div>
-            <p class="text-blue-400/60 text-sm max-w-sm mx-auto uppercase tracking-[0.4em] font-black">Sustainable Defense Engineering</p>
+            <p class="text-blue-400/60 text-sm max-w-sm mx-auto uppercase tracking-[0.4em] font-black text-center">Sustainable Defense Engineering</p>
         </div>
-        <p class="text-slate-500 text-xs font-black">© 2026 כל הזכויות שמורות ל-eco BRICK Innovio. הטכנולוגיה מוגנת בפטנט בינלאומי רשום.</p>
+        <p class="text-slate-500 text-xs font-black text-center" data-i18n="footerRights">© 2026 כל הזכויות שמורות ל-eco BRICK Innovio. הטכנולוגיה מוגנת בפטנט בינלאומי רשום.</p>
     </footer>
 
+    <!-- Localization Script -->
+    <script>
+    const translations = {
+        "he": {
+            navPhysics: "פיזיקה והנדסה",
+            navBallistics: "ניסויי בליסטיקה",
+            navSimulation: "ניתוח הדף",
+            navSpecs: "מפרט טכני",
+            navBack: "חזרה לדף הבית",
+            titleDesc: "אקו-מיגונית <span class='text-blue-500 italic drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]'>פריקה</span>",
+            heroP: "טכנולוגיית ה-eco BRICK משנה את הפיזיקה של המיגון. פתרון בעל משיכות (Ductility) גבוהה הסופג אנרגיה ומבטיח פנים נקי מרסיסים גם תחת פגיעה ישירה של פגז 155 מ\"מ.",
+            heroBtn1: "צור קשר לייעוץ ביטחוני",
+            heroBtn2: "למפרט הטכני המלא",
+            galleryTitle: "המיגונית בחצר הבית",
+            galleryPremium: "דגם פרימיום 3X2 מ'",
+            galleryDesc: "עיצוב מודרני פריק שמעניק שקט נפשי מלא למשפחה.",
+            ballisticsTitle: "הוכחה מהשטח: ניסויי ירי",
+            ballisticsSub: "סיכום ניסויי בליסטיקה – אקדח 9 מ\"מ ממרחק 6 מטר",
+            bal1Title: "עצירת קליעים (Multi-hit)",
+            bal1Desc: "ירי רציף על שטח פנים מצומצם. עובי של 4 ס\"מ בלבד מספק הגנה של קרוב ל-100% מול תחמושת קלה ורסיסים.",
+            bal2Title: "התנפצות (No Shattering)",
+            bal2Desc: "המטריצה הפולימרית הפגינה תכונת משיכות גבוהה (Ductile). הלבנה שמרה על שלמות מבנית ללא נתזים (Ricochets).",
+            bal3Title: "רסיסי פנים (Spalling)",
+            bal3Desc: "אפס נתזי פנים מהצד האחורי. הקליעים נבלעו בתוך הלבנה או איבדו את כל האנרגיה הקינטית שלהם.",
+            engTitle: "המשמעות ההנדסית של הניסוי",
+            eng1: "חיסכון של 30%-50% במשקל המיגונית ללא פגיעה ברמת המיגון.",
+            eng2: "בטיחות מקסימלית: פנים המבנה נקי מרסיסים קטלניים.",
+            eng3: "עמידות תחת אש רציפה בזכות המבנה הפולימרי הסופג.",
+            quote: "\"הוכחנו שפסולת היא לא רק חומר גלם בר-קיימא, אלא חומר מיגון עדיף מבחינה פיזיקלית על פני בטון קונבנציונלי.\"",
+            quoteAuthor: "— צוות ההנדסה, eco BRICK Innovio",
+            specsTitle: "מפרט טכני מאושר",
+            specsTh1: "קריטריון הנדסי",
+            spec1: "צפיפות חומר (Density)",
+            spec1d: "~1,120 kg/m³ <span class='text-sm font-sans text-slate-400 mx-2'>(קל ב-55% מבטון)</span>",
+            spec2: "עמידות הדף (Blast Resistance)",
+            spec2d: "עד 1.0 Bar <span class='text-sm font-sans text-slate-400 mx-2'>(תקן פקע\"ר)</span>",
+            spec3: "בלימת רסיסים (155mm)",
+            spec3d: "12-14 cm <span class='text-sm font-sans text-slate-400 mx-2'>(ללא רסיסי פנים)</span>",
+            spec4: "משקל כולל (דגם פרימיום 3X2 מ')",
+            spec4d: "~9.5 טון",
+            spec5: "שיטת חיבור (Connectivity)",
+            spec5d: "לוחות מוברגים (Bolted Plate)",
+            physicsTitle: "הפיזיקה של ה-eco BRICK",
+            physicsSub: "מעבר ממיגון פסיבי המבוסס על מסה, למיגון אקטיבי המבוסס על ספיגת אנרגיה.",
+            phys1Title: "ניהול גלי הדף",
+            phys1Desc: "הנוסחה לחישוב הלחץ המוחזר מראה כיצד ה-eco BRICK מאריך את משך זמן הספיגה ומוריד את שיא הכוח הדינמי.",
+            phys2Title: "בלימת רסיסים (155mm)",
+            phys2Desc: "שימוש בנוסחת Modified Petry לחישוב חדירה. המטריצה הפולימרית בולעת את האנרגיה ללא התנפצות פנימית.",
+            simTitle: "המלצות פיקוד העורף לראשי הערים",
+            simLoading: "טוען נתוני וידאו...",
+            simDesc: "צפו בתיעוד וידאו מניסוי הבליסטיקה וההדף, הממחיש כיצד מטריצת הפולימר החדשנית של eco BRICK סופגת אנרגיה קינטית ומגנה באופן מלא על חלל המבנה.",
+            footerRights: "© 2026 כל הזכויות שמורות ל-eco BRICK Innovio. הטכנולוגיה מוגנת בפטנט בינלאומי רשום."
+        },
+        "en": {
+            navPhysics: "Physics & Engineering",
+            navBallistics: "Ballistic Tests",
+            navSimulation: "Blast Analysis",
+            navSpecs: "Technical Specs",
+            navBack: "Back to Home",
+            titleDesc: "Demountable <span class='text-blue-500 italic drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]'>Eco-Shelter</span>",
+            heroP: "eco BRICK technology changes the physics of protection. A highly ductile solution that absorbs energy, ensuring an interior clean of shrapnel even under a direct 155mm shell hit.",
+            heroBtn1: "Contact for Consultation",
+            heroBtn2: "Full Technical Specs",
+            galleryTitle: "Shelter in the Backyard",
+            galleryPremium: "Premium Model 3X2m",
+            galleryDesc: "Modern demountable design providing complete peace of mind for the family.",
+            ballisticsTitle: "Field Evidence: Shooting Tests",
+            ballisticsSub: "Ballistic Tests Summary – 9mm Pistol from 6 meters",
+            bal1Title: "Stopping Bullets (Multi-hit)",
+            bal1Desc: "Continuous fire on a small surface area. Only 4 cm thickness provides nearly 100% protection against light ammunition & shrapnel.",
+            bal2Title: "No Shattering",
+            bal2Desc: "The polymer matrix demonstrated high ductility. The brick maintained structural integrity without ricochets.",
+            bal3Title: "Inner Spalling",
+            bal3Desc: "Zero inner spalling from the rear side. Bullets were absorbed inside the brick or lost all their kinetic energy.",
+            engTitle: "Engineering Significance of the Test",
+            eng1: "30%-50% weight savings for the shelter without compromising protection levels.",
+            eng2: "Maximum safety: The interior is totally clean of deadly shrapnel.",
+            eng3: "Durability under continuous fire thanks to the energy-absorbing polymer structure.",
+            quote: "\"We proved that waste is not just sustainable raw material, but a physically superior protection material compared to conventional concrete.\"",
+            quoteAuthor: "— Engineering Team, eco BRICK Innovio",
+            specsTitle: "Approved Technical Specs",
+            specsTh1: "Engineering Criterion",
+            spec1: "Material Density",
+            spec1d: "~1,120 kg/m³ <span class='text-sm font-sans text-slate-400 mx-2'>(55% lighter than concrete)</span>",
+            spec2: "Blast Resistance",
+            spec2d: "Up to 1.0 Bar <span class='text-sm font-sans text-slate-400 mx-2'>(HFC Standard)</span>",
+            spec3: "Shrapnel Stopping (155mm)",
+            spec3d: "12-14 cm <span class='text-sm font-sans text-slate-400 mx-2'>(No inner spalling)</span>",
+            spec4: "Total Weight (3X2m model)",
+            spec4d: "~9.5 tons",
+            spec5: "Connectivity",
+            spec5d: "Bolted Plates",
+            physicsTitle: "The Physics of eco BRICK",
+            physicsSub: "Transitioning from mass-based passive protection to energy-absorbing active protection.",
+            phys1Title: "Blast Wave Management",
+            phys1Desc: "The formula for reflected pressure shows how eco BRICK extends absorption time and lowers peak dynamic force.",
+            phys2Title: "Shrapnel Stopping (155mm)",
+            phys2Desc: "Using Modified Petry formula for penetration. The polymer matrix absorbs energy without internal shattering.",
+            simTitle: "Home Front Command Recommendations",
+            simLoading: "Loading video data...",
+            simDesc: "Watch video documentation of the ballistic & blast tests, demonstrating how the eco BRICK matrix absorbs kinetic energy & fully protects the structure's interior.",
+            footerRights: "© 2026 All rights reserved to eco BRICK Innovio. The technology is protected by an international registered patent."
+        },
+        "ar": {
+            navPhysics: "الفيزياء والهندسة",
+            navBallistics: "اختبارات باليستية",
+            navSimulation: "تحليل الانفجار",
+            navSpecs: "المواصفات الفنية",
+            navBack: "العودة للرئيسية",
+            titleDesc: "ملجأ بيئي <span class='text-blue-500 italic drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]'>قابل للفك</span>",
+            heroP: "تغير تكنولوجيا eco BRICK فيزياء الحماية. حل قابل للفك يتمتع بمرونة عالية يمتص الطاقة ويضمن مساحة داخلية خالية من الشظايا حتى تحت إصابة مباشرة بقذيفة 155 ملم.",
+            heroBtn1: "اتصل للاستشارة الأمنية",
+            heroBtn2: "المواصفات الفنية الكاملة",
+            galleryTitle: "الملجأ في الفناء الخلفي",
+            galleryPremium: "نموذج فاخر 3×2 م",
+            galleryDesc: "تصميم حديث قابل للفك يوفر راحة بال تامة للعائلة.",
+            ballisticsTitle: "دليل ميداني: اختبارات الرماية",
+            ballisticsSub: "ملخص الاختبارات الباليستية - مسدس 9 ملم من 6 أمتار",
+            bal1Title: "إيقاف الرصاص (ضربات متعددة)",
+            bal1Desc: "إطلاق نار مستمر على مساحة صغيرة. سمك 4 سم فقط يوفر حماية 100% تقريبًا ضد الذخيرة الخفيفة والشظايا.",
+            bal2Title: "بدون تحطم",
+            bal2Desc: "أظهرت المصفوفة البوليمرية مرونة عالية. حافظت الطوبة على سلامتها الهيكلية دون شظايا مرتدة.",
+            bal3Title: "شظايا داخلية",
+            bal3Desc: "صفر شظايا من الجانب الخلفي. تم امتصاص الرصاص داخل الطوبة أو فقد كل طاقته الحركية.",
+            engTitle: "الأهمية الهندسية للاختبار",
+            eng1: "توفير من 30% إلى 50% من وزن الملجأ دون تقليل مستوى الحماية.",
+            eng2: "أمان أقصى: داخل المبنى نظيف من الشظايا القاتلة.",
+            eng3: "متانة تحت النيران المستمرة بفضل الهيكل البوليمري الممتص.",
+            quote: "\"أثبتنا أن النفايات ليست فقط مادة خام مستدامة، ولكنها مادة حماية أفضل فيزيائياً من الخرسانة التقليدية.\"",
+            quoteAuthor: "— فريق الهندسة، eco BRICK Innovio",
+            specsTitle: "المواصفات الفنية المعتمدة",
+            specsTh1: "المعيار الهندسي",
+            spec1: "كثافة المواد",
+            spec1d: "~1,120 kg/m³ <span class='text-sm font-sans text-slate-400 mx-2'>(أخف بنسبة 55% من الخرسانة)</span>",
+            spec2: "مقاومة الانفجار",
+            spec2d: "حتى 1.0 بار <span class='text-sm font-sans text-slate-400 mx-2'>(معيار الجبهة الداخلية)</span>",
+            spec3: "إيقاف الشظايا (155mm)",
+            spec3d: "12-14 سم <span class='text-sm font-sans text-slate-400 mx-2'>(بدون شظايا داخلية)</span>",
+            spec4: "الوزن الإجمالي (نموذج فاخر 3×2 م)",
+            spec4d: "~9.5 طن",
+            spec5: "طريقة الربط",
+            spec5d: "لوحات مثبتة بمسامير",
+            physicsTitle: "فيزياء eco BRICK",
+            physicsSub: "الانتقال من الحماية السلبية بالكتلة إلى الحماية النشطة بامتصاص الطاقة.",
+            phys1Title: "إدارة موجات الانفجار",
+            phys1Desc: "تُظهر صيغة حساب الضغط المنعكس كيف يطيل eco BRICK وقت الامتصاص ويقلل من ذروة القوة الديناميكية.",
+            phys2Title: "إيقاف الشظايا (155mm)",
+            phys2Desc: "استخدام صيغة Petry المعدلة للاختراق. تمتص المصفوفة البوليمرية الطاقة دون تفتت داخلي.",
+            simTitle: "توصيات قيادة الجبهة الداخلية لرؤساء البلديات",
+            simLoading: "جاري تحميل بيانات الفيديو...",
+            simDesc: "شاهد توثيق الفيديو للاختبار الباليستي والانفجاري، مما يوضح كيف تمتص مصفوفة eco BRICK المبتكرة الطاقة الحركية وتحمي المبنى بالكامل.",
+            footerRights: "© 2026 جميع الحقوق محفوظة لـ eco BRICK Innovio. التكنولوجيا محمية ببراءة اختراع دولية."
+        }
+    };
 
+    function setLang(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+
+        if (lang === 'he' || lang === 'ar') {
+            document.documentElement.dir = 'rtl';
+            document.documentElement.lang = lang;
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.documentElement.lang = 'en';
+        }
+        
+        // Update font
+        if (lang === 'ar') {
+            document.body.style.fontFamily = "'Assistant', 'Cairo', sans-serif";
+        } else {
+            document.body.style.fontFamily = "'Assistant', sans-serif";
+        }
+        
+        // Update Buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('bg-slate-800', 'text-slate-400');
+        });
+        const activeBtn = document.getElementById('btn-' + lang);
+        if(activeBtn) {
+            activeBtn.classList.remove('bg-slate-800', 'text-slate-400');
+            activeBtn.classList.add('bg-blue-600', 'text-white');
+        }
+    }
+
+    // Default init based on current lang attribute
+    window.addEventListener('DOMContentLoaded', () => setLang('he'));
+    </script>
 </body>
 </html>
