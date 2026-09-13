@@ -8,7 +8,11 @@ export function calculate(d){
  const steadyTons=machines*I(11)*I(12)*I(13)*I(14);
  let fixed=0,fixedWage=0,variable=0,variableWage=0;
  const costs=d.costs.map(r=>{const isWage=r[1]==='Payroll',mult=isWage?1+I(19):1,price=n(r[2])*mult;let qty=0;
- if(r[3]==='Unit'||r[3]==='Equipment item'){qty=r[3]==='Equipment item'?equipmentCount:Math.max(n(r[4]),n(r[5])>0?Math.ceil(machines/n(r[5])):0);fixed+=price*qty;if(isWage)fixedWage+=price*qty}
+ if(r[3]==='Unit'||r[3]==='Equipment item'){
+   if(r[0]==='Operators'){qty=machines===0?0:machines<=2?2:machines<=4?4:machines;}
+   else{qty=r[3]==='Equipment item'?equipmentCount:(machines===0?0:Math.max(n(r[4]),n(r[5])>0?Math.ceil(machines/n(r[5])):0));}
+   fixed+=price*qty;if(isWage)fixedWage+=price*qty
+ }
  else {const perWaste=r[3]==='Product tonne'?I(15):1;qty=steadyTons*perWaste;variable+=price*perWaste;if(isWage)variableWage+=price*perWaste}
  return {qty,amount:qty*price};});
  let cash=I(29),ar=0,ap=0,depreciated=0,gap=0;
