@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>eco BRICK × Forbes Marshall | Waste-to-Engineered-Materials</title>
+<meta name="description" content="Interactive discussion deck: converting complex industrial waste into engineered materials and commercial products.">
+<link rel="icon" href="../favicon.png">
+<style>
+:root{--navy:#0d2940;--blue:#1f6f9d;--teal:#27a391;--green:#5d9f57;--orange:#e58b38;--ink:#23313a;--muted:#6d7b84;--paper:#f4f8fa;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-snap-type:y proximity}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff}
+section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;padding:7vw 7vw;position:relative;overflow:hidden}.wrap{width:min(1180px,100%);margin:auto}.eyebrow{letter-spacing:.14em;text-transform:uppercase;font-weight:800;font-size:.78rem;color:var(--teal)}h1{font-size:clamp(3rem,7vw,6.8rem);line-height:.93;margin:.25em 0;font-weight:850;letter-spacing:-.055em}h2{font-size:clamp(2.2rem,4.5vw,4.4rem);line-height:1.02;margin:.15em 0 .5em;color:var(--navy);letter-spacing:-.045em}h3{color:var(--navy);margin:.1em 0 .45em;font-size:1.25rem}.lead{font-size:clamp(1.1rem,2vw,1.55rem);line-height:1.55;max-width:900px}.hero{background:radial-gradient(circle at 75% 25%,#1c5265 0,transparent 34%),linear-gradient(135deg,#071b2c,#103b51 65%,#0d2940);color:white}.hero h1{color:white}.hero .eyebrow{color:#8be0d3}.hero .lead{color:#d8e6eb}.orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.25;animation:float 8s ease-in-out infinite}.o1{width:260px;height:260px;background:#27a391;right:8%;top:12%}.o2{width:140px;height:140px;background:#e58b38;right:28%;bottom:10%;animation-delay:-3s}@keyframes float{50%{transform:translateY(-25px) scale(1.06)}}.flow{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:3rem}.node{padding:1.05rem 1.35rem;border:1px solid #ffffff35;border-radius:18px;background:#ffffff0d;backdrop-filter:blur(8px);font-weight:800}.arrow{font-size:2rem;color:#8be0d3;animation:pulse 1.6s infinite}@keyframes pulse{50%{transform:translateX(6px);opacity:.55}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid.two{grid-template-columns:repeat(2,1fr)}.card{background:#fff;border:1px solid #dce7eb;border-radius:22px;padding:1.6rem;box-shadow:0 14px 38px #0d29400a;transition:.3s}.card:hover{transform:translateY(-5px);box-shadow:0 20px 50px #0d294018}.num{font-size:2.3rem;font-weight:900;color:var(--teal)}.paper{background:var(--paper)}.question{font-size:clamp(1.35rem,2.3vw,2rem);font-weight:750;line-height:1.25;padding:1.25rem 0;border-bottom:1px solid #d5e2e7}.question span{color:var(--teal);margin-right:.6rem}.process{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:2.4rem}.step{text-align:center}.dot{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto .8rem;background:var(--teal);color:#fff;font-weight:900;box-shadow:0 0 0 9px #27a39118}.step:not(:last-child):after{content:"";position:absolute}.metric{font-size:clamp(2rem,4vw,4rem);font-weight:900;color:var(--teal);line-height:1}.metric small{display:block;font-size:.9rem;color:var(--ink);font-weight:600;line-height:1.35;margin-top:.65rem}.tag{display:inline-block;padding:.42rem .72rem;border-radius:999px;background:#e5f5f1;color:#167c6f;font-size:.8rem;font-weight:800;margin:.25rem}.boundary{border-left:5px solid var(--orange);padding:1.1rem 1.3rem;background:#fff8ef;border-radius:0 16px 16px 0;margin-top:1.8rem}.outputs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.output{min-height:150px;border-radius:22px;padding:1.4rem;background:linear-gradient(145deg,#e8f6f3,#fff);display:flex;flex-direction:column;justify-content:end}.output:nth-child(2n){background:linear-gradient(145deg,#e9f2f8,#fff)}.output strong{font-size:1.4rem;color:var(--navy)}.pilot{counter-reset:p}.pilot .card{position:relative;padding-left:4.3rem}.pilot .card:before{counter-increment:p;content:counter(p);position:absolute;left:1.3rem;top:1.35rem;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:white;font-weight:900}.closing{background:linear-gradient(135deg,#071b2c,#0d3449);color:white}.closing h2{color:white}.bigline{font-size:clamp(2.2rem,5vw,5rem);font-weight:900;line-height:1.03;letter-spacing:-.045em}.cta{display:inline-block;margin-top:2rem;background:var(--teal);color:white;padding:1rem 1.4rem;border-radius:14px;font-weight:850}.nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:20;display:grid;gap:8px}.nav a{width:8px;height:8px;border-radius:50%;background:#81939d88;display:block}.present{position:fixed;top:18px;right:18px;z-index:30;border:0;background:#ffffffdd;color:var(--navy);padding:.65rem .85rem;border-radius:12px;font-weight:800;cursor:pointer;box-shadow:0 4px 18px #0002}.reveal{opacity:0;transform:translateY(28px);transition:.75s ease}.reveal.on{opacity:1;transform:none}.tiny{font-size:.78rem;color:var(--muted);margin-top:1.2rem}
+@media(max-width:800px){section{padding:70px 24px}.grid,.grid.two,.outputs{grid-template-columns:1fr}.process{grid-template-columns:repeat(2,1fr)}.nav{display:none}h1{font-size:3.4rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<button class="present" onclick="document.documentElement.requestFullscreen?.()">⛶ Presentation mode</button>
+<nav class="nav"><a href="#s1" aria-label="Section 1"></a><a href="#s2" aria-label="Section 2"></a><a href="#s3" aria-label="Section 3"></a><a href="#s4" aria-label="Section 4"></a><a href="#s5" aria-label="Section 5"></a><a href="#s6" aria-label="Section 6"></a><a href="#s7" aria-label="Section 7"></a><a href="#s8" aria-label="Section 8"></a><a href="#s9" aria-label="Section 9"></a><a href="#s10" aria-label="Section 10"></a></nav>
+
+<section id="s1" class="hero"><div class="orb o1"></div><div class="orb o2"></div><div class="wrap reveal">
+<div class="eyebrow">eco BRICK × Forbes Marshall</div><h1>From complex waste<br>to engineered value.</h1>
+<p class="lead">A focused discussion on conversion pathways, commercially useful materials and a practical pilot.</p>
+<div class="flow"><div class="node">INDUSTRIAL WASTE</div><div class="arrow">→</div><div class="node">CHARACTERIZE</div><div class="arrow">→</div><div class="node">CONVERT</div><div class="arrow">→</div><div class="node">ENGINEERED MATERIAL</div><div class="arrow">→</div><div class="node">MARKET</div></div>
+</div></section>
+
+<section id="s2" class="paper"><div class="wrap reveal"><div class="eyebrow">01 / The challenge</div><h2>What we understand you are looking for</h2>
+<div class="grid"><div class="card"><div class="num">01</div><h3>Convert complexity</h3><p>Transform difficult industrial waste streams into high-value products, energy or other commercially useful outputs.</p></div>
+<div class="card"><div class="num">02</div><h3>Offer an alternative</h3><p>Provide a credible alternative to established waste-treatment and energy-recovery routes.</p></div>
+<div class="card"><div class="num">03</div><h3>Scale by stream or platform</h3><p>Address one defined waste stream — or operate as a platform capable of handling multiple waste types.</p></div></div>
+<p class="lead" style="margin-top:2rem"><b>Our proposed conversation:</b> identify the real waste problem first, then map the right eco BRICK conversion route.</p></div></section>
+
+<section id="s3"><div class="wrap reveal"><div class="eyebrow">02 / Start with the problem</div><h2>Before we present a solution, we want to understand your direction.</h2>
+<div class="question"><span>01</span>What outcome is Forbes Marshall actually seeking?</div>
+<div class="question"><span>02</span>Which waste streams are driving the need?</div>
+<div class="question"><span>03</span>Is the priority material recovery, disposal reduction, a customer offering — or a new market?</div>
+<div class="question"><span>04</span>Are legacy dumpsites, biomining, RDF / sorting residues or industrial clusters part of the opportunity in India?</div>
+</div></section>
+
+<section id="s4" class="paper"><div class="wrap reveal"><div class="eyebrow">03 / eco BRICK route</div><h2>Waste-to-Engineered-Materials</h2>
+<div class="process">
+<div class="step"><div class="dot">1</div><b>Select waste</b></div><div class="step"><div class="dot">2</div><b>Characterize</b></div><div class="step"><div class="dot">3</div><b>Formulate</b></div><div class="step"><div class="dot">4</div><b>Thermo-physical conversion</b></div><div class="step"><div class="dot">5</div><b>Engineer material</b></div><div class="step"><div class="dot">6</div><b>Validate end use</b></div>
+</div><p class="lead" style="margin:3rem auto 0;text-align:center">Not a generic disposal route. The waste stream, formulation and target product are designed together.</p></div></section>
+
+<section id="s5"><div class="wrap reveal"><div class="eyebrow">04 / Platform capability</div><h2>Not one recipe. A formulation platform.</h2>
+<div class="grid" style="grid-template-columns:repeat(4,1fr)">
+<div class="card"><div class="metric" data-count="40">40+</div><small>waste streams developed / evaluated</small></div>
+<div class="card"><div class="metric">500,000+</div><small>proprietary formulations</small></div>
+<div class="card"><div class="metric">~99%</div><small>waste content in selected applications</small></div>
+<div class="card"><div class="metric">ASTM C331</div><small>lightweight aggregate requirements demonstrated</small></div></div>
+<p class="lead" style="margin-top:2rem">The formulation changes with chemistry, moisture, particle size, binder demand and the target product.</p></div></section>
+
+<section id="s6" class="paper"><div class="wrap reveal"><div class="eyebrow">05 / Feedstock strategy</div><h2>Where would we start?</h2>
+<div class="grid two"><div class="card"><h3>Dry / semi-dry industrial residues</h3><span class="tag">Strong starting point</span><p>Characterize → formulation → target product.</p></div>
+<div class="card"><h3>C&D + mixed mineral / plastic fractions</h3><span class="tag">Strong starting point</span><p>Aggregate, asphalt, blocks and precast.</p></div>
+<div class="card"><h3>RDF / sorting residues / legacy fractions</h3><span class="tag">Potential fit</span><p>Requires moisture, organics and contamination control.</p></div>
+<div class="card"><h3>Selected industrial sludges</h3><span class="tag">Case-by-case</span><p>Chemical and physical characterization first.</p></div></div>
+<div class="boundary"><b>Important boundary:</b> we are not positioning sewage sludge, biosolids or human-organic waste as inputs for construction-material applications.</div></div></section>
+
+<section id="s7"><div class="wrap reveal"><div class="eyebrow">06 / Commercial outputs</div><h2>Conversion must end in a real market.</h2>
+<div class="outputs">
+<div class="output"><strong>Engineered aggregate</strong><span>Construction</span></div><div class="output"><strong>Hot / cold asphalt</strong><span>Roads</span></div><div class="output"><strong>Blocks & precast</strong><span>Built environment</span></div><div class="output"><strong>Mortars / concrete</strong><span>Construction</span></div><div class="output"><strong>Drainage channels</strong><span>Water infrastructure</span></div><div class="output"><strong>Other infrastructure products</strong><span>Use-case led</span></div>
+</div><p class="lead" style="margin-top:1.8rem">The target product is selected together with the waste stream — not after conversion.</p></div></section>
+
+<section id="s8" class="paper"><div class="wrap reveal"><div class="eyebrow">07 / Joint opportunity</div><h2>Why this could complement Forbes Marshall</h2>
+<div class="grid two"><div class="card"><h3>Forbes Marshall</h3><p>Industrial customer access<br>Process engineering & plant integration<br>Service footprint<br>Knowledge of customer pain points and economics</p></div>
+<div class="card"><h3>eco BRICK</h3><p>Waste-to-materials conversion platform<br>Formulation know-how across diverse solid wastes<br>Construction / infrastructure end markets<br>Pilot-to-scale development pathway</p></div></div>
+<p class="lead" style="margin:2.2rem auto 0;text-align:center"><b>Potential joint value:</b> turn a customer's difficult waste liability into a tested, commercially useful material.</p></div></section>
+
+<section id="s9"><div class="wrap reveal"><div class="eyebrow">08 / Pilot</div><h2>One waste stream. One product. One decision.</h2>
+<div class="grid two pilot">
+<div class="card"><h3>Select</h3><p>Choose one real waste stream and define the current problem.</p></div><div class="card"><h3>Characterize</h3><p>Chemistry, physical properties, moisture, contaminants and variability.</p></div><div class="card"><h3>Match</h3><p>Select the target product and formulation route.</p></div><div class="card"><h3>Produce</h3><p>Manufacture representative material / prototype.</p></div><div class="card"><h3>Validate</h3><p>Performance, environmental safety and economics.</p></div><div class="card"><h3>Scale decision</h3><p>Define integration, throughput, commercial model and next stage.</p></div>
+</div></div></section>
+
+<section id="s10" class="closing"><div class="wrap reveal"><div class="eyebrow">The practical next step</div><div class="bigline">Select one real waste stream.<br>Select one target product.<br>Define one focused technical pilot.</div>
+<p class="lead">A fast way for both teams to test technical fit, economics and scale potential using a real Forbes Marshall customer problem.</p><div class="cta">Waste → Material → Market</div>
+<p class="tiny" style="color:#a9bec8">eco BRICK Innovio Ltd. · Discussion page · September 2026</p></div></section>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+document.addEventListener('keydown',e=>{if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();scrollBy({top:innerHeight,behavior:'smooth'})}if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();scrollBy({top:-innerHeight,behavior:'smooth'})}});
+</script></body></html>
