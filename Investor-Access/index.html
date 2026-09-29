@@ -79,7 +79,7 @@
         <h2>Request Investor Access</h2>
         <p class="muted">Please provide your professional details so we can review the request and grant the appropriate access level.</p>
 
-        <form id="investor-access-form">
+        <form id="investor-access-form" action="https://formspree.io/f/mwlpybyo" method="POST">
           <div><label for="name">Full Name *</label><input id="name" name="name" autocomplete="name" required /></div>
           <div><label for="email">Business Email *</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
           <div><label for="organization">Fund / Company / Organization *</label><input id="organization" name="organization" autocomplete="organization" required /></div>
@@ -99,8 +99,8 @@
         </form>
 
         <div id="pending" class="pending">
-          <strong>Request prepared — pending approval.</strong>
-          <p>Your email application will open now. Once sent, eco BRICK will review the request and contact you after approval. No access is granted automatically.</p>
+          <strong>Request received — pending approval.</strong>
+          <p>Thank you. eco BRICK has received your investor access request and will review it manually. No access is granted automatically.</p>
         </div>
       </div>
     </section>
@@ -111,35 +111,39 @@
   <script>
     const form = document.getElementById('investor-access-form');
     const pending = document.getElementById('pending');
-    form.addEventListener('submit', function (event) {
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function (event) {
       event.preventDefault();
+
       const selected = [...form.querySelectorAll('input[name="access"]:checked')].map(x => x.value);
       if (!selected.length) {
         alert('Please select at least one requested access level.');
         return;
       }
-      const data = new FormData(form);
-      const subject = 'Investor Access Request - ' + data.get('name') + ' - ' + data.get('organization');
-      const body = [
-        'Investor Access Request',
-        '',
-        'Full Name: ' + data.get('name'),
-        'Business Email: ' + data.get('email'),
-        'Organization: ' + data.get('organization'),
-        'Role / Title: ' + data.get('role'),
-        'Investor Type: ' + data.get('type'),
-        'Country: ' + data.get('country'),
-        'LinkedIn: ' + (data.get('linkedin') || '-'),
-        'Requested Access: ' + selected.join(', '),
-        '',
-        'Reason for Interest / Message:',
-        data.get('message') || '-',
-        '',
-        'Status: Pending manual approval'
-      ].join('\n');
-      pending.classList.add('show');
-      pending.scrollIntoView({behavior:'smooth', block:'center'});
-      window.location.href = 'mailto:office@ecobrick.tech?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+      const originalLabel = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Form submission failed');
+
+        pending.classList.add('show');
+        pending.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.reset();
+      } catch (error) {
+        alert('We could not send your request. Please try again. Your entered information has been kept on the form.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      }
     });
   </script>
 </body>
