@@ -25,7 +25,8 @@ export default defineConfig({
                 'Budget': 'Budget/index.html',
                 'budget': 'Budget/index.html',
                 'budget-page': 'budget.html',
-                'Investor': 'Investor/index.html'
+                'Investor': 'Investor/index.html',
+                'Investor-Access': 'Investor-Access/index.html'
             }
         }
     }
