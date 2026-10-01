@@ -109,7 +109,8 @@
 }
 
 .meeting-option{
-  display:flex;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) auto;
   align-items:center;
   gap:16px;
   padding:22px;
@@ -119,7 +120,15 @@
   border:1px solid #dbe6f5;
   background:#f9fbfe;
 }
-
+.meeting-image{
+  grid-column:1 / -1;
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+  margin-bottom:16px;
+}
 .meeting-option:hover{
   transform:translateY(-2px);
   box-shadow:0 10px 26px rgba(29,64,120,.10);
@@ -189,6 +198,14 @@
   .meeting-success-card{
     padding:24px;
   }
+}
+    .meeting-image{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+  margin-bottom:16px;
 }
   </style>
 </head>
