@@ -45,7 +45,25 @@
     @media(max-width:880px){.layout{grid-template-columns:1fr}}
     @media(max-width:640px){.wrap{width:min(100% - 28px,1120px)}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}.topbar-inner{padding:12px 0;align-items:flex-start;flex-direction:column}.back{margin-left:0}}
     .meeting-success{
-  margin-top:32px;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(15,23,42,.58);
+  backdrop-filter:blur(4px);
+}
+
+.meeting-success[hidden]{
+  display:none;
+}
+
+.meeting-success-card{
+  width:min(100%,980px);
+  max-height:90vh;
+  overflow:auto;
 }
 
 .meeting-success-card{
