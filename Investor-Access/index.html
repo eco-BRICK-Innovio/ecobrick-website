@@ -44,6 +44,134 @@
     footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.86rem;background:#fff}
     @media(max-width:880px){.layout{grid-template-columns:1fr}}
     @media(max-width:640px){.wrap{width:min(100% - 28px,1120px)}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}.topbar-inner{padding:12px 0;align-items:flex-start;flex-direction:column}.back{margin-left:0}}
+    .meeting-success{
+  margin-top:32px;
+}
+
+.meeting-success-card{
+  background:#ffffff;
+  border:1px solid #dbe6f5;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 14px 40px rgba(29,64,120,.08);
+}
+
+.meeting-success-icon{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#e9f7ef;
+  color:#16834b;
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.meeting-success-card h2{
+  margin:0 0 10px;
+  color:#173f78;
+  font-size:28px;
+  line-height:1.2;
+}
+
+.meeting-success-text{
+  margin:0 0 26px;
+  color:#607596;
+  font-size:17px;
+  line-height:1.6;
+}
+
+.meeting-options{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.meeting-option{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:22px;
+  border-radius:18px;
+  text-decoration:none;
+  transition:.2s ease;
+  border:1px solid #dbe6f5;
+  background:#f9fbfe;
+}
+
+.meeting-option:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 26px rgba(29,64,120,.10);
+}
+
+.meeting-option-icon{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  font-size:23px;
+}
+
+.meeting-online .meeting-option-icon{
+  background:#e7f0ff;
+  color:#1769d2;
+}
+
+.meeting-person .meeting-option-icon{
+  background:#e8f7ee;
+  color:#138653;
+}
+
+.meeting-option-content{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+}
+
+.meeting-option-content strong{
+  color:#173f78;
+  font-size:18px;
+}
+
+.meeting-option-content span{
+  color:#445d7b;
+  font-size:15px;
+}
+
+.meeting-option-content small{
+  color:#7589a4;
+  font-size:13px;
+}
+
+.meeting-option-arrow{
+  font-size:24px;
+  color:#607596;
+}
+
+.meeting-success-note{
+  margin:22px 0 0;
+  padding-top:18px;
+  border-top:1px solid #e7eef7;
+  color:#7589a4;
+  font-size:14px;
+}
+
+@media (max-width:760px){
+  .meeting-options{
+    grid-template-columns:1fr;
+  }
+
+  .meeting-success-card{
+    padding:24px;
+  }
+}
   </style>
 </head>
 <body>
@@ -107,7 +235,61 @@
   </main>
 
   <footer><div class="wrap">eco BRICK Innovio Ltd. · Investor Access Portal</div></footer>
+<section id="meeting-success" class="meeting-success" hidden>
+  <div class="meeting-success-card">
+    <div class="meeting-success-icon">✓</div>
 
+    <h2>Thank you — your request has been received.</h2>
+
+    <p class="meeting-success-text">
+      Your investor access request is now under review.
+      In the meantime, you are welcome to schedule an introductory meeting with us.
+    </p>
+
+    <div class="meeting-options">
+
+      <a
+        href="https://calendly.com/shlomi-innovio/online-investor-meeting"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="meeting-option meeting-online"
+      >
+        <div class="meeting-option-icon">▣</div>
+
+        <div class="meeting-option-content">
+          <strong>Online Introductory Meeting</strong>
+          <span>30 minutes · Microsoft Teams</span>
+          <small>Sunday–Thursday · 15:00–18:00 Israel time</small>
+        </div>
+
+        <div class="meeting-option-arrow">→</div>
+      </a>
+
+
+      <a
+        href="https://calendly.com/shlomi-innovio/in-person-investor-meeting"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="meeting-option meeting-person"
+      >
+        <div class="meeting-option-icon">⌖</div>
+
+        <div class="meeting-option-content">
+          <strong>In-Person Introductory Meeting</strong>
+          <span>30 minutes · Location coordinated after booking</span>
+          <small>Sunday, Monday, Wednesday, Thursday · 11:00–15:00 Israel time</small>
+        </div>
+
+        <div class="meeting-option-arrow">→</div>
+      </a>
+
+    </div>
+
+    <p class="meeting-success-note">
+      Additional investor materials may be shared following review of your request.
+    </p>
+  </div>
+</section>
   <script>
     const form = document.getElementById('investor-access-form');
     const pending = document.getElementById('pending');
@@ -136,6 +318,13 @@
         if (!response.ok) throw new Error('Form submission failed');
 
         pending.classList.add('show');
+
+const meetingSuccess = document.getElementById('meeting-success');
+if (meetingSuccess) {
+  meetingSuccess.hidden = false;
+}
+
+    
         pending.scrollIntoView({ behavior: 'smooth', block: 'center' });
         form.reset();
       } catch (error) {
