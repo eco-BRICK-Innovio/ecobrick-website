@@ -67,82 +67,113 @@
 }
 
 .meeting-success-card{
+  position:relative;
+  width:min(92vw,860px);
+  max-height:82vh;
+  overflow:auto;
   background:#ffffff;
   border:1px solid #dbe6f5;
-  border-radius:24px;
-  padding:32px;
-  box-shadow:0 14px 40px rgba(29,64,120,.08);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 14px 40px rgba(29,64,120,.12);
+}
+
+.meeting-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  width:36px;
+  height:36px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#f1f5f9;
+  color:#64748b;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:5;
+}
+
+.meeting-close:hover{
+  background:#e2e8f0;
+  color:#0f2b5b;
 }
 
 .meeting-success-icon{
-  width:54px;
-  height:54px;
+  width:42px;
+  height:42px;
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:50%;
   background:#e9f7ef;
   color:#16834b;
-  font-size:28px;
+  font-size:22px;
   font-weight:800;
-  margin-bottom:18px;
+  margin-bottom:12px;
 }
 
 .meeting-success-card h2{
-  margin:0 0 10px;
+  margin:0 45px 6px 0;
   color:#173f78;
-  font-size:28px;
+  font-size:24px;
   line-height:1.2;
 }
 
 .meeting-success-text{
-  margin:0 0 26px;
+  margin:0 0 16px;
   color:#607596;
-  font-size:17px;
-  line-height:1.6;
+  font-size:15px;
+  line-height:1.45;
 }
 
 .meeting-options{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
+  gap:14px;
 }
 
 .meeting-option{
   display:grid;
-  grid-template-columns:46px minmax(0,1fr) auto;
+  grid-template-columns:36px minmax(0,1fr) auto;
   align-items:center;
-  gap:16px;
-  padding:22px;
-  border-radius:18px;
+  gap:10px;
+  padding:12px;
+  border-radius:16px;
   text-decoration:none;
   transition:.2s ease;
   border:1px solid #dbe6f5;
   background:#f9fbfe;
+  overflow:hidden;
 }
+
 .meeting-image{
   grid-column:1 / -1;
   width:100%;
-  height:140px;
+  height:90px;
   object-fit:cover;
-  border-radius:14px;
+  border-radius:11px;
   display:block;
-  margin-bottom:16px;
+  margin-bottom:4px;
 }
+
 .meeting-option:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 26px rgba(29,64,120,.10);
+  box-shadow:0 8px 20px rgba(29,64,120,.10);
 }
 
 .meeting-option-icon{
-  width:46px;
-  height:46px;
-  flex:0 0 46px;
+  width:36px;
+  height:36px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:14px;
-  font-size:23px;
+  border-radius:11px;
+  font-size:18px;
 }
 
 .meeting-online .meeting-option-icon{
@@ -158,36 +189,39 @@
 .meeting-option-content{
   display:flex;
   flex-direction:column;
-  gap:4px;
-  flex:1;
+  gap:2px;
+  min-width:0;
 }
 
 .meeting-option-content strong{
   color:#173f78;
-  font-size:18px;
+  font-size:15px;
+  line-height:1.25;
 }
 
 .meeting-option-content span{
   color:#445d7b;
-  font-size:15px;
+  font-size:13px;
+  line-height:1.3;
 }
 
 .meeting-option-content small{
   color:#7589a4;
-  font-size:13px;
+  font-size:11px;
+  line-height:1.3;
 }
 
 .meeting-option-arrow{
-  font-size:24px;
+  font-size:20px;
   color:#607596;
 }
 
 .meeting-success-note{
-  margin:22px 0 0;
-  padding-top:18px;
+  margin:14px 0 0;
+  padding-top:12px;
   border-top:1px solid #e7eef7;
   color:#7589a4;
-  font-size:14px;
+  font-size:12px;
 }
 .meeting-modal{
   position:fixed;
