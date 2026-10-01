@@ -3,619 +3,1227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>eco BRICK Investor Access Portal</title>
-  <meta name="description" content="Request controlled investor access to eco BRICK's Interactive Business Plan, Financial Model and Data Room." />
+
+  <meta
+    name="description"
+    content="Request controlled investor access to eco BRICK's Interactive Business Plan, Financial Model and Data Room."
+  />
+
   <link rel="icon" type="image/png" href="../favicon.png" />
   <meta name="robots" content="noindex,nofollow" />
+
   <style>
     :root{
-      --blue:#1565c0;--blue2:#2979ff;--navy:#0f2b5b;--ink:#0f172a;--muted:#64748b;
-      --line:#dbe4ee;--soft:#f8fafc;--success:#0f9f6e;--radius:22px;--shadow:0 18px 45px rgba(15,23,42,.09);
+      --blue:#1565c0;
+      --blue2:#2979ff;
+      --navy:#0f2b5b;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --line:#dbe4ee;
+      --soft:#f8fafc;
+      --success:#0f9f6e;
+      --radius:22px;
+      --shadow:0 18px 45px rgba(15,23,42,.09);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f8fbff 0%,#eef5ff 55%,#fff 100%);line-height:1.55}
-    a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-    .topbar{background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border-bottom:1px solid rgba(15,23,42,.08)}
-    .topbar-inner{min-height:72px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:40px;border-radius:8px}.label{font-size:.78rem;font-weight:850;color:var(--blue);letter-spacing:.08em;text-transform:uppercase}
-    .back{margin-left:auto;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:700;font-size:.86rem}
-    main{padding:68px 0 88px}.hero{text-align:center;max-width:790px;margin:0 auto 36px}
-    .eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:#e8f1ff;color:var(--navy);font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
-    h1{font-size:clamp(2.6rem,6vw,5rem);line-height:.98;letter-spacing:-.055em;margin:18px 0 18px}
-    .lead{font-size:1.16rem;color:#516074;margin:0 auto;max-width:720px}
-    .layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:start}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:28px}
-    .info h2,.form-panel h2{margin:0 0 10px;font-size:1.55rem;letter-spacing:-.03em}.muted{color:var(--muted)}
-    .access-list{display:grid;gap:12px;margin-top:22px}.access-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:var(--soft)}
-    .access-card strong{display:block;color:var(--navy);margin-bottom:3px}.access-card span{font-size:.9rem;color:var(--muted)}
-    .approval{margin-top:22px;padding:16px;border-radius:18px;background:#eefbf6;border:1px solid #ccefe1}
-    .approval strong{color:#08734f}.approval p{margin:5px 0 0;color:#376b5a;font-size:.9rem}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.full{grid-column:1/-1}
-    label{display:block;font-size:.84rem;font-weight:800;margin-bottom:6px;color:#334155}
-    input,select,textarea{width:100%;padding:13px 14px;border:1px solid #cfd8e3;border-radius:14px;background:#fff;font:inherit;color:var(--ink);outline:none}
-    input:focus,select:focus,textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(41,121,255,.11)}
-    textarea{min-height:110px;resize:vertical}.checks{display:grid;gap:10px}.check{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:12px}
-    .check input{width:auto;margin-top:4px}.check strong{display:block;font-size:.92rem}.check span{font-size:.82rem;color:var(--muted)}
-    .submit{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:4px}
-    button{appearance:none;border:0;border-radius:999px;background:var(--navy);color:#fff;padding:13px 20px;font:inherit;font-weight:800;cursor:pointer}
-    .privacy{font-size:.78rem;color:var(--muted);max-width:520px}
-    .pending{display:none;margin-top:20px;padding:18px;border-radius:18px;background:#eef5ff;border:1px solid #cbdcf6}
-    .pending.show{display:block}.pending strong{display:block;color:var(--navy);font-size:1.05rem}.pending p{margin:5px 0 0;color:#526781}
-    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.86rem;background:#fff}
-    @media(max-width:880px){.layout{grid-template-columns:1fr}}
-    @media(max-width:640px){.wrap{width:min(100% - 28px,1120px)}form{grid-template-columns:1fr}.full,.submit{grid-column:auto}.topbar-inner{padding:12px 0;align-items:flex-start;flex-direction:column}.back{margin-left:0}}
- .meeting-success{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  background:rgba(15,23,42,.58);
-  backdrop-filter:blur(4px);
-}
 
-.meeting-success[hidden]{
-  display:none;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-.meeting-success-card{
-  position:relative;
-  width:min(92vw,680px);
-  max-height:72vh;
-  overflow:hidden;
-  background:#fff;
-  border:1px solid #dbe6f5;
-  border-radius:20px;
-  padding:16px;
-  box-shadow:0 14px 40px rgba(29,64,120,.12);
-}
-.meeting-close{
-  position:absolute;
-  top:10px;
-  right:12px;
-  width:32px;
-  height:32px;
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:#f1f5f9;
-  color:#64748b;
-  font-size:23px;
-  line-height:1;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:5;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.meeting-close:hover{
-  background:#e2e8f0;
-  color:#0f2b5b;
-}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:linear-gradient(135deg,#f8fbff 0%,#eef5ff 55%,#fff 100%);
+      line-height:1.55;
+    }
 
-.meeting-success-icon{
-  width:36px;
-  height:36px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#e9f7ef;
-  color:#16834b;
-  font-size:19px;
-  font-weight:800;
-  margin-bottom:8px;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.meeting-success-card h2{
-  margin:0 40px 5px 0;
-  color:#173f78;
-  font-size:21px;
-  line-height:1.2;
-}
+    .wrap{
+      width:min(1120px,calc(100% - 40px));
+      margin:auto;
+    }
 
-.meeting-success-text{
-  margin:0 0 12px;
-  color:#607596;
-  font-size:13px;
-  line-height:1.4;
-}
+    .topbar{
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
 
-.meeting-options{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-}
+    .topbar-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
 
-.meeting-option{
-  display:grid;
-  grid-template-columns:30px minmax(0,1fr) auto;
-  align-items:center;
-  gap:8px;
-  padding:9px;
-  border-radius:14px;
-  text-decoration:none;
-  transition:.2s ease;
-  border:1px solid #dbe6f5;
-  background:#f9fbfe;
-  overflow:hidden;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-.meeting-image{
-  grid-column:1 / -1;
-  width:100%;
-  height:64px;
-  object-fit:cover;
-  border-radius:9px;
-  display:block;
-  margin-bottom:2px;
-}
+    .brand img{
+      height:40px;
+      border-radius:8px;
+    }
 
-.meeting-option:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(29,64,120,.10);
-}
+    .label{
+      font-size:.78rem;
+      font-weight:850;
+      color:var(--blue);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
 
-.meeting-option-icon{
-  width:30px;
-  height:30px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:9px;
-  font-size:15px;
-}
+    .back{
+      margin-left:auto;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      font-weight:700;
+      font-size:.86rem;
+    }
 
-.meeting-online .meeting-option-icon{
-  background:#e7f0ff;
-  color:#1769d2;
-}
+    main{
+      padding:68px 0 88px;
+    }
 
-.meeting-person .meeting-option-icon{
-  background:#e8f7ee;
-  color:#138653;
-}
+    .hero{
+      text-align:center;
+      max-width:790px;
+      margin:0 auto 36px;
+    }
 
-.meeting-option-content{
-  display:flex;
-  flex-direction:column;
-  gap:1px;
-  min-width:0;
-}
+    .eyebrow{
+      display:inline-flex;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#e8f1ff;
+      color:var(--navy);
+      font-weight:800;
+      font-size:.8rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
 
-.meeting-option-content strong{
-  color:#173f78;
-  font-size:13px;
-  line-height:1.2;
-}
+    h1{
+      font-size:clamp(2.6rem,6vw,5rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+      margin:18px 0;
+    }
 
-.meeting-option-content span{
-  color:#445d7b;
-  font-size:11px;
-  line-height:1.25;
-}
+    .lead{
+      font-size:1.16rem;
+      color:#516074;
+      margin:0 auto;
+      max-width:720px;
+    }
 
-.meeting-option-content small{
-  color:#7589a4;
-  font-size:10px;
-  line-height:1.25;
-}
+    .layout{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:24px;
+      align-items:start;
+    }
 
-.meeting-option-arrow{
-  font-size:17px;
-  color:#607596;
-}
+    .panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
 
-.meeting-success-note{
-  margin:10px 0 0;
-  padding-top:9px;
-  border-top:1px solid #e7eef7;
-  color:#7589a4;
-  font-size:10px;
-}
+    .info h2,
+    .form-panel h2{
+      margin:0 0 10px;
+      font-size:1.55rem;
+      letter-spacing:-.03em;
+    }
 
-@media(max-width:760px){
-  .meeting-success-card{
-    width:min(94vw,560px);
-    max-height:82vh;
-  }
+    .muted{
+      color:var(--muted);
+    }
 
-  .meeting-options{
-    grid-template-columns:1fr;
-  }
-}
+    .access-list{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
+    }
 
-.meeting-success-icon{
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#e9f7ef;
-  color:#16834b;
-  font-size:22px;
-  font-weight:800;
-  margin-bottom:12px;
-}
+    .access-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:var(--soft);
+    }
 
-.meeting-success-card h2{
-  margin:0 40px 4px 0;
-  font-size:19px;
-}
+    .access-card strong{
+      display:block;
+      color:var(--navy);
+      margin-bottom:3px;
+    }
 
-.meeting-success-text{
-  margin:0 0 10px;
-  font-size:12px;
-}
+    .access-card span{
+      font-size:.9rem;
+      color:var(--muted);
+    }
 
-.meeting-options{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
+    .approval{
+      margin-top:22px;
+      padding:16px;
+      border-radius:18px;
+      background:#eefbf6;
+      border:1px solid #ccefe1;
+    }
 
-.meeting-option{
-  display:grid;
-  grid-template-columns:36px minmax(0,1fr) auto;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  border-radius:16px;
-  text-decoration:none;
-  transition:.2s ease;
-  border:1px solid #dbe6f5;
-  background:#f9fbfe;
-  overflow:hidden;
-}
+    .approval strong{
+      color:#08734f;
+    }
 
-.meeting-image{
-  grid-column:1 / -1;
-  width:100%;
-  height:90px;
-  object-fit:cover;
-  border-radius:11px;
-  display:block;
-  margin-bottom:4px;
-}
+    .approval p{
+      margin:5px 0 0;
+      color:#376b5a;
+      font-size:.9rem;
+    }
 
-.meeting-option:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(29,64,120,.10);
-}
+    form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:22px;
+    }
 
-.meeting-option-icon{
-  width:36px;
-  height:36px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:11px;
-  font-size:18px;
-}
+    .full{
+      grid-column:1/-1;
+    }
 
-.meeting-online .meeting-option-icon{
-  background:#e7f0ff;
-  color:#1769d2;
-}
+    label{
+      display:block;
+      font-size:.84rem;
+      font-weight:800;
+      margin-bottom:6px;
+      color:#334155;
+    }
 
-.meeting-person .meeting-option-icon{
-  background:#e8f7ee;
-  color:#138653;
-}
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #cfd8e3;
+      border-radius:14px;
+      background:#fff;
+      font:inherit;
+      color:var(--ink);
+      outline:none;
+    }
 
-.meeting-option-content{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width:0;
-}
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:var(--blue2);
+      box-shadow:0 0 0 3px rgba(41,121,255,.11);
+    }
 
-.meeting-option-content strong{
-  color:#173f78;
-  font-size:15px;
-  line-height:1.25;
-}
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
 
-.meeting-option-content span{
-  color:#445d7b;
-  font-size:13px;
-  line-height:1.3;
-}
+    .checks{
+      display:grid;
+      gap:10px;
+    }
 
-.meeting-option-content small{
-  color:#7589a4;
-  font-size:11px;
-  line-height:1.3;
-}
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+    }
 
-.meeting-option-arrow{
-  font-size:20px;
-  color:#607596;
-}
+    .check input{
+      width:auto;
+      margin-top:4px;
+    }
 
-.meeting-success-note{
-  margin:14px 0 0;
-  padding-top:12px;
-  border-top:1px solid #e7eef7;
-  color:#7589a4;
-  font-size:12px;
-}
-.meeting-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(15,23,42,.58);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  z-index:9999;
-}
+    .check strong{
+      display:block;
+      font-size:.92rem;
+    }
 
-.meeting-modal[hidden]{
-  display:none;
-}
+    .check span{
+      font-size:.82rem;
+      color:var(--muted);
+    }
 
-.meeting-success-card{
-  position:relative;
-}
+    .submit{
+      grid-column:1/-1;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
 
-.meeting-close{
-  position:absolute;
-  top:18px;
-  right:20px;
-  width:42px;
-  height:42px;
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:transparent;
-  color:#64748b;
-  font-size:32px;
-  font-weight:300;
-  line-height:1;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  transition:.2s ease;
-}
+    button{
+      appearance:none;
+      border:0;
+      border-radius:999px;
+      background:var(--navy);
+      color:#fff;
+      padding:13px 20px;
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+    }
 
-.meeting-close:hover{
-  background:#f1f5f9;
-  color:#0f2b5b;
-  transform:none;
-}
-@media (max-width:760px){
-  .meeting-options{
-    grid-template-columns:1fr;
-  }
+    .privacy{
+      font-size:.78rem;
+      color:var(--muted);
+      max-width:520px;
+    }
 
-  .meeting-success-card{
-    padding:24px;
-  }
-}
+    .pending{
+      display:none;
+      margin-top:20px;
+      padding:18px;
+      border-radius:18px;
+      background:#eef5ff;
+      border:1px solid #cbdcf6;
+    }
+
+    .pending.show{
+      display:block;
+    }
+
+    .pending strong{
+      display:block;
+      color:var(--navy);
+      font-size:1.05rem;
+    }
+
+    .pending p{
+      margin:5px 0 0;
+      color:#526781;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:24px 0;
+      color:var(--muted);
+      font-size:.86rem;
+      background:#fff;
+    }
+
+    /* =========================
+       INVESTOR MEETING MODAL
+       ========================= */
+
+    .meeting-success{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      background:rgba(15,23,42,.58);
+      backdrop-filter:blur(4px);
+    }
+
+    .meeting-success[hidden]{
+      display:none;
+    }
+
+    .meeting-success-card{
+      position:relative;
+      width:min(92vw,720px);
+      background:#fff;
+      border:1px solid #dbe6f5;
+      border-radius:20px;
+      padding:16px;
+      box-shadow:0 14px 40px rgba(29,64,120,.12);
+    }
+
+    .meeting-close{
+      position:absolute;
+      top:10px;
+      right:12px;
+      width:32px;
+      height:32px;
+      padding:0;
+      border:0;
+      border-radius:50%;
+      background:#f1f5f9;
+      color:#64748b;
+      font-size:23px;
+      font-weight:400;
+      line-height:1;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:5;
+      transition:.2s ease;
+    }
+
+    .meeting-close:hover{
+      background:#e2e8f0;
+      color:#0f2b5b;
+    }
+
+    .meeting-success-icon{
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#e9f7ef;
+      color:#16834b;
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:7px;
+    }
+
+    .meeting-success-card h2{
+      margin:0 42px 4px 0;
+      color:#173f78;
+      font-size:20px;
+      line-height:1.2;
+    }
+
+    .meeting-success-text{
+      margin:0 0 10px;
+      color:#607596;
+      font-size:12.5px;
+      line-height:1.4;
+    }
+
+    .meeting-options{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .meeting-option{
+      display:grid;
+      grid-template-columns:30px minmax(0,1fr) auto;
+      align-items:center;
+      gap:8px;
+      padding:9px;
+      border-radius:14px;
+      text-decoration:none;
+      transition:.2s ease;
+      border:1px solid #dbe6f5;
+      background:#f9fbfe;
+      overflow:hidden;
+    }
+
     .meeting-image{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:14px;
-  display:block;
-  margin-bottom:16px;
-}
+      grid-column:1 / -1;
+      width:100%;
+      height:80px;
+      object-fit:cover;
+      border-radius:9px;
+      display:block;
+      margin-bottom:2px;
+    }
+
+    .meeting-option:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(29,64,120,.10);
+    }
+
+    .meeting-option-icon{
+      width:30px;
+      height:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:9px;
+      font-size:15px;
+    }
+
+    .meeting-online .meeting-option-icon{
+      background:#e7f0ff;
+      color:#1769d2;
+    }
+
+    .meeting-person .meeting-option-icon{
+      background:#e8f7ee;
+      color:#138653;
+    }
+
+    .meeting-option-content{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+      min-width:0;
+    }
+
+    .meeting-option-content strong{
+      color:#173f78;
+      font-size:13px;
+      line-height:1.2;
+    }
+
+    .meeting-option-content span{
+      color:#445d7b;
+      font-size:11px;
+      line-height:1.25;
+    }
+
+    .meeting-option-content small{
+      color:#7589a4;
+      font-size:10px;
+      line-height:1.25;
+    }
+
+    .meeting-option-arrow{
+      font-size:17px;
+      color:#607596;
+    }
+
+    .meeting-success-note{
+      margin:9px 0 0;
+      padding-top:8px;
+      border-top:1px solid #e7eef7;
+      color:#7589a4;
+      font-size:10px;
+    }
+
+    @media(max-width:880px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:640px){
+      .wrap{
+        width:min(100% - 28px,1120px);
+      }
+
+      form{
+        grid-template-columns:1fr;
+      }
+
+      .full,
+      .submit{
+        grid-column:auto;
+      }
+
+      .topbar-inner{
+        padding:12px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .back{
+        margin-left:0;
+      }
+    }
+
+    @media(max-width:760px){
+      .meeting-success{
+        padding:10px;
+      }
+
+      .meeting-success-card{
+        width:min(94vw,560px);
+        max-height:calc(100vh - 20px);
+        overflow:auto;
+        padding:14px;
+      }
+
+      .meeting-options{
+        grid-template-columns:1fr;
+      }
+
+      .meeting-image{
+        height:68px;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="../Investor/" aria-label="Back to Investor Story">
-        <img src="../assets/logo-v2.jpg" alt="eco BRICK Innovio" />
-        <span class="label">Investor Access Portal</span>
+
+      <a
+        class="brand"
+        href="../Investor/"
+        aria-label="Back to Investor Story"
+      >
+        <img
+          src="../assets/logo-v2.jpg"
+          alt="eco BRICK Innovio"
+        />
+
+        <span class="label">
+          Investor Access Portal
+        </span>
       </a>
-      <a class="back" href="../Investor/">← Back to Investor Story</a>
+
+      <a
+        class="back"
+        href="../Investor/"
+      >
+        ← Back to Investor Story
+      </a>
+
     </div>
   </header>
 
+
   <main class="wrap">
+
     <section class="hero">
-      <span class="eyebrow">Controlled investor access</span>
-      <h1>Investor Access Portal</h1>
-      <p class="lead">Request access to eco BRICK's Interactive Business Plan, Financial Model and Data Room. Access is reviewed and approved individually.</p>
+
+      <span class="eyebrow">
+        Controlled investor access
+      </span>
+
+      <h1>
+        Investor Access Portal
+      </h1>
+
+      <p class="lead">
+        Request access to eco BRICK's Interactive Business Plan,
+        Financial Model and Data Room.
+        Access is reviewed and approved individually.
+      </p>
+
     </section>
+
 
     <section class="layout">
+
       <aside class="panel info">
-        <h2>What access can include</h2>
-        <p class="muted">Access is granted in stages depending on the purpose of the review and the level of information requested.</p>
+
+        <h2>
+          What access can include
+        </h2>
+
+        <p class="muted">
+          Access is granted in stages depending on the purpose
+          of the review and the level of information requested.
+        </p>
+
         <div class="access-list">
-          <div class="access-card"><strong>Interactive Business Plan & Financial Model</strong><span>Site economics, assumptions, production scenarios, revenue model and scale-up logic.</span></div>
-          <div class="access-card"><strong>Data Room</strong><span>Detailed supporting materials such as technical validation, corporate documents, IP materials, agreements and financial information.</span></div>
+
+          <div class="access-card">
+            <strong>
+              Interactive Business Plan & Financial Model
+            </strong>
+
+            <span>
+              Site economics, assumptions, production scenarios,
+              revenue model and scale-up logic.
+            </span>
+          </div>
+
+          <div class="access-card">
+            <strong>
+              Data Room
+            </strong>
+
+            <span>
+              Detailed supporting materials such as technical validation,
+              corporate documents, IP materials, agreements
+              and financial information.
+            </span>
+          </div>
+
         </div>
-        <div class="approval"><strong>Manual approval only</strong><p>Submitting this form does not provide automatic access. Each request is reviewed by eco BRICK before permissions are granted.</p></div>
+
+        <div class="approval">
+          <strong>
+            Manual approval only
+          </strong>
+
+          <p>
+            Submitting this form does not provide automatic access.
+            Each request is reviewed by eco BRICK before permissions
+            are granted.
+          </p>
+        </div>
+
       </aside>
 
-      <div class="panel form-panel">
-        <h2>Request Investor Access</h2>
-        <p class="muted">Please provide your professional details so we can review the request and grant the appropriate access level.</p>
 
-        <form id="investor-access-form" action="https://formspree.io/f/mwlpybyo" method="POST">
-          <div><label for="name">Full Name *</label><input id="name" name="name" autocomplete="name" required /></div>
-          <div><label for="email">Business Email *</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
-          <div><label for="organization">Fund / Company / Organization *</label><input id="organization" name="organization" autocomplete="organization" required /></div>
-          <div><label for="role">Role / Title *</label><input id="role" name="role" autocomplete="organization-title" required /></div>
-          <div><label for="type">Investor Type *</label><select id="type" name="type" required><option value="">Select</option><option>VC Fund</option><option>Corporate / Strategic Investor</option><option>Family Office</option><option>Angel Investor</option><option>Debt / Infrastructure Investor</option><option>Other</option></select></div>
-          <div><label for="country">Country *</label><input id="country" name="country" autocomplete="country-name" required /></div>
-          <div class="full"><label for="linkedin">LinkedIn Profile <span class="muted">(optional)</span></label><input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/..." /></div>
-          <div class="full"><label>Requested Access *</label><div class="checks">
-            <label class="check"><input type="checkbox" name="access" value="Interactive Business Plan / Financial Model" /><span><strong>Interactive Business Plan / Financial Model</strong><span>Commercial model, assumptions and site economics.</span></span></label>
-            <label class="check"><input type="checkbox" name="access" value="Data Room" /><span><strong>Data Room</strong><span>Detailed diligence materials and supporting documentation.</span></span></label>
-          </div></div>
-          <div class="full"><label for="message">Reason for Interest / Message <span class="muted">(optional)</span></label><textarea id="message" name="message" placeholder="Tell us briefly about your investment focus or what you would like to review."></textarea></div>
-          <div class="submit">
-            <button type="submit">Submit Access Request</button>
-            <div class="privacy">Your information will be used solely for investor communications and access management related to eco BRICK Innovio.</div>
+      <div class="panel form-panel">
+
+        <h2>
+          Request Investor Access
+        </h2>
+
+        <p class="muted">
+          Please provide your professional details so we can review
+          the request and grant the appropriate access level.
+        </p>
+
+
+        <form
+          id="investor-access-form"
+          action="https://formspree.io/f/mwlpybyo"
+          method="POST"
+        >
+
+          <div>
+            <label for="name">
+              Full Name *
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+            />
           </div>
+
+
+          <div>
+            <label for="email">
+              Business Email *
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+
+          <div>
+            <label for="organization">
+              Fund / Company / Organization *
+            </label>
+
+            <input
+              id="organization"
+              name="organization"
+              autocomplete="organization"
+              required
+            />
+          </div>
+
+
+          <div>
+            <label for="role">
+              Role / Title *
+            </label>
+
+            <input
+              id="role"
+              name="role"
+              autocomplete="organization-title"
+              required
+            />
+          </div>
+
+
+          <div>
+            <label for="type">
+              Investor Type *
+            </label>
+
+            <select
+              id="type"
+              name="type"
+              required
+            >
+              <option value="">
+                Select
+              </option>
+
+              <option>
+                VC Fund
+              </option>
+
+              <option>
+                Corporate / Strategic Investor
+              </option>
+
+              <option>
+                Family Office
+              </option>
+
+              <option>
+                Angel Investor
+              </option>
+
+              <option>
+                Debt / Infrastructure Investor
+              </option>
+
+              <option>
+                Other
+              </option>
+            </select>
+          </div>
+
+
+          <div>
+            <label for="country">
+              Country *
+            </label>
+
+            <input
+              id="country"
+              name="country"
+              autocomplete="country-name"
+              required
+            />
+          </div>
+
+
+          <div class="full">
+
+            <label for="linkedin">
+              LinkedIn Profile
+              <span class="muted">
+                (optional)
+              </span>
+            </label>
+
+            <input
+              id="linkedin"
+              name="linkedin"
+              type="url"
+              placeholder="https://linkedin.com/in/..."
+            />
+
+          </div>
+
+
+          <div class="full">
+
+            <label>
+              Requested Access *
+            </label>
+
+            <div class="checks">
+
+              <label class="check">
+
+                <input
+                  type="checkbox"
+                  name="access"
+                  value="Interactive Business Plan / Financial Model"
+                />
+
+                <span>
+                  <strong>
+                    Interactive Business Plan / Financial Model
+                  </strong>
+
+                  <span>
+                    Commercial model, assumptions and site economics.
+                  </span>
+                </span>
+
+              </label>
+
+
+              <label class="check">
+
+                <input
+                  type="checkbox"
+                  name="access"
+                  value="Data Room"
+                />
+
+                <span>
+                  <strong>
+                    Data Room
+                  </strong>
+
+                  <span>
+                    Detailed diligence materials and supporting documentation.
+                  </span>
+                </span>
+
+              </label>
+
+            </div>
+          </div>
+
+
+          <div class="full">
+
+            <label for="message">
+              Reason for Interest / Message
+              <span class="muted">
+                (optional)
+              </span>
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell us briefly about your investment focus or what you would like to review."
+            ></textarea>
+
+          </div>
+
+
+          <div class="submit">
+
+            <button type="submit">
+              Submit Access Request
+            </button>
+
+            <div class="privacy">
+              Your information will be used solely for investor communications
+              and access management related to eco BRICK Innovio.
+            </div>
+
+          </div>
+
         </form>
 
-        <div id="pending" class="pending">
-          <strong>Request received — pending approval.</strong>
-          <p>Thank you. eco BRICK has received your investor access request and will review it manually. No access is granted automatically.</p>
+
+        <div
+          id="pending"
+          class="pending"
+        >
+
+          <strong>
+            Request received — pending approval.
+          </strong>
+
+          <p>
+            Thank you. eco BRICK has received your investor access request
+            and will review it manually.
+            No access is granted automatically.
+          </p>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
-  <footer><div class="wrap">eco BRICK Innovio Ltd. · Investor Access Portal</div></footer>
-<section id="meeting-success" class="meeting-success" hidden>
-  <div class="meeting-success-card">
 
-    <button
-      type="button"
-      id="meeting-close"
-      class="meeting-close"
-      aria-label="Close meeting scheduling window"
-    >
-      ×
-    </button>
+  <footer>
+    <div class="wrap">
+      eco BRICK Innovio Ltd. · Investor Access Portal
+    </div>
+  </footer>
 
-    <div class="meeting-success-icon">✓</div>
 
-    <h2>Thank you — your request has been received.</h2>
+  <section
+    id="meeting-success"
+    class="meeting-success"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="meeting-success-title"
+    hidden
+  >
 
-    <p class="meeting-success-text">
-      Your investor access request is now under review.
-      In the meantime, you are welcome to schedule an introductory meeting with us.
-    </p>
+    <div class="meeting-success-card">
 
-    <div class="meeting-options">
-
-      <a
-        href="https://calendly.com/shlomi-innovio/online-investor-meeting"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="meeting-option meeting-online"
+      <button
+        type="button"
+        id="meeting-close"
+        class="meeting-close"
+        aria-label="Close meeting scheduling window"
       >
-        <img
-          class="meeting-image"
-          src="../assets/investor-online-meeting.jpg"
-          alt="Online investor meeting"
-        />
+        ×
+      </button>
 
-        <div class="meeting-option-icon">▣</div>
 
-        <div class="meeting-option-content">
-          <strong>Online Introductory Meeting</strong>
-          <span>30 minutes · Microsoft Teams</span>
-          <small>Sunday–Thursday · 15:00–18:00 Israel time</small>
-        </div>
+      <div class="meeting-success-icon">
+        ✓
+      </div>
 
-        <div class="meeting-option-arrow">→</div>
-      </a>
 
-      <a
-        href="https://calendly.com/shlomi-innovio/in-person-investor-meeting"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="meeting-option meeting-person"
-      >
-        <img
-          class="meeting-image"
-          src="../assets/investor-inperson-meeting.jpg"
-          alt="In-person investor meeting"
-        />
+      <h2 id="meeting-success-title">
+        Thank you — your request has been received.
+      </h2>
 
-        <div class="meeting-option-icon">⌖</div>
 
-        <div class="meeting-option-content">
-          <strong>In-Person Introductory Meeting</strong>
-          <span>30 minutes · Location coordinated after booking</span>
-          <small>Sunday, Monday, Wednesday, Thursday · 11:00–15:00 Israel time</small>
-        </div>
+      <p class="meeting-success-text">
+        Your investor access request is now under review.
+        In the meantime, you are welcome to schedule
+        an introductory meeting with us.
+      </p>
 
-        <div class="meeting-option-arrow">→</div>
-      </a>
+
+      <div class="meeting-options">
+
+
+        <a
+          href="https://calendly.com/shlomi-innovio/online-investor-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="meeting-option meeting-online"
+        >
+
+          <img
+            class="meeting-image"
+            src="../assets/investor-online-meeting.jpg"
+            alt="Online investor meeting"
+          />
+
+
+          <div class="meeting-option-icon">
+            ▣
+          </div>
+
+
+          <div class="meeting-option-content">
+
+            <strong>
+              Online Introductory Meeting
+            </strong>
+
+            <span>
+              30 minutes · Microsoft Teams
+            </span>
+
+            <small>
+              Sunday–Thursday · 15:00–18:00 Israel time
+            </small>
+
+          </div>
+
+
+          <div class="meeting-option-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://calendly.com/shlomi-innovio/in-person-investor-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="meeting-option meeting-person"
+        >
+
+          <img
+            class="meeting-image"
+            src="../assets/investor-inperson-meeting.jpg"
+            alt="In-person investor meeting"
+          />
+
+
+          <div class="meeting-option-icon">
+            ⌖
+          </div>
+
+
+          <div class="meeting-option-content">
+
+            <strong>
+              In-Person Introductory Meeting
+            </strong>
+
+            <span>
+              30 minutes · Location coordinated after booking
+            </span>
+
+            <small>
+              Sunday, Monday, Wednesday, Thursday ·
+              11:00–15:00 Israel time
+            </small>
+
+          </div>
+
+
+          <div class="meeting-option-arrow">
+            →
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <p class="meeting-success-note">
+        Additional investor materials may be shared
+        following review of your request.
+      </p>
 
     </div>
+  </section>
 
-    <p class="meeting-success-note">
-      Additional investor materials may be shared following review of your request.
-    </p>
 
-  </div>
-</section>
- <script>
-  const form = document.getElementById('investor-access-form');
-  const pending = document.getElementById('pending');
-  const submitButton = form.querySelector('button[type="submit"]');
-  const meetingSuccess = document.getElementById('meeting-success');
-  const meetingClose = document.getElementById('meeting-close');
+  <script>
+    const form =
+      document.getElementById('investor-access-form');
 
-  function closeMeetingModal() {
-    if (!meetingSuccess) return;
+    const pending =
+      document.getElementById('pending');
 
-    meetingSuccess.hidden = true;
-    meetingSuccess.style.display = 'none';
-    document.body.style.overflow = '';
-  }
+    const submitButton =
+      form.querySelector('button[type="submit"]');
 
-  if (meetingClose) {
-    meetingClose.addEventListener('click', closeMeetingModal);
-  }
+    const meetingSuccess =
+      document.getElementById('meeting-success');
 
-  form.addEventListener('submit', async function (event) {
-    event.preventDefault();
+    const meetingClose =
+      document.getElementById('meeting-close');
 
-    const selected = [
-      ...form.querySelectorAll('input[name="access"]:checked')
-    ].map(x => x.value);
 
-    if (!selected.length) {
-      alert('Please select at least one requested access level.');
-      return;
+    function openMeetingModal() {
+      if (!meetingSuccess) return;
+
+      meetingSuccess.hidden = false;
+      document.body.style.overflow = 'hidden';
+
+      if (meetingClose) {
+        meetingClose.focus();
+      }
     }
 
-    const originalLabel = submitButton.textContent;
 
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending...';
+    function closeMeetingModal() {
+      if (!meetingSuccess) return;
 
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+      meetingSuccess.hidden = true;
+      document.body.style.overflow = '';
+    }
 
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
 
-      pending.classList.add('show');
-
-      if (meetingSuccess) {
-        meetingSuccess.hidden = false;
-        meetingSuccess.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-
-      form.reset();
-
-    } catch (error) {
-      alert(
-        'We could not send your request. Please try again. Your entered information has been kept on the form.'
+    if (meetingClose) {
+      meetingClose.addEventListener(
+        'click',
+        closeMeetingModal
       );
-
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = originalLabel;
     }
-  });
-</script>
+
+
+    if (meetingSuccess) {
+      meetingSuccess.addEventListener(
+        'click',
+        function (event) {
+          if (event.target === meetingSuccess) {
+            closeMeetingModal();
+          }
+        }
+      );
+    }
+
+
+    document.addEventListener(
+      'keydown',
+      function (event) {
+        if (
+          event.key === 'Escape' &&
+          meetingSuccess &&
+          !meetingSuccess.hidden
+        ) {
+          closeMeetingModal();
+        }
+      }
+    );
+
+
+    form.addEventListener(
+      'submit',
+      async function (event) {
+
+        event.preventDefault();
+
+
+        const selected = [
+          ...form.querySelectorAll(
+            'input[name="access"]:checked'
+          )
+        ].map(x => x.value);
+
+
+        if (!selected.length) {
+          alert(
+            'Please select at least one requested access level.'
+          );
+
+          return;
+        }
+
+
+        const originalLabel =
+          submitButton.textContent;
+
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+
+        try {
+
+          const response =
+            await fetch(
+              form.action,
+              {
+                method:'POST',
+                body:new FormData(form),
+                headers:{
+                  'Accept':'application/json'
+                }
+              }
+            );
+
+
+          if (!response.ok) {
+            throw new Error(
+              'Form submission failed'
+            );
+          }
+
+
+          pending.classList.add('show');
+
+          openMeetingModal();
+
+          form.reset();
+
+
+        } catch (error) {
+
+          alert(
+            'We could not send your request. Please try again. Your entered information has been kept on the form.'
+          );
+
+
+        } finally {
+
+          submitButton.disabled = false;
+          submitButton.textContent = originalLabel;
+
+        }
+      }
+    );
+  </script>
+
 </body>
 </html>
