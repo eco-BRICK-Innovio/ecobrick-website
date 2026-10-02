@@ -1,0 +1,29 @@
+{
+  "name": "eco-brick-website-secure",
+  "account_id": "a80487a6721e45db4da442afe4f48b94",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "ecobrick.tech/*",
+      "zone_name": "ecobrick.tech"
+    },
+    {
+      "pattern": "www.ecobrick.tech/*",
+      "zone_name": "ecobrick.tech"
+    }
+  ],
+  "assets": {
+    "directory": "../",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "vars": {
+    "ACCESS_ISSUER": "https://divine-recipe-fa33.cloudflareaccess.com",
+    "BUDGET_AUDIENCE": "6781dc838da251b1fedfe56686a10ea9e19824031906b94b08cb3576a8ffb868"
+  }
+}

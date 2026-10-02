@@ -1,0 +1,7 @@
+.git/**
+.github/**
+.cloudflare/**
+node_modules/**
+.assetsignore
+**/*.md
+**/.DS_Store
