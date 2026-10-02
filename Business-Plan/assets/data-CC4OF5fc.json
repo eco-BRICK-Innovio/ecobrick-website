@@ -30,7 +30,7 @@
     "32": "No",
     "33": 12,
     "34": 1000,
-    "35": 1e-06,
+    "35": 0.000001,
     "36": 24
   },
   "settingLabels": {
@@ -377,7 +377,8 @@
       "Unit",
       1,
       0,
-      "Salaries!E6; employer on-cost in Settings"
+      "Salaries!E6; full-time site manager in every operating scenario; employer on-cost in Settings",
+      "site_manager"
     ],
     [
       "Operators",
@@ -386,7 +387,8 @@
       "Unit",
       2,
       2.5,
-      "Salaries!E8:E9; 1-2 machines = 2 operators, 3-4 machines = 4 operators, 5 machines = 5 operators"
+      "Salaries!E8:E9; full-time production workers: 1–2 machines = 2, 3–4 = 4, 5 = 5",
+      "operators"
     ],
     [
       "Technical manager",
@@ -398,13 +400,14 @@
       "Not budgeted in source; complete as needed"
     ],
     [
-      "Administration",
+      "Administration / production technician",
       "Payroll",
       15000,
       "Unit",
       1,
       0,
-      "Salaries!E18"
+      "Salaries!E18; 0.5 full-time equivalent for 1–2 machines; 1 full-time equivalent from 3 machines",
+      "administration_technician"
     ],
     [
       "Equipment maintenance",
@@ -616,9 +619,9 @@
     ],
     [
       "Staffing",
-      "Five-machine source + assumption",
+      "Owner-approved staffing",
       "Salaries!E6:E18",
-      "Source gross salaries plus 30% employer on-cost. Two operators for five machines; one operator per 2.5 machines, rounded up, subject to approval."
+      "Approved staffing (full-time equivalents): 1–2 machines = 2 full-time production workers; 3–4 = 4; 5 = 5. Site manager: 1 full-time role in every operating scenario. Administration / production technician: 0.5 role for 1–2 machines, 1 full-time role from 3 machines. These Unit-driver staffing quantities follow machine count; manual quantity fields do not override them. Existing gross salary rates and employer on-cost remain editable. Zero machines has no operating staffing."
     ],
     [
       "Municipal tax and rent",
