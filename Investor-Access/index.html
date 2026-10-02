@@ -1096,8 +1096,26 @@
       document.getElementById('meeting-close');
 
 
+    let meetingReturnFocus = null;
+    let meetingBackgroundState = [];
+    let meetingPreviousOverflow = '';
+
+    function meetingFocusableElements() {
+      return [...meetingSuccess.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )].filter(element => !element.hidden && element.getClientRects().length);
+    }
+
     function openMeetingModal() {
       if (!meetingSuccess) return;
+      if (!meetingSuccess.hidden) return;
+
+      meetingReturnFocus = document.activeElement;
+      meetingPreviousOverflow = document.body.style.overflow;
+      meetingBackgroundState = [...document.body.children]
+        .filter(element => element !== meetingSuccess && !element.contains(meetingSuccess))
+        .map(element => ({ element, inert: element.inert }));
+      meetingBackgroundState.forEach(({ element }) => { element.inert = true; });
 
       meetingSuccess.hidden = false;
       document.body.style.overflow = 'hidden';
@@ -1112,7 +1130,14 @@
       if (!meetingSuccess) return;
 
       meetingSuccess.hidden = true;
-      document.body.style.overflow = '';
+      document.body.style.overflow = meetingPreviousOverflow;
+      meetingBackgroundState.forEach(({ element, inert }) => { element.inert = inert; });
+      meetingBackgroundState = [];
+      if (meetingReturnFocus && meetingReturnFocus.isConnected && !meetingReturnFocus.disabled) {
+        meetingReturnFocus.focus();
+      } else if (submitButton && !submitButton.disabled) {
+        submitButton.focus();
+      }
     }
 
 
@@ -1139,11 +1164,28 @@
     document.addEventListener(
       'keydown',
       function (event) {
+        if (meetingSuccess && !meetingSuccess.hidden && event.key === 'Tab') {
+          const elements = meetingFocusableElements();
+          const first = elements[0];
+          const last = elements[elements.length - 1];
+          if (!first) { event.preventDefault(); return; }
+          if (!meetingSuccess.contains(document.activeElement)) {
+            event.preventDefault();
+            (event.shiftKey ? last : first).focus();
+          } else if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
         if (
           event.key === 'Escape' &&
           meetingSuccess &&
           !meetingSuccess.hidden
         ) {
+          event.preventDefault();
           closeMeetingModal();
         }
       }
