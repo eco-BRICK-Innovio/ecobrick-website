@@ -344,6 +344,12 @@ h1{
 .market-details summary{cursor:pointer;color:var(--blue);font-size:.9rem;font-weight:700}
 .market-expanded{max-width:900px;margin-top:18px}
 @media(max-width:620px){.market-summary{grid-template-columns:1fr;gap:24px}}
+
+.library-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.library-nav a{border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:#fff;color:var(--navy);font-size:.85rem}
+.library-nav a:hover{background:#e8f1ff}
+.library-nav a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.grid>article[id]{scroll-margin-top:20px}
 </style>
 
 </head>
@@ -377,8 +383,9 @@ h1{
     </section>
 
     <div class="section-head"><h2>Due diligence library</h2><p>Selected diligence materials are organized below by category. Additional documents may be provided as the review progresses.</p></div>
+    <nav class="library-nav" aria-label="Library categories"><a href="#company">Company</a><a href="#technology">Technology &amp; IP</a><a href="#validation">Tests &amp; Standards</a><a href="#commercial">Commercial</a><a href="#financial">Financial</a><a href="#engineering">Engineering</a><a href="#videos">Videos</a><a href="#media">Media</a></nav>
     <section class="grid">
-    <article class="card">
+    <article class="card" id="company">
   <div class="icon">🏢</div>
   <h3>Company &amp; Corporate Documents</h3>
   <p>Core corporate records, legal status, ownership structure and compliance documents supporting investor due diligence.</p>
@@ -453,7 +460,7 @@ h1{
 
   </div>
 </article>
-     <article class="card">
+     <article class="card" id="technology">
   <div class="icon">🧠</div>
   <h3>Technology &amp; IP</h3>
   <p>Technology overview, process documentation and intellectual-property materials.</p>
@@ -495,7 +502,7 @@ h1{
 
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="validation">
   <div class="icon">🧪</div>
   <h3>Technical Validation &amp; Standards</h3>
   <p>Independent testing, standards, laboratory reports and technical validation of eco BRICK materials and applications.</p>
@@ -582,7 +589,7 @@ h1{
 
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="commercial">
   <div class="icon">🤝</div>
   <h3>Commercial &amp; Strategic</h3>
   <p>Selected procurement notices, project documents, partner materials and strategic evidence demonstrating commercial and institutional traction.</p>
@@ -646,7 +653,7 @@ Signed participation and POC funding agreement under INNOFENSE, the Israeli Mini
 
   </div>
 </article>
-     <article class="card">
+     <article class="card" id="financial">
   <div class="icon">📊</div>
   <h3>Financial &amp; Funding</h3>
   <p>Financial diligence materials, approved funding and fundraising support documents.</p>
@@ -664,14 +671,14 @@ Signed participation and POC funding agreement under INNOFENSE, the Israeli Mini
       <span class="status linked">View document ↗</span>
     </a>
 
-    <div class="doc">
-      <span>Interactive Business Plan</span>
-      <span class="status linked">Open above ↑</span>
-    </div>
+    <a class="doc" href="/Business-Plan/">
+      <span><strong>Interactive Business Plan</strong></span>
+      <span class="status linked">Open model →</span>
+    </a>
    
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="engineering">
   <div class="icon">📁</div>
 <h3>Engineering &amp; Supporting Materials</h3>
 <p>Selected engineering and technical materials supporting investor diligence, supplier discussions and site planning.</p>
@@ -694,7 +701,7 @@ Signed participation and POC funding agreement under INNOFENSE, the Israeli Mini
   </div>
 </article>
 
-<article class="card">
+<article class="card" id="videos">
   <div class="icon">🎥</div>
   <h3>Pilot &amp; Field Demonstration Videos</h3>
   <p>Selected field pilots and material demonstrations showing eco BRICK technologies under real-world operating conditions.</p>
@@ -760,7 +767,7 @@ Signed participation and POC funding agreement under INNOFENSE, the Israeli Mini
   </div>
 </article>
 
-<article class="card">
+<article class="card" id="media">
   <div class="icon">📰</div>
   <h3>Media &amp; External Recognition</h3>
   <p>Selected independent media coverage and external recognition of eco BRICK’s technology, field applications and innovation achievements.</p>
