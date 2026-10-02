@@ -334,6 +334,16 @@ h1{
     align-items:flex-start
   }
 }
+
+.market-context h2{margin:0 0 24px;color:var(--navy);font-size:1.5rem}
+.market-summary{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.market-summary>div{padding:4px 0}
+.market-summary h3{margin:0 0 10px}
+.market-summary p{max-width:560px}
+.market-details{margin-top:24px;border-top:1px solid var(--line);padding-top:18px}
+.market-details summary{cursor:pointer;color:var(--blue);font-size:.9rem;font-weight:700}
+.market-expanded{max-width:900px;margin-top:18px}
+@media(max-width:620px){.market-summary{grid-template-columns:1fr;gap:24px}}
 </style>
 
 </head>
@@ -353,11 +363,17 @@ h1{
 
 
     <section class="card market-context" aria-labelledby="market-context-title" style="margin-top:24px">
-      <h2 id="market-context-title">Business model and route to market</h2>
-      <p style="margin-top:14px">eco BRICK is designed to generate revenue at both ends of the process: fees for receiving and treating suitable waste streams, and sales of the engineered materials and products made from them for construction and infrastructure applications. Locating production near waste sources and end markets is intended to connect waste-treatment needs with demand for practical material applications.</p>
-      <p style="margin-top:14px">The route to market is built around activities with organizations addressing defined needs at meaningful scale: the IDF and Israel Ministry of Defense, the Haifa Municipal Association, Ashdod, Jerusalem, the Western Negev Cluster, Hiriya and Hevra Kadisha Rishon LeZion, alongside the development of partnerships and pilots in Israel and abroad, including India and Singapore.</p>
-      <p style="margin-top:14px">This room provides supporting evidence for reviewing those activities: pilots and applications, funding documents, notices of intent to engage, recommendations and planning materials. Each activity is at its own stage of development; a pilot, funding approval or procurement notice does not by itself establish a completed sale. The Interactive Business Plan explores production-site economics, while the materials here support review of the practical and commercial path to deployment.</p>
-      <p style="margin-top:14px">The five-machine scenario represents a full site. The first $2 million fundraising stage, within a total $10 million target, is intended to initiate the activities and pilots and build production and sales data to support expansion.</p>
+      <h2 id="market-context-title">Business model &amp; market activity</h2>
+      <div class="market-summary">
+        <div><h3>Two revenue streams</h3><p>Waste-treatment fees + sales of engineered materials and products for construction and infrastructure.</p></div>
+        <div><h3>Major projects &amp; partnerships</h3><p>IDF / Ministry of Defense · Haifa · Ashdod · Jerusalem · Western Negev · Hiriya · Hevra Kadisha Rishon LeZion · International pilots, including India and Singapore.</p></div>
+      </div>
+      <details class="market-details"><summary>Business model, project context &amp; fundraising</summary>
+        <div class="market-expanded"><p style="margin-top:14px">eco BRICK is designed to generate revenue at both ends of the process: fees for receiving and treating suitable waste streams, and sales of the engineered materials and products made from them for construction and infrastructure applications. Locating production near waste sources and end markets is intended to connect waste-treatment needs with demand for practical material applications.</p>
+<p style="margin-top:14px">The route to market is built around activities with organizations addressing defined needs at meaningful scale: the IDF and Israel Ministry of Defense, the Haifa Municipal Association, Ashdod, Jerusalem, the Western Negev Cluster, Hiriya and Hevra Kadisha Rishon LeZion, alongside the development of partnerships and pilots in Israel and abroad, including India and Singapore.</p>
+<p style="margin-top:14px">This room provides supporting evidence for reviewing those activities: pilots and applications, funding documents, notices of intent to engage, recommendations and planning materials. Each activity is at its own stage of development; a pilot, funding approval or procurement notice does not by itself establish a completed sale. The Interactive Business Plan explores production-site economics, while the materials here support review of the practical and commercial path to deployment.</p>
+<p style="margin-top:14px">The five-machine scenario represents a full site. The first $2 million fundraising stage, within a total $10 million target, is intended to initiate the activities and pilots and build production and sales data to support expansion.</p></div>
+      </details>
     </section>
 
     <div class="section-head"><h2>Due diligence library</h2><p>Selected diligence materials are organized below by category. Additional documents may be provided as the review progresses.</p></div>
