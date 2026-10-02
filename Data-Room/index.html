@@ -1,0 +1,788 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Confidential eco BRICK Investor Data Room for approved investors and strategic partners.">
+  <title>eco BRICK | Investor Data Room</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+:root{
+  --navy:#0c2e68;
+  --blue:#235cb8;
+  --blue2:#3979dc;
+  --ink:#183455;
+  --muted:#657a99;
+  --line:#d8e4f6;
+  --soft:#f3f7fd;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(17,50,59,.06);
+  font-family:Arial,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--soft)
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--soft)
+}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+.wrap{
+  max-width:1440px;
+  margin:auto;
+  padding:0 32px
+}
+
+.top{
+  background:var(--navy);
+  color:#fff
+}
+
+.topin{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px
+}
+
+.brand{
+  font-size:1.28rem;
+  font-weight:800;
+  letter-spacing:.02em
+}
+
+.brand span{
+  color:#5ca7ff
+}
+
+.topmeta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+
+.topmeta small{
+  color:#c8daf5
+}
+
+.lang{
+  display:flex;
+  gap:6px
+}
+
+.lang a{
+  border:1px solid #7fa3dc;
+  color:#dce9ff;
+  border-radius:8px;
+  padding:6px 9px;
+  font-size:.84rem
+}
+
+.lang a[aria-current="page"]{
+  background:#fff;
+  color:var(--navy);
+  font-weight:700
+}
+
+main{
+  padding:46px 0 64px
+}
+
+.hero{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:34px;
+  box-shadow:var(--shadow)
+}
+
+.eyebrow{
+  color:var(--blue);
+  font-weight:800;
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin:0 0 8px
+}
+
+h1{
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  color:var(--navy);
+  margin:0 0 14px
+}
+
+.lead{
+  max-width:820px;
+  color:#566d8d;
+  line-height:1.65;
+  font-size:1.05rem;
+  margin:0
+}
+
+.notice{
+  margin-top:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#eef5ff;
+  border:1px solid #c9ddfb;
+  color:#315c9d;
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:.82rem;
+  font-weight:700
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  padding:11px 16px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--navy);
+  font-weight:750
+}
+
+.btn.primary{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff
+}
+
+.btn:hover{
+  transform:translateY(-1px)
+}
+
+.section-head{
+  margin:42px 0 18px
+}
+
+.section-head h2{
+  margin:0 0 7px;
+  color:var(--navy);
+  font-size:1.65rem
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55
+}
+
+/* Row-based due diligence library */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow)
+}
+
+.icon{
+  font-size:1.6rem;
+  margin-bottom:10px
+}
+
+.card h3{
+  margin:0 0 8px;
+  color:#173f78;
+  font-size:1.08rem
+}
+
+.card p{
+  margin:0;
+  color:#607596;
+  line-height:1.55;
+  font-size:.91rem
+}
+
+.docs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:12px;
+  margin-top:18px
+}
+
+.doc{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid #e1eaf7;
+  border-radius:10px;
+  background:#fbfdff;
+  font-size:.86rem;
+  min-height:72px
+}
+
+.doc span:first-child{
+  font-weight:400;
+  color:#607596;
+  line-height:1.45
+}
+
+.doc strong{
+  display:inline-block;
+  color:#173f78;
+  font-weight:800;
+  margin-bottom:3px
+}
+.status{
+  font-size:.72rem;
+  font-weight:800;
+  color:#7184a0;
+  background:#edf2f8;
+  border-radius:999px;
+  padding:4px 7px;
+  white-space:nowrap
+}
+
+.status.linked{
+  background:#e7f5ef;
+  color:#22694f
+}
+
+.footnote{
+  margin-top:34px;
+  background:#fff;
+  border:1px dashed #b9cae3;
+  border-radius:16px;
+  padding:18px 20px;
+  color:#607596;
+  line-height:1.6;
+  font-size:.88rem
+}
+
+.footer{
+  border-top:1px solid #d9e4f5;
+  color:#647b9d;
+  font-size:.82rem;
+  line-height:1.55;
+  padding:22px 0 34px;
+  background:#fff
+}
+
+.footer p{
+  margin:0
+}
+
+@media(max-width:900px){
+  .topin{
+    align-items:flex-start;
+    padding:14px 0;
+    flex-direction:column
+  }
+
+  .docs{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr))
+  }
+}
+
+@media(max-width:620px){
+  .wrap{
+    padding:0 15px
+  }
+
+  .hero{
+    padding:24px
+  }
+
+  .actions{
+    flex-direction:column
+  }
+
+  .btn{
+    width:100%
+  }
+
+  .docs{
+    grid-template-columns:1fr
+  }
+
+  .doc{
+    align-items:flex-start
+  }
+}
+</style>
+
+</head>
+<body>
+  <header class="top"><div class="wrap topin"><div class="brand">eco <span>BRICK</span></div><div class="topmeta"><small>Investor Data Room · Confidential</small><nav class="lang" aria-label="Language"><a href="index.html" aria-current="page">English</a><a href="he.html" lang="he">עברית</a></nav></div></div></header>
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Approved investor access</p>
+      <h1>Investor Data Room</h1>
+      <p class="lead">Confidential supporting materials for approved investors and strategic partners. The public Investor Story explains the opportunity; the Interactive Business Plan covers the operating model and economics. This room is reserved for diligence materials, evidence and supporting documents.</p>
+      <div class="notice">Confidential · Access granted individually</div>
+      <div class="actions">
+        <a class="btn" href="https://ecobrick.tech/Investor/">← Investor Story</a>
+        <a class="btn primary" href="https://ecobrick.tech/Business-Plan/">Interactive Business Plan &amp; Financial Model ↗</a>
+      </div>
+    </section>
+
+    <div class="section-head"><h2>Due diligence library</h2><p>Selected diligence materials are organized below by category. Additional documents may be provided as the review progresses.</p></div>
+    <section class="grid">
+    <article class="card">
+  <div class="icon">🏢</div>
+  <h3>Company &amp; Corporate Documents</h3>
+  <p>Core corporate records, legal status, ownership structure and compliance documents supporting investor due diligence.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Certificate-of-Incorporation.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Certificate of Incorporation</strong><br>
+        Official Israeli Registrar of Companies certificate documenting the original incorporation of the company under company number 514988096.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Company-Name-Change-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Certificate of Company Name Change</strong><br>
+        Official Registrar of Companies certificate confirming the change of name from EASYLINKS LTD to ECO-BRICK INNOVIO LTD while retaining the same company number.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Company-Extract-2026-EN.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Official Company Extract — September 2026</strong><br>
+        Official extract from the Israeli Corporations Authority presenting the company’s current legal status, shareholding structure, directors, corporate history and registered information.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Books-and-Records-Compliance-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Books &amp; Records / Tax Compliance Certificate</strong><br>
+        Official Israeli Tax Authority certificate confirming the company’s books-and-records reporting status, valid through March 31, 2027.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Authorized-Signatory-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Authorized Signatory Certificate</strong><br>
+        Legal confirmation of the company’s authorized signatory rights, issued by the company’s attorneys following the relevant board resolution.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Cap-Table-2026.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Cap Table — September 2026</strong><br>
+        Current shareholder ownership structure of eco BRICK Innovio Ltd., including issued shares, ownership percentages and fully diluted basis confirmation.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+  </div>
+</article>
+     <article class="card">
+  <div class="icon">🧠</div>
+  <h3>Technology &amp; IP</h3>
+  <p>Technology overview, process documentation and intellectual-property materials.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://siautomation455-my.sharepoint.com/:v:/g/personal/shlomi_innovio_tech/IQDDvnlENutwTpepf3p0-rqqAe2V6zoFVpKoMsqGGvvatdQ?e=EMF7SA"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Technology Overview Video</strong><br>
+        Short visual overview of eco BRICK’s technology, process flow and material applications.
+      </span>
+      <span class="status linked">Watch Video ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Technology-One-Pager.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Technology One-Pager</strong><br>
+        Concise visual overview of eco BRICK’s technology platform, waste inputs, production process and key material applications.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-PCT-Patent-Application.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>PCT International Patent Application</strong><br>
+        International PCT patent application covering core aspects of eco BRICK’s proprietary technology and material-processing platform.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">🧪</div>
+  <h3>Technical Validation &amp; Standards</h3>
+  <p>Independent testing, standards, laboratory reports and technical validation of eco BRICK materials and applications.</p>
+
+  <div class="docs">
+
+<a class="doc"
+   href="/Data-Room/docs/eco-BRICK-Defense-Innovation-Final-POC-Report.pdf"
+   target="_blank"
+   rel="noopener">
+  <span>
+    <strong>Ministry of Defense / IDF — Final POC Evaluation Report</strong><br>
+    Final evaluation report covering three eco BRICK proof-of-concept developments in concrete, cold asphalt and construction blocks within the InnoFense innovation program, including technical findings and recommendations for continued development.
+  </span>
+  <span class="status linked">View Document ↗</span>
+</a>
+
+    <a class="doc" href="/Data-Room/docs/CTL-ASTM-C331-Report-201338.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>ASTM C331 Lightweight Aggregate Validation — CTL Group</strong><br>
+        Independent CTL evaluation of eco BRICK lightweight aggregate under ASTM C331 requirements.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/CTL-Aggregate-Test-Report-201338-2023.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Aggregate Chemical Safety Test — CTL Group</strong><br>
+        Independent chemical testing confirming that eco BRICK aggregate meets the tested safety criteria for construction use.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/SII-Test-Report-7211900735.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Israeli Standards Institute Test Report</strong><br>
+        Technical test report issued by the Standards Institution of Israel for eco BRICK material.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Metzuda-Cold-Asphalt-Technical-Assessment-for-Eden.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Cold Asphalt Technical Assessment — Metzuda</strong><br>
+        Technical assessment of eco BRICK’s cold asphalt mixture prepared for use in Jerusalem.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Hot-Mix-Asphalt-Additive-Test.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Hot-Mix Asphalt Additive Test — Shapir Engineering</strong><br>
+        Technical evaluation of eco BRICK material as an additive in hot-mix asphalt applications.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc"
+   href="/Data-Room/docs/Asphalt-Test-Report-133513-2023.pdf"
+   target="_blank"
+   rel="noopener">
+      <span>
+        <strong>Asphalt Performance Test Report 133513 — Ben-Ari</strong><br>
+        Laboratory evaluation of eco BRICK asphalt mixtures at 10–20% addition levels, including stability, flow and bitumen-saving performance.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Mister-Fix-Test-Report-April-2026.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Technical Test Report — Mister Fix</strong><br>
+        Technical laboratory test report evaluating an eco BRICK construction-material application.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Shapir-Lightweight-Thermal-Concrete-Test-Results.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>Lightweight Thermal Concrete Test Results — Shapir Engineering</strong><br>
+        Laboratory evaluation of eco BRICK lightweight thermal concrete for use beneath flooring as an underfloor infrastructure layer.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">🤝</div>
+  <h3>Commercial &amp; Strategic</h3>
+  <p>Selected procurement notices, project documents, partner materials and strategic evidence demonstrating commercial and institutional traction.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Jerusalem-Sole-Supplier-Notice.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Jerusalem — Sole Supplier Procurement Notice</strong><br>
+        Official notice of intent by Eden – Jerusalem Economic Development Company to engage eco BRICK for waste-treatment activities in Jerusalem under a sole-supplier exemption.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Western-Negev-Sole-Supplier-Notice.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Western Negev Cluster — Sole Supplier Procurement Notice</strong><br>
+        Official procurement notice identifying eco BRICK as the proposed sole supplier for treatment of legacy agricultural waste and conversion into value-added construction material.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+<a class="doc"
+   href="/Data-Room/docs/eco-BRICK-INNOFENSE-MOD-POC-Funding-Agreement.pdf"
+   target="_blank"
+   rel="noopener">
+  <span>
+    <strong>INNOFENSE — Israel Ministry of Defense Innovation Program / POC Funding Agreement</strong><br>
+Signed participation and POC funding agreement under INNOFENSE, the Israeli Ministry of Defense innovation program, including milestone-based funding of NIS 200,000.
+  </span>
+  <span class="status linked">View document ↗</span>
+</a>
+
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Mister-Fix-Letter-of-Recommendation.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Mister Fix / Inrom Group — Letter of Recommendation</strong><br>
+        Commercial recommendation following joint work with eco BRICK, highlighting its technology, engineering capabilities and potential for construction and infrastructure applications.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+    <a class="doc" style="grid-column: span 2;"
+       href="/Data-Room/docs/eco-BRICK-NEA-Bitumen-Alternative-Assessment.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Ministry of Defense / National Emergency Authority — Strategic Bitumen Alternative Assessment</strong><br>
+        Official assessment following a site visit to evaluate eco BRICK as an immediate alternative source for bitumen-related products and asphalt solutions for infrastructure and emergency needs.
+      </span>
+      <span class="status linked">View Document ↗</span>
+    </a>
+
+  </div>
+</article>
+     <article class="card">
+  <div class="icon">📊</div>
+  <h3>Financial &amp; Funding</h3>
+  <p>Financial diligence materials, approved funding and fundraising support documents.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Ministry-of-Energy-Grant-Approval-2024.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Ministry of Energy &amp; Infrastructure — Approved 50% Project Grant</strong><br>
+        Official approval under Call 19/2024 for a NIS 1.5 million eco BRICK project, including approved government funding of NIS 750,000, representing 50% of the project budget.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+    <div class="doc">
+      <span>Interactive Business Plan</span>
+      <span class="status linked">Open above ↑</span>
+    </div>
+   
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">📁</div>
+<h3>Engineering &amp; Supporting Materials</h3>
+<p>Selected engineering and technical materials supporting investor diligence, supplier discussions and site planning.</p>
+
+  <div class="docs">
+
+    
+    <a class="doc"
+       style="grid-column:1 / -1;"
+       href="/Data-Room/docs/eco-BRICK-Continuous-Production-Line-Concept.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>eco BRICK — Continuous Production Line Concept</strong><br>
+        Conceptual engineering layout for eco BRICK’s continuous production line, covering material feeding, continuous mixing, processing, cooling, crushing, Big Bag collection and optional screening, prepared as a basis for supplier RFQs and site planning.
+      </span>
+      <span class="status linked">View document ↗</span>
+    </a>
+
+  </div>
+</article>
+
+<article class="card">
+  <div class="icon">🎥</div>
+  <h3>Pilot &amp; Field Demonstration Videos</h3>
+  <p>Selected field pilots and material demonstrations showing eco BRICK technologies under real-world operating conditions.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=Z8JwvzUFvqg"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Tel Hashomer — Cold Asphalt Under Heavy Military Load</strong><br>
+        Field demonstration of eco BRICK’s cold asphalt mix at Tel Hashomer military base, showing the applied surface under traffic from a tank and heavy military vehicles.
+      </span>
+      <span class="status linked">Watch video ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=dfMe7nCaM6E"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Jerusalem — Cold Asphalt Road Repair Pilot</strong><br>
+        Field pilot in Jerusalem demonstrating eco BRICK’s cold asphalt solution for pothole and road repairs, carried out together with Metzuda and Eden – Jerusalem Economic Development Company.
+      </span>
+      <span class="status linked">Watch video ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=HdTkN8Ya1SI"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Hiriya / Readymix — Waste-to-Lightweight Concrete Pilot</strong><br>
+        Pilot using sorting residue from Hiriya and construction-waste material from Recycle to produce eco BRICK aggregate for lightweight, thermal and acoustic concrete used as an underfloor infrastructure layer.
+      </span>
+      <span class="status linked">Watch video ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=3XEwgcN2U_U"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Impact Resistance &amp; Energy Absorption Demonstration</strong><br>
+        Comparative impact demonstration in which a conventional paving block fractured after one 5 kg hammer strike, while the substantially lighter and thinner eco BRICK block remained intact after four strikes and the supporting concrete slab failed first.
+      </span>
+      <span class="status linked">Watch video ↗</span>
+    </a>
+
+    <a class="doc"
+       style="grid-column: span 2;"
+       href="https://www.youtube.com/watch?v=soCjMZyFecI"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Direct-Flame &amp; Thermal Behavior Demonstration</strong><br>
+        Direct-flame demonstration showing the observed behavior of eco BRICK material under intense heat exposure and its thermal response.
+      </span>
+      <span class="status linked">Watch video ↗</span>
+    </a>
+
+  </div>
+</article>
+
+<article class="card">
+  <div class="icon">📰</div>
+  <h3>Media &amp; External Recognition</h3>
+  <p>Selected independent media coverage and external recognition of eco BRICK’s technology, field applications and innovation achievements.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://i-hls.com/archives/138478"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>iHLS — Civilian, Defense &amp; Emergency Resilience</strong><br>
+        Independent feature on eco BRICK’s technology platform, INNOFENSE participation, defense and emergency applications, infrastructure solutions and industrial scale-up.
+      </span>
+      <span class="status linked">Read article ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.israelhayom.co.il/tech/tech-news/article/17893554"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Israel Hayom — MUNIEXPO25 Innovation Award Winner</strong><br>
+        External media coverage of eco BRICK’s first-place recognition in the MUNIEXPO25 municipal innovation competition and its waste-to-construction-material technology.
+      </span>
+      <span class="status linked">Read article ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://iparking.co.il/asphalt-recycled-waste-transportation/"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>iParking — Recycled-Waste Asphalt for Urban Infrastructure</strong><br>
+        Industry coverage of eco BRICK’s recycled-waste asphalt technology, including bitumen reduction, infrastructure applications and field pilots.
+      </span>
+      <span class="status linked">Read article ↗</span>
+    </a>
+
+  </div>
+</article>
+
+    </section>
+
+    <div class="footnote"><strong>Document access:</strong> Not every approved investor will necessarily receive access to every document. Materials can be added or removed based on the diligence stage, confidentiality level and relevance to the specific review.</div>
+  </main>
+  <footer class="footer"><div class="wrap"><p>eco BRICK Innovio Ltd. · Confidential Investor Data Room · For approved recipients only.</p></div></footer>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"34f848a401d3478484184bd7c82105a6","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

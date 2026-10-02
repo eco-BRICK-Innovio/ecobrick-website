@@ -58,9 +58,12 @@ export function createWorker(upstreamFetch=fetch) {
     // Only the configured hostname is exposed. No alternate preview/origin is a fallback.
     if(url.hostname!=='ecobrick.tech') return locked();
     if(confidential) {
-      if(!/^\/Business-Plan(?:\/|$)/.test(url.pathname)) return locked(404);
+      const budget=/^\/Business-Plan(?:\/|$)/.test(url.pathname);
+      const room=/^\/Data-Room(?:\/|$)/.test(url.pathname);
+      if(!budget&&!room) return locked(404);
       const token=request.headers.get('Cf-Access-Jwt-Assertion');
-      if(!await verifyAccess(token,env.ACCESS_ISSUER,env.BUDGET_AUDIENCE,upstreamFetch)) return locked();
+      const audience=budget?env.BUDGET_AUDIENCE:env.DATAROOM_AUDIENCE;
+      if(!audience||!await verifyAccess(token,env.ACCESS_ISSUER,audience,upstreamFetch)) return locked();
     }
     if(!['GET','HEAD'].includes(request.method)) return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
     const response=await env.ASSETS.fetch(request);

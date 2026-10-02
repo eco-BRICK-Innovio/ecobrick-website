@@ -13,6 +13,14 @@
     {
       "pattern": "www.ecobrick.tech/*",
       "zone_name": "ecobrick.tech"
+    },
+    {
+      "zone_name": "ecobrick.tech",
+      "pattern": "ecobrick.tech/Data-Room"
+    },
+    {
+      "zone_name": "ecobrick.tech",
+      "pattern": "ecobrick.tech/Data-Room/*"
     }
   ],
   "assets": {
@@ -24,6 +32,7 @@
   },
   "vars": {
     "ACCESS_ISSUER": "https://divine-recipe-fa33.cloudflareaccess.com",
-    "BUDGET_AUDIENCE": "6781dc838da251b1fedfe56686a10ea9e19824031906b94b08cb3576a8ffb868"
+    "BUDGET_AUDIENCE": "6781dc838da251b1fedfe56686a10ea9e19824031906b94b08cb3576a8ffb868",
+    "DATAROOM_AUDIENCE": "7b2095a26789767df0d7cd646812043a03a9f5b4814325c70bfea8809ef7de7d"
   }
 }

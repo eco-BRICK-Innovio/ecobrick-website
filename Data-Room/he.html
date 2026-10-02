@@ -1,0 +1,794 @@
+
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="חדר המידע הסודי למשקיעים מאושרים של eco BRICK.">
+  <title>eco BRICK | חדר מידע למשקיעים</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --navy:#0c2e68;
+  --blue:#235cb8;
+  --blue2:#3979dc;
+  --ink:#183455;
+  --muted:#657a99;
+  --line:#d8e4f6;
+  --soft:#f3f7fd;
+  --white:#fff;
+  --shadow:0 14px 34px rgba(17,50,59,.06);
+  font-family:'Heebo',Arial,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--soft)
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--soft)
+}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+.wrap{
+  max-width:1440px;
+  margin:auto;
+  padding:0 32px
+}
+
+.top{
+  background:var(--navy);
+  color:#fff
+}
+
+.topin{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px
+}
+
+.brand{
+  font-size:1.28rem;
+  font-weight:800;
+  letter-spacing:.02em
+}
+
+.brand span{
+  color:#5ca7ff
+}
+
+.topmeta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+
+.topmeta small{
+  color:#c8daf5
+}
+
+.lang{
+  display:flex;
+  gap:6px
+}
+
+.lang a{
+  border:1px solid #7fa3dc;
+  color:#dce9ff;
+  border-radius:8px;
+  padding:6px 9px;
+  font-size:.84rem
+}
+
+.lang a[aria-current="page"]{
+  background:#fff;
+  color:var(--navy);
+  font-weight:700
+}
+
+main{
+  padding:46px 0 64px
+}
+
+.hero{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:34px;
+  box-shadow:var(--shadow)
+}
+
+.eyebrow{
+  color:var(--blue);
+  font-weight:800;
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin:0 0 8px
+}
+
+h1{
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  color:var(--navy);
+  margin:0 0 14px
+}
+
+.lead{
+  max-width:820px;
+  color:#566d8d;
+  line-height:1.65;
+  font-size:1.05rem;
+  margin:0
+}
+
+.notice{
+  margin-top:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#eef5ff;
+  border:1px solid #c9ddfb;
+  color:#315c9d;
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:.82rem;
+  font-weight:700
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  padding:11px 16px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--navy);
+  font-weight:750
+}
+
+.btn.primary{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff
+}
+
+.btn:hover{
+  transform:translateY(-1px)
+}
+
+.section-head{
+  margin:42px 0 18px
+}
+
+.section-head h2{
+  margin:0 0 7px;
+  color:var(--navy);
+  font-size:1.65rem
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55
+}
+
+/* Row-based due diligence library */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow)
+}
+
+.icon{
+  font-size:1.6rem;
+  margin-bottom:10px
+}
+
+.card h3{
+  margin:0 0 8px;
+  color:#173f78;
+  font-size:1.08rem
+}
+
+.card p{
+  margin:0;
+  color:#607596;
+  line-height:1.55;
+  font-size:.91rem
+}
+
+.docs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:12px;
+  margin-top:18px
+}
+
+.doc{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px;
+  border:1px solid #e1eaf7;
+  border-radius:10px;
+  background:#fbfdff;
+  font-size:.86rem;
+  min-height:72px
+}
+
+.doc span:first-child{
+  font-weight:400;
+  color:#607596;
+  line-height:1.45
+}
+
+.doc strong{
+  display:inline-block;
+  color:#173f78;
+  font-weight:800;
+  margin-bottom:3px
+}
+.status{
+  font-size:.72rem;
+  font-weight:800;
+  color:#7184a0;
+  background:#edf2f8;
+  border-radius:999px;
+  padding:4px 7px;
+  white-space:nowrap
+}
+
+.status.linked{
+  background:#e7f5ef;
+  color:#22694f
+}
+
+.footnote{
+  margin-top:34px;
+  background:#fff;
+  border:1px dashed #b9cae3;
+  border-radius:16px;
+  padding:18px 20px;
+  color:#607596;
+  line-height:1.6;
+  font-size:.88rem
+}
+
+.footer{
+  border-top:1px solid #d9e4f5;
+  color:#647b9d;
+  font-size:.82rem;
+  line-height:1.55;
+  padding:22px 0 34px;
+  background:#fff
+}
+
+.footer p{
+  margin:0
+}
+
+@media(max-width:900px){
+  .topin{
+    align-items:flex-start;
+    padding:14px 0;
+    flex-direction:column
+  }
+
+  .docs{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr))
+  }
+}
+
+@media(max-width:620px){
+  .wrap{
+    padding:0 15px
+  }
+
+  .hero{
+    padding:24px
+  }
+
+  .actions{
+    flex-direction:column
+  }
+
+  .btn{
+    width:100%
+  }
+
+  .docs{
+    grid-template-columns:1fr
+  }
+
+  .doc{
+    align-items:flex-start
+  }
+}
+</style>
+
+</head>
+<body>
+  <header class="top"><div class="wrap topin"><div class="brand">eco <span>BRICK</span></div><div class="topmeta"><small>חדר מידע למשקיעים · סודי</small><nav class="lang" aria-label="שפה"><a href="index.html" lang="en">English</a><a href="he.html" aria-current="page">עברית</a></nav></div></div></header>
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">גישה למשקיעים מאושרים</p>
+      <h1>חדר מידע למשקיעים</h1>
+      <p class="lead">חומרים סודיים למשקיעים ושותפים אסטרטגיים שאושרו. עמוד Investor Story מציג את ההזדמנות והסיפור העסקי; התוכנית העסקית האינטראקטיבית מציגה את המודל הכלכלי. חדר זה מיועד למסמכי בדיקת נאותות, הוכחות וחומרים תומכים.</p>
+      <div class="notice">סודי · הגישה ניתנת באופן פרטני</div>
+      <div class="actions">
+        <a class="btn" href="https://ecobrick.tech/Investor/">חזרה ל־Investor Story</a>
+        <a class="btn primary" href="https://ecobrick.tech/Business-Plan/">תוכנית עסקית ומודל פיננסי אינטראקטיבי ↗</a>
+      </div>
+    </section>
+
+    <div class="section-head"><h2>ספריית בדיקת נאותות</h2><p>חומרי בדיקת הנאותות שנבחרו לשיתוף מסודרים להלן לפי קטגוריות. מסמכים נוספים עשויים להימסר בהתאם להתקדמות תהליך הבדיקה.</p></div>
+    <section class="grid">
+  <article class="card">
+  <div class="icon">🏢</div>
+  <h3>חברה ומסמכים תאגידיים</h3>
+  <p>מסמכי יסוד תאגידיים, מעמד משפטי, מבנה אחזקות ואישורי ציות התומכים בתהליך בדיקת הנאותות למשקיעים.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Certificate-of-Incorporation.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>תעודת התאגדות</strong><br>
+        תעודה רשמית של רשם החברות המתעדת את התאגדות החברה המקורית תחת מספר חברה 514988096.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Company-Name-Change-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>תעודת שינוי שם חברה</strong><br>
+        תעודה רשמית של רשם החברות המאשרת את שינוי שם החברה מ-EASYLINKS LTD ל-ECO-BRICK INNOVIO LTD, ללא שינוי במספר החברה.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Company-Extract-2026-HE.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>נסח חברה רשמי — ספטמבר 2026</strong><br>
+        נסח רשמי של רשות התאגידים המציג את הסטטוס המשפטי העדכני של החברה, מבנה האחזקות, הדירקטורים, היסטוריית החברה והמידע הרשום.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Books-and-Records-Compliance-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>אישור ניהול ספרים ודיווחי מס</strong><br>
+        אישור רשמי של רשות המסים בדבר ניהול פנקסי החשבונות והדיווחים של החברה, בתוקף עד 31 במרץ 2027.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Authorized-Signatory-Certificate.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>אישור זכויות חתימה</strong><br>
+        אישור משפטי בדבר זכויות החתימה המחייבות את החברה, שניתן על-ידי עורכי הדין של החברה בהתאם להחלטת הדירקטוריון הרלוונטית.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Cap-Table-2026.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>טבלת אחזקות — ספטמבר 2026</strong><br>
+        מבנה האחזקות הנוכחי של eco BRICK Innovio Ltd., כולל מספר המניות המונפקות, שיעורי האחזקה ואישור על בסיס Fully Diluted.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+  </div>
+</article>
+     <article class="card">
+  <div class="icon">🧠</div>
+  <h3>טכנולוגיה וקניין רוחני</h3>
+  <p>סקירת הטכנולוגיה, תהליך הייצור וחומרי קניין רוחני.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://siautomation455-my.sharepoint.com/:v:/g/personal/shlomi_innovio_tech/IQDDvnlENutwTpepf3p0-rqqAe2V6zoFVpKoMsqGGvvatdQ?e=EMF7SA"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>סרטון סקירת הטכנולוגיה</strong><br>
+        סקירה ויזואלית קצרה של טכנולוגיית eco BRICK, תהליך הייצור ויישומי החומרים.
+      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Technology-One-Pager.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>תקציר טכנולוגי — One-Pager</strong><br>
+        סקירה חזותית תמציתית של פלטפורמת הטכנולוגיה, חומרי הגלם, תהליך הייצור והיישומים המרכזיים של eco BRICK.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-PCT-Patent-Application.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>בקשת פטנט בינלאומית — PCT</strong><br>
+        בקשת פטנט בינלאומית במסגרת PCT המתייחסת להיבטים מרכזיים בטכנולוגיה הקניינית ובפלטפורמת עיבוד החומרים של eco BRICK.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">🧪</div>
+  <h3>בדיקות טכניות ותקנים</h3>
+  <p>בדיקות עצמאיות, תקנים, דוחות מעבדה ואימות טכני של חומרי ויישומי eco BRICK.</p>
+
+  <div class="docs">
+
+<a class="doc"
+   href="/Data-Room/docs/eco-BRICK-Defense-Innovation-Final-POC-Report.pdf"
+   target="_blank"
+   rel="noopener">
+  <span>
+    <strong>משרד הביטחון / צה״ל — דוח מסכם לשלושה POC</strong><br>
+    דוח הערכה מסכם לשלושה פיתוחי POC של eco BRICK בתחומי הבטון, האספלט הקר והבלוקים במסגרת תוכנית InnoFense, כולל ממצאים טכניים והמלצות להמשך פיתוח.
+  </span>
+  <span class="status linked">צפייה במסמך ↗</span>
+</a>
+
+    <a class="doc" href="/Data-Room/docs/CTL-ASTM-C331-Report-201338.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>אימות אגרגט קל לפי ASTM C331 — CTL Group</strong><br>
+        בדיקה עצמאית של CTL לאגרגט הקל של eco BRICK בהתאם לדרישות ASTM C331.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/CTL-Aggregate-Test-Report-201338-2023.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>בדיקת בטיחות כימית לאגרגט — CTL Group</strong><br>
+        בדיקה כימית עצמאית המאשרת כי אגרגט eco BRICK עומד בקריטריוני הבטיחות שנבדקו לשימוש בתחום הבנייה.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/SII-Test-Report-7211900735.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>דוח בדיקה — מכון התקנים הישראלי</strong><br>
+        דוח בדיקה טכני של חומר eco BRICK שהופק על-ידי מכון התקנים הישראלי.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Metzuda-Cold-Asphalt-Technical-Assessment-for-Eden.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>הערכה טכנית לתערובת אספלט קר — מצודה</strong><br>
+        הערכה טכנית של תערובת האספלט הקר של eco BRICK שהוכנה לצורך שימוש בירושלים.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Hot-Mix-Asphalt-Additive-Test.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>בדיקת תוסף לאספלט חם — שפיר הנדסה</strong><br>
+        הערכה טכנית של חומר eco BRICK כתוסף בתערובות אספלט חם.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+   href="/Data-Room/docs/Asphalt-Test-Report-133513-2023.pdf"
+   target="_blank"
+   rel="noopener">
+      <span>
+        <strong>דוח בדיקות ביצועי אספלט 133513 — בן-ארי</strong><br>
+        הערכת מעבדה לביצועי אספלט eco BRICK בתנאי הבדיקה שנבחנו.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Mister-Fix-Test-Report-April-2026.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>דוח בדיקה טכנית — Mister Fix</strong><br>
+        דוח בדיקות מעבדה טכניות ליישום חומר בנייה של eco BRICK.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc" href="/Data-Room/docs/Shapir-Lightweight-Thermal-Concrete-Test-Results.pdf" target="_blank" rel="noopener">
+      <span>
+        <strong>תוצאות בדיקות בטון קל ותרמי — שפיר הנדסה</strong><br>
+        הערכת מעבדה לבטון קל ותרמי של eco BRICK המיועד לשמש כשכבת תשתית מתחת למערכות ריצוף.
+      </span>
+      <span class="status linked">צפייה בתוצאות ↗</span>
+    </a>
+
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">🤝</div>
+  <h3>מסחרי ואסטרטגי</h3>
+<p>מסמכי רכש נבחרים, מסמכי פרויקטים, חומרים משותפים ועדויות להתקדמות מסחרית ומוסדית.</p>
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Jerusalem-Sole-Supplier-Notice.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>ירושלים — הודעה על כוונה להתקשר עם ספק יחיד</strong><br>
+        הודעה רשמית של עדן – החברה לפיתוח כלכלי בירושלים, על כוונה להתקשר עם eco BRICK לצורך טיפול במערך הפסולת בירושלים על בסיס פטור של ספק יחיד.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Western-Negev-Sole-Supplier-Notice.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>אשכול נגב מערבי — הודעה על כוונה להתקשר עם ספק יחיד</strong><br>
+        הודעה רשמית של אשכול נגב מערבי על כוונה להתקשר עם eco BRICK כספק יחיד לטיפול בערימות פסולת חקלאית ישנה ולהפיכתן לחומר בנייה בעל ערך כלכלי.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+<a class="doc"
+   href="/Data-Room/docs/eco-BRICK-INNOFENSE-MOD-POC-Funding-Agreement.pdf"
+   target="_blank"
+   rel="noopener">
+  <span>
+    <strong>INNOFENSE — תוכנית החדשנות של משרד הביטחון / הסכם מימון POC</strong><br>
+הסכם השתתפות ומימון POC במסגרת INNOFENSE, תוכנית החדשנות של משרד הביטחון, הכולל מימון מבוסס אבני דרך בסכום של 200 אלף ₪.
+  </span>
+  <span class="status linked">צפייה במסמך ↗</span>
+</a>
+
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Mister-Fix-Letter-of-Recommendation.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>Mister Fix / קבוצת Inrom — מכתב המלצה</strong><br>
+        מכתב המלצה מסחרי בעקבות עבודה משותפת עם eco BRICK, המדגיש את הטכנולוגיה, היכולות ההנדסיות והפוטנציאל ליישומים בענפי הבנייה והתשתיות.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <a class="doc"
+       style="grid-column: span 2;"
+       href="/Data-Room/docs/eco-BRICK-NEA-Bitumen-Alternative-Assessment.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>משרד הביטחון / רשות החירום הלאומית — בחינת חלופה אסטרטגית לביטומן</strong><br>
+        סיכום רשמי בעקבות ביקור בחברה לצורך בחינת eco BRICK כחלופה מיידית למוצרי ביטומן ופתרונות אספלט עבור תשתיות לאומיות וצרכי חירום.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+  </div>
+</article>
+      <article class="card">
+  <div class="icon">📊</div>
+  <h3>פיננסים וגיוס הון</h3>
+  <p>חומרי בדיקת נאותות פיננסיים, מימון מאושר ומסמכים תומכי גיוס הון.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="/Data-Room/docs/eco-BRICK-Ministry-of-Energy-Grant-Approval-2024.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>משרד האנרגיה והתשתיות — אישור מענק בשיעור 50%</strong><br>
+        אישור רשמי במסגרת קול קורא 19/2024 לפרויקט של eco BRICK בהיקף 1.5 מיליון ₪, הכולל מימון ממשלתי מאושר בסך 750 אלף ₪ — 50% מתקציב הפרויקט.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+    <div class="doc">
+      <span>תוכנית עסקית אינטראקטיבית</span>
+      <span class="status linked">פתיחה למעלה ↑</span>
+    </div>
+
+   </div>
+</article>
+      <article class="card">
+  <div class="icon">📁</div>
+  <h3>חומרים הנדסיים ותומכים</h3>
+<p>חומרים הנדסיים וטכניים נבחרים התומכים בבדיקת הנאותות, בדיונים עם ספקים ובתכנון אתרי הייצור.</p>
+
+  <div class="docs">
+
+    
+    <a class="doc"
+       style="grid-column:1 / -1;"
+       href="/Data-Room/docs/eco-BRICK-Continuous-Production-Line-Concept.pdf"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>eco BRICK — קונספט לקו ייצור רציף</strong><br>
+        תכנון הנדסי קונספטואלי לקו הייצור הרציף של eco BRICK, הכולל הזנת חומרי גלם, ערבוב רציף, עיבוד, קירור, גריסה, איסוף ל Big Bags וניפוי אופציונלי, כבסיס להצעות ספקים ולתכנון האתר.
+      </span>
+      <span class="status linked">צפייה במסמך ↗</span>
+    </a>
+
+  </div>
+</article>
+
+<article class="card">
+  <div class="icon">🎥</div>
+  <h3>סרטוני פיילוט והדגמות שטח</h3>
+  <p>פיילוטים והדגמות נבחרים המציגים את טכנולוגיות eco BRICK בתנאי שטח ויישום אמיתיים.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=Z8JwvzUFvqg"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>תל השומר — אספלט קר תחת עומסים צבאיים כבדים</strong><br>
+        הדגמת שטח של תערובת האספלט הקר של eco BRICK בבסיס תל השומר, הכוללת נסיעת טנק וכלים צבאיים כבדים על המשטח לאחר היישום.
+      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=dfMe7nCaM6E"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>ירושלים — פיילוט תיקוני כביש באספלט קר</strong><br>
+        פיילוט שטח בירושלים המדגים את פתרון האספלט הקר של eco BRICK לתיקון בורות וכבישים, שבוצע יחד עם מצודה ועדן – החברה לפיתוח כלכלי בירושלים.
+      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=HdTkN8Ya1SI"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>חירייה / רדימיקס — פיילוט מפסולת לבטון קל</strong><br>
+        פיילוט שבו נעשה שימוש בשאריות מיון מחירייה ובחומר ממתקן פסולת בניין של Recycle לייצור אגרגט eco BRICK לתערובת בטון קלה, תרמית ואקוסטית ששימשה כתשתית מתחת לריצוף.
+      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.youtube.com/watch?v=3XEwgcN2U_U"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>הדגמת עמידות למכה וספיגת אנרגיה</strong><br>
+        בהדגמה השוואתית אבן משתלבת קונבנציונלית התנפצה לאחר מכה אחת של פטיש במשקל 5 ק״ג, בעוד שאבן eco BRICK הקלה והדקה משמעותית נותרה שלמה לאחר ארבע מכות ומשטח הבטון שמתחתיה נשבר קודם.
+      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+    <a class="doc"
+       style="grid-column: span 2;"
+       href="https://www.youtube.com/watch?v=soCjMZyFecI"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>הדגמת התנהגות בחשיפה ישירה לאש ולחום</strong>
+<br>
+הדגמת חשיפה ישירה לאש המציגה את התנהגות חומר eco BRICK תחת חום גבוה ואת התגובה התרמית שנצפתה במהלך ההדגמה.      </span>
+      <span class="status linked">צפייה בסרטון ↗</span>
+    </a>
+
+  </div>
+</article>
+
+<article class="card">
+  <div class="icon">📰</div>
+  <h3>תקשורת והכרה חיצונית</h3>
+  <p>סיקור תקשורתי חיצוני והכרה מקצועית נבחרת בטכנולוגיה, ביישומי השטח ובהישגי החדשנות של eco BRICK.</p>
+
+  <div class="docs">
+
+    <a class="doc"
+       href="https://i-hls.com/he/archives/138483"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>iHLS — חוסן אזרחי, ביטחוני וחירומי</strong><br>
+        כתבה חיצונית על פלטפורמת הטכנולוגיה של eco BRICK, השתתפות החברה ב-INNOFENSE, יישומים ביטחוניים וחירומיים, פתרונות תשתית והתקדמות לייצור תעשייתי.
+      </span>
+      <span class="status linked">קריאת הכתבה ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://www.israelhayom.co.il/tech/tech-news/article/17893554"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>ישראל היום — זכייה במקום הראשון בפרס החדשנות MUNIEXPO25</strong><br>
+        סיקור תקשורתי חיצוני של זכיית eco BRICK במקום הראשון בתחרות החדשנות המוניציפלית MUNIEXPO25 ושל הטכנולוגיה להפיכת פסולת לחומרי בנייה.
+      </span>
+      <span class="status linked">קריאת הכתבה ↗</span>
+    </a>
+
+    <a class="doc"
+       href="https://iparking.co.il/asphalt-recycled-waste-transportation/"
+       target="_blank"
+       rel="noopener">
+      <span>
+        <strong>iParking — אספלט מפסולת ממוחזרת לתשתיות עירוניות</strong><br>
+        סיקור מקצועי של טכנולוגיית האספלט של eco BRICK המבוססת על פסולת ממוחזרת, כולל הפחתת ביטומן, יישומי תשתית ופיילוטים בשטח.
+      </span>
+      <span class="status linked">קריאת הכתבה ↗</span>
+    </a>
+
+  </div>
+</article>
+
+    </section>
+
+    <div class="footnote"><strong>גישה למסמכים:</strong> לא כל משקיע מאושר יקבל בהכרח גישה לכל מסמך. ניתן להוסיף או להסיר חומרים בהתאם לשלב בדיקת הנאותות, רמת הסודיות והרלוונטיות לבחינה הספציפית.</div>
+  </main>
+  <footer class="footer"><div class="wrap"><p>eco BRICK Innovio Ltd. · חדר מידע סודי למשקיעים · למורשים בלבד.</p></div></footer>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"34f848a401d3478484184bd7c82105a6","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
