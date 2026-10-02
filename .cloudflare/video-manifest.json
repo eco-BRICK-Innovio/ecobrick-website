@@ -1,0 +1,57 @@
+{
+  "filename": "eco-BRICK-Technology-Overview-Video.mp4",
+  "size": 197629293,
+  "sha256": "5d7beeafe48be816795f5d5960d5a4e908630664a051f2ed40e0898353010205",
+  "parts": [
+    {
+      "filename": "000.bin",
+      "size": 20971520,
+      "sha256": "49866a7beb3e7d2f56fc4f1010df9a11ebcfa24b0a85ecbb44617ffe26014ab6"
+    },
+    {
+      "filename": "001.bin",
+      "size": 20971520,
+      "sha256": "c10ef066bccbcf25948afdc30fe7e99208b601e7dbf45a5800d6fd8c33a93aee"
+    },
+    {
+      "filename": "002.bin",
+      "size": 20971520,
+      "sha256": "a477a98c6a01dbe8029a8be39ac3a2a0bfe6e12cd59defefe7f321d775bc4f1e"
+    },
+    {
+      "filename": "003.bin",
+      "size": 20971520,
+      "sha256": "5d01c5ceac29fef89c7c2e0181e6074c2f6febc97939b4fc3a74f458e9092899"
+    },
+    {
+      "filename": "004.bin",
+      "size": 20971520,
+      "sha256": "013a65330b358377ad2f1d833f8bd04a36130a9f3e684944651b2eaffb94d076"
+    },
+    {
+      "filename": "005.bin",
+      "size": 20971520,
+      "sha256": "1f8dc9f96d40b93c0a9f0ef98a89fefaea1c495e9ffe83fcce38165645f401b6"
+    },
+    {
+      "filename": "006.bin",
+      "size": 20971520,
+      "sha256": "8580a4c3858f65aba3b94ef07fc42e7a45a517bc33f97936e85ab410844f89af"
+    },
+    {
+      "filename": "007.bin",
+      "size": 20971520,
+      "sha256": "deabe789069a79dbcbfec0b93d258d8f7f8d69da1f3c2d6fb9512e58df9020ca"
+    },
+    {
+      "filename": "008.bin",
+      "size": 20971520,
+      "sha256": "4d6902a031d04c5f03c7a2dd59df76226c8044938adb4920c29f9f39d3662a49"
+    },
+    {
+      "filename": "009.bin",
+      "size": 8885613,
+      "sha256": "92aaeeb4a60d2cc5eabb3269e9ce9af0c14ec3e96cd5d0838607194e5073c78a"
+    }
+  ]
+}
