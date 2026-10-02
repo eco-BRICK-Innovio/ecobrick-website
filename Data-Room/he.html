@@ -349,6 +349,12 @@ h1{
 .market-details summary{cursor:pointer;color:var(--blue);font-size:.9rem;font-weight:700}
 .market-expanded{max-width:900px;margin-top:18px}
 @media(max-width:620px){.market-summary{grid-template-columns:1fr;gap:24px}}
+
+.library-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.library-nav a{border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:#fff;color:var(--navy);font-size:.85rem}
+.library-nav a:hover{background:#e8f1ff}
+.library-nav a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.grid>article[id]{scroll-margin-top:20px}
 </style>
 
 </head>
@@ -382,8 +388,9 @@ h1{
     </section>
 
     <div class="section-head"><h2>ספריית בדיקת נאותות</h2><p>חומרי בדיקת הנאותות שנבחרו לשיתוף מסודרים להלן לפי קטגוריות. מסמכים נוספים עשויים להימסר בהתאם להתקדמות תהליך הבדיקה.</p></div>
+    <nav class="library-nav" aria-label="קטגוריות ספריית המסמכים"><a href="#company">חברה</a><a href="#technology">טכנולוגיה וקניין רוחני</a><a href="#validation">בדיקות ותקנים</a><a href="#commercial">מסחרי</a><a href="#financial">פיננסים</a><a href="#engineering">הנדסה</a><a href="#videos">סרטונים</a><a href="#media">תקשורת</a></nav>
     <section class="grid">
-  <article class="card">
+  <article class="card" id="company">
   <div class="icon">🏢</div>
   <h3>חברה ומסמכים תאגידיים</h3>
   <p>מסמכי יסוד תאגידיים, מעמד משפטי, מבנה אחזקות ואישורי ציות התומכים בתהליך בדיקת הנאותות למשקיעים.</p>
@@ -458,7 +465,7 @@ h1{
 
   </div>
 </article>
-     <article class="card">
+     <article class="card" id="technology">
   <div class="icon">🧠</div>
   <h3>טכנולוגיה וקניין רוחני</h3>
   <p>סקירת הטכנולוגיה, תהליך הייצור וחומרי קניין רוחני.</p>
@@ -500,7 +507,7 @@ h1{
 
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="validation">
   <div class="icon">🧪</div>
   <h3>בדיקות טכניות ותקנים</h3>
   <p>בדיקות עצמאיות, תקנים, דוחות מעבדה ואימות טכני של חומרי ויישומי eco BRICK.</p>
@@ -587,7 +594,7 @@ h1{
 
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="commercial">
   <div class="icon">🤝</div>
   <h3>מסחרי ואסטרטגי</h3>
 <p>מסמכי רכש נבחרים, מסמכי פרויקטים, חומרים משותפים ועדויות להתקדמות מסחרית ומוסדית.</p>
@@ -652,7 +659,7 @@ h1{
 
   </div>
 </article>
-      <article class="card">
+      <article class="card" id="financial">
   <div class="icon">📊</div>
   <h3>פיננסים וגיוס הון</h3>
   <p>חומרי בדיקת נאותות פיננסיים, מימון מאושר ומסמכים תומכי גיוס הון.</p>
@@ -670,14 +677,14 @@ h1{
       <span class="status linked">צפייה במסמך ↗</span>
     </a>
 
-    <div class="doc">
-      <span>תוכנית עסקית אינטראקטיבית</span>
-      <span class="status linked">פתיחה למעלה ↑</span>
-    </div>
+    <a class="doc" href="/Business-Plan/">
+      <span><strong>תוכנית עסקית אינטראקטיבית</strong></span>
+      <span class="status linked">פתיחת המודל ←</span>
+    </a>
 
    </div>
 </article>
-      <article class="card">
+      <article class="card" id="engineering">
   <div class="icon">📁</div>
   <h3>חומרים הנדסיים ותומכים</h3>
 <p>חומרים הנדסיים וטכניים נבחרים התומכים בבדיקת הנאותות, בדיונים עם ספקים ובתכנון אתרי הייצור.</p>
@@ -700,7 +707,7 @@ h1{
   </div>
 </article>
 
-<article class="card">
+<article class="card" id="videos">
   <div class="icon">🎥</div>
   <h3>סרטוני פיילוט והדגמות שטח</h3>
   <p>פיילוטים והדגמות נבחרים המציגים את טכנולוגיות eco BRICK בתנאי שטח ויישום אמיתיים.</p>
@@ -766,7 +773,7 @@ h1{
   </div>
 </article>
 
-<article class="card">
+<article class="card" id="media">
   <div class="icon">📰</div>
   <h3>תקשורת והכרה חיצונית</h3>
   <p>סיקור תקשורתי חיצוני והכרה מקצועית נבחרת בטכנולוגיה, ביישומי השטח ובהישגי החדשנות של eco BRICK.</p>
