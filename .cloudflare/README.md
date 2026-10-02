@@ -11,3 +11,5 @@ The original PDFs and technology video in SharePoint retain owner access only. I
 Approve investors in Cloudflare Zero Trust > Access > Applications, using the existing Include > Emails rules. Business-Plan: eco BRICK Budget / Authorized Email Access. Data-Room: eco BRICK Investors / Investor Owner Access. Maintain the two lists separately. Use One-time PIN only. Never add Everyone, a broad email domain, or Bypass.
 
 Verify unauthenticated requests cannot retrieve either protected page or the model assets, including alternate origins. Verify an approved user can sign in to both pages. The private repository history is preserved; previously downloaded copies cannot be recalled.
+
+Video binary segments could not be saved through the GitHub web upload interface (size rejection). Before redeploying from this repository, restore Data-Room/video-parts from the complete local eco-BRICK-protected-site-backup-2026-10-02.zip or reconstruct the segments from the owner-only original MP4. Preflight intentionally refuses deployment if any segment is missing. The deployed Cloudflare copy is complete and was verified by an authenticated full download and live playback.
