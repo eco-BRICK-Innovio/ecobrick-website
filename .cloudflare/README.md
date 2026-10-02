@@ -6,7 +6,7 @@ Run `node .cloudflare/preflight.cjs` before deploying the repository root with `
 
 Business-Plan assets belong under `Business-Plan/assets/`. Do not publish the model JSON, JS or CSS under public `/assets/`. Data-Room PDFs belong under `Data-Room/docs/`. The four production routes all use this protected Worker; the former `eco-brick-investors` Worker is preserved for recovery and has no production route assigned. Each protected area validates its own Access audience; approval to one area does not authorize the other.
 
-The original PDFs in SharePoint retain owner access only; investor PDF links use the protected Cloudflare copies. The external technology video is still pending separate permission remediation and must not be described as secured until that work is verified.
+The original PDFs and technology video in SharePoint retain owner access only. Investor links use the protected Cloudflare copies. The original 197629293-byte MP4 is stored as ten byte-preserving segments under Data-Room/video-parts to satisfy the static-asset size limit. The Worker exposes one video/mp4 URL under Data-Room/docs, with GET/HEAD and single byte-range support for playback and seeking. Both the video URL and segment URLs require the Data-Room Access audience. video-manifest.json records the source and segment hashes; preflight verifies both before deployment. Do not move video segments outside the protected Data-Room path.
 
 Approve investors in Cloudflare Zero Trust > Access > Applications, using the existing Include > Emails rules. Business-Plan: eco BRICK Budget / Authorized Email Access. Data-Room: eco BRICK Investors / Investor Owner Access. Maintain the two lists separately. Use One-time PIN only. Never add Everyone, a broad email domain, or Bypass.
 
