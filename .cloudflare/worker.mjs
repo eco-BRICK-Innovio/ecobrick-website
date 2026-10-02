@@ -46,6 +46,42 @@ export function confidentialPath(pathname) {
 function locked(status=403) {
   return new Response('Access requires the owner\'s approval.',{status,headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow, noarchive','X-Content-Type-Options':'nosniff'}});
 }
+const videoPath='/Data-Room/docs/eco-BRICK-Technology-Overview-Video.mp4';
+const videoSize=197629293;
+const videoChunkSize=20*1024*1024;
+async function protectedVideo(request,env) {
+  let start=0,end=videoSize-1,status=200;
+  const range=request.headers.get('Range');
+  const headers={'Content-Type':'video/mp4','Accept-Ranges':'bytes','Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow, noarchive','X-Content-Type-Options':'nosniff'};
+  if(range) {
+    const match=/^bytes=(\d*)-(\d*)$/.exec(range);
+    if(!match||(!match[1]&&!match[2])) return new Response(null,{status:416,headers:{...headers,'Content-Range':`bytes */${videoSize}`}});
+    if(!match[1]) {const length=Number(match[2]);start=Math.max(0,videoSize-length);}
+    else {start=Number(match[1]);if(match[2]) end=Math.min(Number(match[2]),end);}
+    if(!Number.isSafeInteger(start)||!Number.isSafeInteger(end)||start>end||start>=videoSize) return new Response(null,{status:416,headers:{...headers,'Content-Range':`bytes */${videoSize}`}});
+    status=206;headers['Content-Range']=`bytes ${start}-${end}/${videoSize}`;
+  }
+  headers['Content-Length']=String(end-start+1);
+  if(request.method==='HEAD') return new Response(null,{status,headers});
+  let cursor=start;
+  const body=new ReadableStream({
+    async pull(controller) {
+      try {
+        if(cursor>end) {controller.close();return;}
+        const index=Math.floor(cursor/videoChunkSize);
+        const assetUrl=new URL(request.url);assetUrl.pathname=`/Data-Room/video-parts/${String(index).padStart(3,'0')}.bin`;assetUrl.search='';
+        const asset=await env.ASSETS.fetch(new Request(assetUrl));
+        if(!asset.ok) throw new Error('Video segment unavailable');
+        const bytes=new Uint8Array(await asset.arrayBuffer());
+        const offset=cursor-index*videoChunkSize;
+        const amount=Math.min(bytes.length-offset,end-cursor+1);
+        if(amount<=0) throw new Error('Invalid video segment');
+        controller.enqueue(bytes.subarray(offset,offset+amount));cursor+=amount;
+      } catch(error) {controller.error(error);}
+    }
+  });
+  return new Response(body,{status,headers});
+}
 export function createWorker(upstreamFetch=fetch) {
  return {
   async fetch(request,env) {
@@ -66,6 +102,7 @@ export function createWorker(upstreamFetch=fetch) {
       if(!audience||!await verifyAccess(token,env.ACCESS_ISSUER,audience,upstreamFetch)) return locked();
     }
     if(!['GET','HEAD'].includes(request.method)) return new Response('Method not allowed',{status:405,headers:{Allow:'GET, HEAD'}});
+    if(url.pathname===videoPath) return protectedVideo(request,env);
     const response=await env.ASSETS.fetch(request);
     if(!confidential) return response;
     const result=new Response(response.body,response);
