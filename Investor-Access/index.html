@@ -300,6 +300,9 @@
       max-width:520px;
     }
 
+    .submission-error{color:#a52a25;font-size:.9rem;line-height:1.5;grid-column:1/-1}
+    .submission-error[hidden]{display:none}
+
     .pending{
       display:none;
       margin-top:20px;
@@ -742,8 +745,10 @@
               name="email"
               type="email"
               autocomplete="email"
+              aria-describedby="email-error"
               required
             />
+            <p id="email-error" class="submission-error" role="alert" hidden></p>
           </div>
 
 
@@ -933,6 +938,7 @@
 
           </div>
 
+          <p id="submission-error" class="submission-error" role="alert" hidden></p>
         </form>
 
 
@@ -1119,6 +1125,44 @@
     const submitButton =
       form.querySelector('button[type="submit"]');
 
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+    const submissionError = document.getElementById('submission-error');
+    if (emailInput) emailInput.addEventListener('input', () => {
+      emailInput.removeAttribute('aria-invalid');
+      if (emailError) { emailError.hidden = true; emailError.textContent = ''; }
+    });
+
+    function showSubmissionError(message) {
+      if (submissionError) { submissionError.textContent = message; submissionError.hidden = false; }
+      else alert(message);
+    }
+
+    async function sendAccessRequest(body) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST', body,
+          headers: { 'Accept': 'application/json' },
+          signal: controller.signal
+        });
+        if (response.ok) return { response, data: null };
+        let data = null;
+        try { data = await response.json(); } catch (error) {
+          if (controller.signal.aborted) throw error;
+        }
+        return { response, data };
+      } finally { clearTimeout(timer); }
+    }
+
+    function retryDelay(response) {
+      const value = response.headers?.get('Retry-After');
+      if (!value) return 5000;
+      const ms = /^\d+$/.test(value) ? Number(value) * 1000 : Date.parse(value) - Date.now();
+      return Number.isFinite(ms) ? Math.max(1000, ms) : 5000;
+    }
+
     const meetingSuccess =
       document.getElementById('meeting-success');
 
@@ -1244,6 +1288,11 @@
 
         event.preventDefault();
 
+        if (submitButton.disabled) return;
+        if (submissionError) { submissionError.hidden = true; submissionError.textContent = ''; }
+        if (emailError) { emailError.hidden = true; emailError.textContent = ''; }
+        if (emailInput) emailInput.removeAttribute('aria-invalid');
+
 
         const selected = [
           ...form.querySelectorAll(
@@ -1271,23 +1320,32 @@
 
         try {
 
-          const response =
-            await fetch(
-              form.action,
-              {
-                method:'POST',
-                body:new FormData(form),
-                headers:{
-                  'Accept':'application/json'
-                }
-              }
-            );
+          const body = new FormData(form);
+          let result = await sendAccessRequest(body);
+          // A 429 explicitly rejects the request. Unknown delivery failures are not retried.
+          if (result.response.status === 429) {
+            const delay = retryDelay(result.response);
+            if (delay <= 30000) {
+              await new Promise(resolve => setTimeout(resolve, delay));
+              result = await sendAccessRequest(body);
+            }
+          }
 
 
-          if (!response.ok) {
-            throw new Error(
-              'Form submission failed'
-            );
+          if (!result.response.ok) {
+            const errors = Array.isArray(result.data?.errors) ? result.data.errors : [];
+            const emailRejected = errors.some(error => error.field === 'email' || error.code === 'TYPE_EMAIL');
+            if (emailRejected && emailInput && emailError) {
+              emailError.textContent = 'Please check your email address. The service could not accept this email field.';
+              emailError.hidden = false;
+              emailInput.setAttribute('aria-invalid', 'true');
+              emailInput.focus();
+            } else if (result.response.status >= 500) {
+              showSubmissionError('We could not confirm that your request was received. Your information has been kept. Please contact us before submitting again to avoid a duplicate request.');
+            } else {
+              showSubmissionError('The service could not accept your request at this time. Your information has been kept. Please try again later.');
+            }
+            return;
           }
 
 
@@ -1300,9 +1358,7 @@
 
         } catch (error) {
 
-          alert(
-            'We could not send your request. Please try again. Your entered information has been kept on the form.'
-          );
+          showSubmissionError('We could not confirm that your request was received. Your information has been kept. Please contact us before submitting again to avoid a duplicate request.');
 
 
         } finally {
