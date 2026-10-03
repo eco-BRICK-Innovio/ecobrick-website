@@ -301,7 +301,7 @@
     }
 
     .submission-error{color:#a52a25;font-size:.9rem;line-height:1.5;grid-column:1/-1}
-    .submission-error[hidden]{display:none}
+    .submission-error[hidden]{display:none}.submission-error a{color:inherit;text-decoration:underline;font-weight:600}.submission-error a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
     .pending{
       display:none;
@@ -940,6 +940,7 @@
           </div>
 
           <p id="submission-error" class="submission-error" role="alert" hidden></p>
+          <p id="submission-contact" class="submission-error" hidden><a href="mailto:shlomi@ecobrick.tech">Contact eco BRICK: shlomi@ecobrick.tech</a></p>
         </form>
 
 
@@ -1135,6 +1136,8 @@
     });
 
     function showSubmissionError(message) {
+      const contact = document.getElementById('submission-contact');
+      if (contact) contact.hidden = !message.includes('Please contact us');
       if (submissionError) { submissionError.textContent = message; submissionError.hidden = false; }
       else alert(message);
     }
@@ -1290,6 +1293,8 @@
         event.preventDefault();
 
         if (submitButton.disabled) return;
+        const contact = document.getElementById('submission-contact');
+        if (contact) contact.hidden = true;
         if (submissionError) { submissionError.hidden = true; submissionError.textContent = ''; }
         if (emailError) { emailError.hidden = true; emailError.textContent = ''; }
         if (emailInput) emailInput.removeAttribute('aria-invalid');
