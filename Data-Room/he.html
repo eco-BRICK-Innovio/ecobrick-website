@@ -355,6 +355,7 @@ h1{
 .library-nav a:hover{background:#e8f1ff}
 .library-nav a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .grid>article[id]{scroll-margin-top:20px}
+.review-path{margin-top:28px}.review-path h2{font-size:1.2rem;margin:0 0 14px}.review-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.review-step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}.review-step h3{font-size:1rem;margin:0 0 10px;color:var(--navy)}.review-step a{display:block;font-size:.9rem;line-height:1.5;color:var(--blue);margin-top:6px;text-decoration:underline;text-underline-offset:3px}.review-step a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}@media(max-width:900px){.review-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:440px){.review-steps{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -387,6 +388,12 @@ h1{
       </details>
     </section>
 
+    <section class="review-path" aria-labelledby="review-path-title"><h2 id="review-path-title">מאיפה להתחיל את הבדיקה</h2><nav class="review-steps" aria-label="מסלול קריאה מוצע למשקיע">
+      <div class="review-step"><h3>1. להבין את הטכנולוגיה</h3><a href="#technology">סקירת הטכנולוגיה וקניין רוחני</a></div>
+      <div class="review-step"><h3>2. לבחון יישום בפועל</h3><a href="#validation">דוח POC ובדיקות טכניות</a><a href="#videos">סרטוני הדגמות שטח</a></div>
+      <div class="review-step"><h3>3. לבחון התקדמות מסחרית</h3><a href="#commercial">הודעות התקשרות והמלצות</a><a href="#financial">מסמכי מימון</a></div>
+      <div class="review-step"><h3>4. לבחון את כלכלת האתר</h3><a href="/Business-Plan/">התוכנית העסקית האינטראקטיבית</a></div>
+    </nav></section>
     <div class="section-head"><h2>ספריית בדיקת נאותות</h2><p>חומרי בדיקת הנאותות שנבחרו לשיתוף מסודרים להלן לפי קטגוריות. מסמכים נוספים עשויים להימסר בהתאם להתקדמות תהליך הבדיקה.</p></div>
     <nav class="library-nav" aria-label="קטגוריות ספריית המסמכים"><a href="#company">חברה</a><a href="#technology">טכנולוגיה וקניין רוחני</a><a href="#validation">בדיקות ותקנים</a><a href="#commercial">מסחרי</a><a href="#financial">פיננסים</a><a href="#engineering">הנדסה</a><a href="#videos">סרטונים</a><a href="#media">תקשורת</a></nav>
     <section class="grid">
