@@ -624,6 +624,10 @@
         Access is reviewed and approved individually.
       </p>
 
+      <button type="button" id="meeting-reopen" aria-haspopup="dialog" aria-controls="meeting-success">
+        Schedule an introductory meeting
+      </button>
+
     </section>
 
 
@@ -935,9 +939,6 @@
             to the materials approved for you.
           </p>
 
-          <button type="button" id="meeting-reopen" class="btn" aria-haspopup="dialog" aria-controls="meeting-success">
-            Schedule an introductory meeting
-          </button>
 
         </div>
 
@@ -1124,9 +1125,18 @@
       )].filter(element => !element.hidden && element.getClientRects().length);
     }
 
-    function openMeetingModal() {
+    function openMeetingModal(requestReceived = false) {
       if (!meetingSuccess) return;
       if (!meetingSuccess.hidden) return;
+
+      const title = document.getElementById('meeting-success-title');
+      const text = meetingSuccess.querySelector('.meeting-success-text');
+      if (title) title.textContent = requestReceived === true
+        ? 'Thank you — your request has been received.'
+        : 'Schedule an introductory meeting';
+      if (text) text.textContent = requestReceived === true
+        ? 'Your investor access request is now under review. After your request is approved, we will email you links to the materials approved for you. In the meantime, you are welcome to schedule an introductory meeting with us.'
+        : 'Choose an online Zoom meeting or an in-person meeting. Select a time from the current availability in Calendly.';
 
       meetingReturnFocus = document.activeElement;
       meetingPreviousOverflow = document.body.style.overflow;
@@ -1269,7 +1279,7 @@
 
           pending.classList.add('show');
 
-          openMeetingModal();
+          openMeetingModal(true);
 
           form.reset();
 
