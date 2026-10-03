@@ -74,6 +74,42 @@ document.addEventListener('input',e=>{if(e.target.id.startsWith('mixed-'))refres
 document.addEventListener('DOMContentLoaded',()=>el('reset-dialog').addEventListener('close',()=>{if(el('reset-dialog').returnValue==='confirm'){names.forEach((name,index)=>el('mixed-'+name).value=defaults[index]);refresh();}}));
 })();
 </script>
+<section class="card" aria-label="Cold asphalt and concrete-mix aggregate scenario">
+<div class="year-tabs"><button type="button" id="blocks-toggle" aria-expanded="false" aria-controls="blocks-scenario">30% cold asphalt / 70% aggregate for concrete block mixes</button></div>
+<div id="blocks-scenario" hidden><h2>30 / 70 · sales product mix</h2>
+<p class="fine">30% cold asphalt and 70% aggregate for preparing concrete mixes for blocks, by finished-product weight. Operating amounts exclude VAT. Gate-fee income is excluded. This separate scenario does not update the baseline forecast below.</p>
+<div class="grid-settings">
+<label>Cold asphalt selling price · ILS/t<input id="blocks-cold-price" type="number" min="0" step="any" value="7000"></label>
+<label>Cold production and packaging · ILS/t<input id="blocks-cold-cost" type="number" min="0" step="any" value="900"></label>
+<label>Concrete-mix aggregate selling price · ILS/m³<input id="blocks-hot-price" type="number" min="0" step="any" value="250"></label>
+<label>Concrete-mix aggregate production · ILS/t<input id="blocks-hot-cost" type="number" min="0" step="any" value="87"></label>
+<label>Cold delivery truck run · ILS<input id="blocks-truck" type="number" min="0" step="any" value="2000"></label>
+<label>Cold pallets per truck run<input id="blocks-load" type="number" min="1" max="12" step="1" value="8"></label>
+<label>Working hours per day<input id="blocks-hours" type="number" min="0" max="24" step="any" value="10"></label>
+<label>Working days per month<input id="blocks-days" type="number" min="0" max="31" step="1" value="20"></label>
+<label>Cold-system utilization · %<input id="blocks-cold-util" type="number" min="0" max="100" step="any" value="100"></label>
+<label>Concrete-mix aggregate density · tonnes/m³<input id="blocks-density" type="number" min="0.000001" step="any" value="0.87"></label>
+<label>Total planned monthly sales · tonnes<input id="blocks-sales" type="number" min="0" step="10" value="0"><span>Use multiples of 10 tonnes to keep cold sales in whole one-tonne pallets.</span></label>
+</div><div id="blocks-error" role="alert"></div><div id="blocks-results" class="summary-strip" aria-live="polite" style="margin-top:24px"></div>
+<p class="fine">Remaining amounts are before site expenses, depreciation and tax; they are not EBITDA or net profit. Aggregate production includes binder. The customer pays separately for aggregate bulk bags and delivery, including loose-bulk truck shipments; no packaging or delivery margin is assumed.</p>
+<details><summary>Equipment, supply and delivery</summary><p class="fine">One cold mixing and packaging system: estimated ILS 300,000, separate from unit costs; equipment VAT and installation scope remain unconfirmed. Cold-system capacity is 4 finished tonnes/hour. The capacity check covers cold mixing only; aggregate supply for both products must be confirmed separately. No overall site capacity or recipe conversion is calculated.</p><p class="fine">Concrete-mix aggregate may be supplied in bulk bags or loose in a truck body, including a 32 m³ bulk shipment. The sales price is per cubic metre, not per tonne or per finished block. Quantity in cubic metres is calculated from product tonnes and the selected density. These inputs do not change the baseline forecast or equipment investment below.</p></details>
+</div></section>
+<style>#blocks-results[hidden]{display:none}</style>
+<script>
+(()=>{const el=id=>document.getElementById(id), names=['cold-price','cold-cost','hot-price','hot-cost','truck','load','hours','days','cold-util','density','sales'], defaults=[7000,900,250,87,2000,8,10,20,100,0.87,0];
+const format=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n);
+function refresh(){const fields=names.map(name=>el('blocks-'+name)),v=fields.map(f=>Number(f.value)),valid=fields.every(f=>f.value!==''&&f.validity.valid)&&v.every(Number.isFinite);
+fields.forEach(f=>{f.setAttribute('aria-invalid',String(f.value===''||!f.validity.valid));f.setAttribute('aria-describedby','blocks-error');});
+const coldCapacity=4*v[6]*v[7]*v[8]/100,coldTonnes=v[10]*0.3,aggregateTonnes=v[10]*0.7;
+const error=!valid?'Enter valid amounts, total sales in multiples of 10 tonnes, a truck load from 1 to 12, valid hours/days/utilization and a positive aggregate density.':coldTonnes>coldCapacity?'The cold-asphalt share exceeds cold-system capacity. Reduce total sales or review utilization.':'';
+el('blocks-error').textContent=error;el('blocks-error').className=error?'notice error':'';el('blocks-results').hidden=!!error;if(error)return;
+const revenue=v[0]*0.3+v[2]/v[9]*0.7,cost=v[1]*0.3+v[3]*0.7,delivery=v[4]/v[5]*0.3,remaining=revenue-cost-delivery;
+el('blocks-results').innerHTML=[['Sales revenue per tonne of sales mix',revenue],['Production and packaging per tonne of sales mix',cost],['Seller delivery per tonne of sales mix',delivery],['Remaining per tonne before site expenses',remaining],['Monthly remaining before site expenses',remaining*v[10]]].map(([label,value])=>'<div><span>'+label+'</span><strong>ILS '+format(value)+'</strong></div>').join('')+'<p class="fine">Planned monthly sales: '+format(coldTonnes)+' cold tonnes + '+format(aggregateTonnes)+' concrete-mix aggregate tonnes ('+format(aggregateTonnes/v[9])+' m³). Cold mixing ceiling: '+format(coldCapacity)+' tonnes/month. Aggregate supply capacity is not evaluated.</p>';}
+el('blocks-toggle').addEventListener('click',()=>{const open=el('blocks-scenario').hidden;el('blocks-scenario').hidden=!open;el('blocks-toggle').setAttribute('aria-expanded',String(open));if(open)refresh();});
+document.addEventListener('input',e=>{if(e.target.id.startsWith('blocks-'))refresh();});
+document.addEventListener('DOMContentLoaded',()=>el('reset-dialog').addEventListener('close',()=>{if(el('reset-dialog').returnValue==='confirm'){names.forEach((name,index)=>el('blocks-'+name).value=defaults[index]);refresh();}}));
+})();
+</script>
 <section class="controls" aria-label="Main controls"><label>Machine count<input id="machines" type="number" min="0" max="1000" step="1"></label><label>Reporting currency<select id="currency"><option value="ILS">₪ · Israeli shekel</option><option value="USD">$ · US dollar</option><option value="EUR">€ · Euro</option></select></label><label>USD rate · ILS per dollar<input id="usd" type="number" min="0.0001" step="any" placeholder="Enter exchange rate"></label><label>EUR rate · ILS per euro<input id="eur" type="number" min="0.0001" step="any" placeholder="Enter exchange rate"></label><div class="live-label">48-month forecast<span>All price inputs are in ILS</span></div></section>
 <div id="alerts" role="status" aria-live="polite"></div><section id="kpis" class="kpis" aria-label="Key metrics"></section>
 <div class="section-heading"><h2 id="panel-title"></h2><span id="panel-note"></span></div><section id="panel"></section>
