@@ -857,11 +857,11 @@
 
           <div class="full">
 
-            <label>
+            <label id="access-label">
               Requested Access *
             </label>
 
-            <div class="checks">
+            <div class="checks" id="access-options" role="group" aria-labelledby="access-label" aria-describedby="access-error">
 
               <label class="check">
 
@@ -905,6 +905,7 @@
               </label>
 
             </div>
+            <p id="access-error" class="submission-error" role="alert" hidden></p>
           </div>
 
 
@@ -1129,6 +1130,14 @@
     const submitButton =
       form.querySelector('button[type="submit"]');
 
+    const accessOptions = document.getElementById('access-options');
+    const accessError = document.getElementById('access-error');
+    if (accessOptions) accessOptions.addEventListener('change', () => {
+      if (accessOptions.querySelector('input:checked')) {
+        accessError.hidden = true;
+        accessOptions.removeAttribute('aria-invalid');
+      }
+    });
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
     const submissionError = document.getElementById('submission-error');
@@ -1310,9 +1319,12 @@
 
 
         if (!selected.length) {
-          alert(
-            'Please select at least one requested access level.'
-          );
+          if (accessError && accessOptions) {
+            accessError.textContent = 'Please select at least one access option.';
+            accessError.hidden = false;
+            accessOptions.setAttribute('aria-invalid', 'true');
+            accessOptions.querySelector('input').focus();
+          }
 
           return;
         }
