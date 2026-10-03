@@ -38,6 +38,42 @@ document.addEventListener('DOMContentLoaded',()=>byId('reset-dialog').addEventLi
 document.addEventListener('input',refresh);document.addEventListener('click',()=>{if(!byId('cold-scenario').hidden)requestAnimationFrame(refresh);});
 })();
 </script>
+<section class="card" aria-label="Mixed asphalt product scenario">
+<div class="year-tabs"><button type="button" id="mixed-toggle" aria-expanded="false" aria-controls="mixed-scenario">50% cold asphalt / 50% hot-asphalt additive</button></div>
+<div id="mixed-scenario" hidden><h2>50 / 50 · sales product mix</h2>
+<p class="fine">Equal shares by finished-product weight. Operating amounts exclude VAT. Gate-fee income is excluded. This separate scenario does not update the baseline forecast below.</p>
+<div class="grid-settings">
+<label>Cold asphalt selling price · ILS/t<input id="mixed-cold-price" type="number" min="0" step="any" value="7000"></label>
+<label>Cold production and packaging · ILS/t<input id="mixed-cold-cost" type="number" min="0" step="any" value="900"></label>
+<label>Hot additive selling price · ILS/t<input id="mixed-hot-price" type="number" min="0" step="any" value="550"></label>
+<label>Hot production, grinding and packaging · ILS/t<input id="mixed-hot-cost" type="number" min="0" step="any" value="120"></label>
+<label>Cold delivery truck run · ILS<input id="mixed-truck" type="number" min="0" step="any" value="2000"></label>
+<label>Cold pallets per truck run<input id="mixed-load" type="number" min="1" max="12" step="1" value="8"></label>
+<label>Working hours per day<input id="mixed-hours" type="number" min="0" max="24" step="any" value="10"></label>
+<label>Working days per month<input id="mixed-days" type="number" min="0" max="31" step="1" value="20"></label>
+<label>Cold-system utilization · %<input id="mixed-cold-util" type="number" min="0" max="100" step="any" value="100"></label>
+<label>Hot-system utilization · %<input id="mixed-hot-util" type="number" min="0" max="100" step="any" value="100"></label>
+<label>Total planned monthly sales · tonnes<input id="mixed-sales" type="number" min="0" step="2" value="0"><span>Use even whole tonnes: equal whole-tonne quantities of each product.</span></label>
+</div><div id="mixed-error" role="alert"></div><div id="mixed-results" class="summary-strip" aria-live="polite" style="margin-top:24px"></div>
+<p class="fine">Remaining amounts are before site management and other expenses, depreciation and tax; they are not EBITDA or net profit. Aggregate production, binder, grinding and packaging are included in the unit-cost estimates and are not charged again. Hot-additive delivery is paid by the customer; no delivery margin is assumed.</p>
+<details><summary>Equipment and capacity</summary><p class="fine">One cold mixing and packaging system: estimated ILS 300,000; equipment VAT and installation scope remain unconfirmed. One hot-additive grinder including bulk-bag filling: estimated ILS 220,000 excluding VAT. These investments are separate from unit production costs and are not added to the baseline investment below.</p><p class="fine">Cold-system capacity: 4 finished tonnes/hour. Hot grinder capacity: 2 tonnes/hour. Each product is checked against its own system ceiling. Actual production also depends on aggregate supply and packaging performance; this calculation is not a sales forecast. Hot additive is packed in one-tonne bulk bags with an inner nylon liner.</p></details>
+</div></section>
+<style>#mixed-results[hidden]{display:none}</style>
+<script>
+(()=>{const el=id=>document.getElementById(id), names=['cold-price','cold-cost','hot-price','hot-cost','truck','load','hours','days','cold-util','hot-util','sales'], defaults=[7000,900,550,120,2000,8,10,20,100,100,0];
+const format=n=>new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n);
+function refresh(){const fields=names.map(name=>el('mixed-'+name)),v=fields.map(f=>Number(f.value)),valid=fields.every(f=>f.value!==''&&f.validity.valid)&&v.every(Number.isFinite);
+fields.forEach(f=>{f.setAttribute('aria-invalid',String(f.value===''||!f.validity.valid));f.setAttribute('aria-describedby','mixed-error');});
+const coldCapacity=4*v[6]*v[7]*v[8]/100,hotCapacity=2*v[6]*v[7]*v[9]/100,each=v[10]/2;
+const error=!valid?'Enter valid amounts, an even whole-tonne sales total, a truck load from 1 to 12, working hours from 0 to 24, whole working days from 0 to 31 and utilization from 0% to 100%.':each>coldCapacity?'The cold-asphalt share exceeds the cold-system capacity. Reduce total sales or review cold-system utilization.':each>hotCapacity?'The hot-additive share exceeds the grinder capacity. Reduce total sales or review hot-system utilization.':'';
+el('mixed-error').textContent=error;el('mixed-error').className=error?'notice error':'';el('mixed-results').hidden=!!error;if(error)return;
+const revenue=(v[0]+v[2])/2,cost=(v[1]+v[3])/2,delivery=v[4]/v[5]/2,remaining=revenue-cost-delivery;
+el('mixed-results').innerHTML=[['Sales revenue per tonne of sales mix',revenue],['Production and packaging per tonne of sales mix',cost],['Seller delivery per tonne of sales mix',delivery],['Remaining per tonne before site expenses',remaining],['Monthly remaining before site expenses',remaining*v[10]]].map(([label,value])=>'<div><span>'+label+'</span><strong>ILS '+format(value)+'</strong></div>').join('')+'<p class="fine">Planned sales: '+format(each)+' cold tonnes + '+format(each)+' hot-additive tonnes. System ceilings: '+format(coldCapacity)+' cold tonnes and '+format(hotCapacity)+' hot-additive tonnes/month. At this equal sales mix, total capacity ceiling: '+format(2*Math.min(coldCapacity,hotCapacity))+' tonnes/month.</p>';}
+el('mixed-toggle').addEventListener('click',()=>{const open=el('mixed-scenario').hidden;el('mixed-scenario').hidden=!open;el('mixed-toggle').setAttribute('aria-expanded',String(open));if(open)refresh();});
+document.addEventListener('input',e=>{if(e.target.id.startsWith('mixed-'))refresh();});
+document.addEventListener('DOMContentLoaded',()=>el('reset-dialog').addEventListener('close',()=>{if(el('reset-dialog').returnValue==='confirm'){names.forEach((name,index)=>el('mixed-'+name).value=defaults[index]);refresh();}}));
+})();
+</script>
 <section class="controls" aria-label="Main controls"><label>Machine count<input id="machines" type="number" min="0" max="1000" step="1"></label><label>Reporting currency<select id="currency"><option value="ILS">₪ · Israeli shekel</option><option value="USD">$ · US dollar</option><option value="EUR">€ · Euro</option></select></label><label>USD rate · ILS per dollar<input id="usd" type="number" min="0.0001" step="any" placeholder="Enter exchange rate"></label><label>EUR rate · ILS per euro<input id="eur" type="number" min="0.0001" step="any" placeholder="Enter exchange rate"></label><div class="live-label">48-month forecast<span>All price inputs are in ILS</span></div></section>
 <div id="alerts" role="status" aria-live="polite"></div><section id="kpis" class="kpis" aria-label="Key metrics"></section>
 <div class="section-heading"><h2 id="panel-title"></h2><span id="panel-note"></span></div><section id="panel"></section>
