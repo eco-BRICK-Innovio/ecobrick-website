@@ -52,7 +52,7 @@
     .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
     .card h3{font-size:1.3rem;margin:8px 0 10px}.card p{color:var(--muted);margin:0}
     .icon{font-size:1.65rem}.flow{background:var(--navy);color:#fff;border-radius:28px;padding:30px;margin-top:24px;font-size:clamp(1.25rem,2.4vw,2rem);font-weight:850;text-align:center;letter-spacing:-.03em}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 0}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 0}.metrics.three{grid-template-columns:repeat(3,1fr)}
     .metric{background:#fff;border:1px solid var(--line);padding:22px;border-radius:18px}.metric strong{display:block;color:var(--navy);font-size:1.7rem}.metric span{color:var(--muted);font-size:.88rem}
     .status{display:inline-flex;margin-top:18px;padding:6px 10px;border-radius:999px;background:#e8f7f1;color:#08734f;font-weight:800;font-size:.74rem}
     .status.dev{background:#fff4df;color:#8a5a06}.status.blue{background:#e8f1ff;color:#164f9a}
@@ -71,9 +71,9 @@
     @media(max-width:900px){
       .topbar-inner{align-items:flex-start;padding:14px 0;flex-direction:column}.nav-actions{width:100%;justify-content:flex-start}
       .hero-grid,.grid2,.grid3,.project-grid,.steps{grid-template-columns:1fr}.hero-grid{padding-top:32px;min-height:auto}
-      .project.feature{grid-column:auto}.metrics{grid-template-columns:1fr 1fr}.hero-panel{max-width:620px}
+      .project.feature{grid-column:auto}.metrics,.metrics.three{grid-template-columns:1fr 1fr}.hero-panel{max-width:620px}
     }
-    @media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}.nav-actions .btn{font-size:.78rem;padding:9px 11px}.metrics,.mini-grid{grid-template-columns:1fr}section{padding:66px 0}}
+    @media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}.nav-actions .btn{font-size:.78rem;padding:9px 11px}.metrics,.metrics.three,.mini-grid{grid-template-columns:1fr}section{padding:66px 0}}
     @media(max-width:560px){
       .topbar-inner{gap:6px;padding:8px 0;min-height:0}
       .brand{width:100%;min-width:0;gap:10px;justify-content:space-between}
@@ -183,11 +183,10 @@
           <div class="card"><span class="status blue">Proposed 50/50 JV</span><h3>Ashdod · HAPAA</h3><ul><li>The production facility is proposed to be owned 50% by eco BRICK and 50% by HAPAA.</li><li>eco BRICK is to fund the initial one-machine facility and ancillary equipment.</li><li>Following demonstrated capability, HAPAA is expected to invest in additional machines and site equipment.</li><li>Under the proposed JV, eco BRICK earns from binder supply, sales commissions and 50% of distributable facility profits.</li></ul><p class="media-note">The Ashdod structure is proposed and remains subject to the formal procurement process and final agreements.</p></div>
         </div>
         <h3 style="margin-top:30px">Facility-level economics example · Hiriya</h3>
-        <div class="metrics">
+        <div class="metrics three">
           <div class="metric"><strong>₪250/t</strong><span>Agreed treatment-fee framework paid to the facility</span></div>
           <div class="metric"><strong>~₪325/t</strong><span>Current alternative benchmark cited for transport + landfill</span></div>
           <div class="metric"><strong>~₪75/t</strong><span>Indicative treatment-cost difference for the waste supplier</span></div>
-          <div class="metric"><strong>2</strong><span>Facility revenue streams: waste treatment + product sales</span></div>
         </div>
       </div>
     </section>
