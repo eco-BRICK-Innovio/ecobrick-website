@@ -24,7 +24,8 @@ export default defineConfig({
                 'eco-BRICK-Eden': 'eco-BRICK-Eden/index.html',
                 'Budget': 'Budget/index.html',
                 'budget': 'Budget/index.html',
-                'budget-page': 'budget.html'
+                'budget-page': 'budget.html',
+                'Investor': 'Investor/index.html'
             }
         }
     }
