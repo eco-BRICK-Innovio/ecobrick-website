@@ -64,7 +64,7 @@ export const translations = {
                 { name: 'Eitan Berkovitch', role: 'CBO', bio: 'B.Sc. in Civil Engineering. M.A. in Real Estate. 25 years of expertise in building materials, especially concrete manufacturing and QA. 20 years of senior management. Expert in the field of sustainability and new developments.' },
                 { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' },
                 { name: 'Doron Afik', role: 'VP Legal', bio: 'LLB. Over 20 years of experience as a high-tech lawyer and in managerial positions.' },
-                { name: 'Lior Gefen', role: 'Consultant', bio: 'MA Public Policy.<br>Senior municipal executive with 15 years’ leadership in waste, infrastructure, and energy.' }
+                { name: 'Joseph Krol', role: 'Mechanical Engineer', bio: 'B.Sc. in Mechanical Engineering & Mechatronics.<br>Technical manager in the plastics industry, with extensive knowledge of automated production lines.' }
             ]
         },
         pilots: {
@@ -211,7 +211,7 @@ export const translations = {
                 { name: 'Nechemia Masori', role: 'Consultant', bio: 'BSc. & MSc. In construction and building materials. More than 40 years of experience, Member of the Israeli Building Code for building materials. Member of standards committees at the Israeli Standards Institution. Professional Committee on Building Materials.' },
                 { name: 'Bezalel Blum', role: 'Consultant', bio: 'B.Sc in Chemical Engineering, Technion, Haifa (1982-1985). M.Sc in Oil and Gas Engineering, Technion, Haifa (2015-2017). Chief Process Manager at Bazan Group with 39 years of service. Expertise in oil refining and catalyst characterization. Proficient in process models and simulations for the petrochemical industry.' },
                 { name: 'Doron Afik', role: 'VP Legal', bio: 'LLB. Over 20 years of experience as a high-tech lawyer and in managerial positions.' },
-                { name: 'Lior Gefen', role: 'Consultant', bio: 'MA Public Policy.<br>Senior municipal executive with 15 years’ leadership in waste, infrastructure, and energy.' }
+                { name: 'Joseph Krol', role: 'Mechanical Engineer', bio: 'B.Sc. in Mechanical Engineering & Mechatronics.<br>Technical manager in the plastics industry, with extensive knowledge of automated production lines.' }
             ]
         },
         pilots: {
