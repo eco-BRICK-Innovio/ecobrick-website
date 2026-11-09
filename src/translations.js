@@ -10,6 +10,8 @@ export const translations = {
             shelter: 'Defense & Shelter',
         },
         hero: {
+            supplierTitle: "eco BRICK Innovio — Registered supplier to Israel’s Ministry of Defense",
+            supplierNumber: "Supplier No. 11045949",
             title: 'Circular solution for <span style="color: var(--color-primary);">over 40 waste streams</span>',
             subtitle: 'Innovative resource with added value for construction and asphalt materials. Diverting ~99% of waste from landfills.',
             ourTechnology: 'Our Technology',
@@ -159,6 +161,8 @@ export const translations = {
             shelter: 'מיגון וביטחון',
         },
         hero: {
+            supplierTitle: "אקו בריק אינוביו — ספק רשום של משרד הביטחון הישראלי",
+            supplierNumber: "מספר ספק 11045949",
             title: 'פתרון מעגלי עבור <br> <span style="color: var(--color-primary);">למעלה מ-40 סוגי פסולת</span>',
             subtitle: 'משאב חדשני עם ערך מוסף לחומרי בנייה ואספלט. מונע הטמנה של כ-99% מהפסולת.',
             ourTechnology: 'הטכנולוגיה שלנו',
