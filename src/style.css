@@ -1160,3 +1160,8 @@ button {
   margin-top: 3px;
   font-size: 0.85rem;
 }
+
+/* Right-align homepage opening copy in Hebrew. */
+html[lang="he"] .hero .hero-content {
+  text-align: right;
+}
