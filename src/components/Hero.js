@@ -32,6 +32,7 @@ export function Hero({ content }) {
         <p class="hero-subtitle">
           ${content.subtitle}
         </p>
+        <p class="hero-supplier"><strong>${content.supplierTitle}</strong><span>${content.supplierNumber}</span></p>
         <div class="hero-actions">
           <a href="#technology" class="btn btn-primary">${content.ourTechnology}</a>
           <a href="#contact" class="btn btn-outline">${content.partnerWithUs}</a>
